@@ -1,0 +1,106 @@
+<div id="lands" class="tab-block">
+    <div class="points-row">
+        {% set find = false %}
+        {% for land in points %}
+            {% if land['land_id'] and land['points'] and land['land_id'] == 15 %}
+                {{ land['points'] }} points
+                {% set find = true %}
+            {% endif %}
+        {% endfor %}
+        {% if find == false %}
+            0 point
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-3 lands-block">
+            <div class="land d-flex">
+                <img src="{{ asset('img/lands/15.jpg') }}" alt="land">
+                <p class="font-weight-bold p-1">
+                    {% set r = ranking[15] %}
+                    {% if r and r['points'] and r['points'] > 0 %}
+                        <span class="font-weight-bold alliance-{{ r['color'] }}">[{{ r['tag'] }}]</span><br>
+                        <span class="green-text">{{ r['points'] }} pts</span><br>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="col-9 lands-description">
+            Le contrôle d'une ou plusieurs régions par une alliance permet chaque jour à ses membres de recevoir un pourcentage de la taxe commerciale : 20% pour l'Île aux Forbans et 4% pour les autres régions conquises. A la fin de la journée, l'Alliance ayant accumulé le plus de points prend le contrôle de la région correspondante. Pour gagner des points dans une région, il suffit d'y combattre pour s'imposer et marquer son territoire...
+        </div>
+    </div>
+        {% set i = 1 %}
+        {% for land in lands %}
+            {% if land.id != 15 %}
+                {% if (i - 1) % 4 == 0 %}
+                    <div class="points-row row">
+                        <div class="col-3">
+                            {% set find = false %}
+                            {% for land in points %}
+                                {% if land['land_id'] and land['points'] and land['land_id'] == i %}
+                                    {{ land['points'] }} points
+                                    {% set find = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if find == false %}
+                                0 point
+                            {% endif %}
+                        </div>
+                        <div class="col-3">
+                            {% set find = false %}
+                            {% for land in points %}
+                                {% if land['land_id'] and land['points'] and land['land_id'] == (i + 1) %}
+                                    {{ land['points'] }} points
+                                    {% set find = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if find == false %}
+                                0 point
+                            {% endif %}
+                        </div>
+                        <div class="col-3">
+                            {% set find = false %}
+                            {% for land in points %}
+                                {% if land['land_id'] and land['points'] and land['land_id'] == (i + 2) %}
+                                    {{ land['points'] }} points
+                                    {% set find = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if find == false %}
+                                {% set find = false %}
+                                {% for land in points %}
+                                    {% if land['land_id'] and land['points'] and land['land_id'] == (i + 3) %}
+                                        {{ land['points'] }} points
+                                        {% set find = true %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if find == false %}
+                                    0 point
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="col-3">
+                            0 point
+                        </div>
+                    </div>
+                    <div class="row">
+                {% endif %}
+                <div class="col-3 lands-block">
+                    <div class="land d-flex">
+                        <img src="{{ asset('img/lands/' ~ land.id ~ '.jpg') }}" alt="land">
+                        <p class="font-weight-bold p-1">
+                            {% for rank in ranking[i] %}
+                                {% if rank['points'] and rank['points'] > 0 %}
+                                    <span class="font-weight-bold alliance-{{ rank['color'] }}">[{{ rank['tag'] }}]</span><br>
+                                    <span class="green-text">{{ rank['points'] }} pts</span><br>
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+                {% if i % 4 == 0 %}
+                    </div>
+                {% endif %}
+                {% set i = i + 1 %}
+            {% endif %}
+        {% endfor %}
+</div>

@@ -1,0 +1,268 @@
+.card-back-msg {
+    padding: 0;
+}
+
+.npc img {
+    border: 3px solid #100D0B;
+    border-top: 0;
+}
+
+.create-alliance {
+    padding: 5px;
+    width: 100%;
+}
+
+.create-alliance label {
+    display: none;
+}
+
+.create-alliance input[type="text"] {
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.create-alliance input[type="radio"] {
+    width: initial;
+    margin: 4px;
+    display: none;
+}
+
+.create-alliance input[id="create_alliance_abbreviation"] {
+    text-transform: uppercase;
+}
+
+.create-alliance textarea {
+    margin-bottom: 0;
+}
+
+.create-alliance .color {
+    width: 15px;
+    height: 25px;
+    border: 2px solid #100D0B;
+    margin: 3px;
+    cursor: pointer;
+}
+
+/* BG Colors */
+.create-alliance .color.green {
+    background-color: #196F43;
+}
+
+.create-alliance .color.purple {
+    background-color: #242A6E;
+}
+
+.create-alliance .color.red {
+    background-color: #9F4124;
+}
+
+.create-alliance .color.blue {
+    background-color: #1B4965;
+}
+
+.create-alliance .color.black {
+    background-color: #34314c;
+}
+
+.create-alliance .color.yellow {
+    background-color: #9F7E24;
+}
+
+.create-alliance .color.orange {
+    background-color: #9F6724;
+}
+
+.categories {
+    width: 100%;
+}
+
+.categories .tab {
+    padding: 5px;
+    border: 1px solid #100D0B;
+    border-top: 0;
+    border-bottom: 2px solid #100D0B;
+    width: 100%;
+    text-align: center;
+    color: #100D0B;
+    font-weight: bold;
+}
+
+.categories .tab:hover {
+    color: #196F43;
+    cursor: pointer;
+}
+
+.categories .tab.active {
+    color: #196F43;
+}
+
+/* Blocks */
+.block .block-header {
+    background: url('../img/structure/back6.jpg');
+    height: 40px;
+    line-height: 35px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: 3px solid #100D0B;
+    border-bottom: 3px solid #100D0B;
+    margin-bottom: 0;
+}
+
+.block .block-header img {
+    width: 18px;
+    margin-right: 5px;
+}
+
+.block .block-content {
+    background-image: url("../img/structure/back1.jpg");
+    padding: 20px;
+    font-weight: bold;
+}
+
+.block .block-content .list-title {
+    line-height: 20px;
+}
+
+.block .block-content .list-icon {
+    font-size: 14px;
+}
+
+#members, #lands, #log, #history, #management {
+    display: none;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+tr.tr-1 {
+    background: url('../img/structure/warbg1.jpg');
+}
+
+tr.tr-2 {
+    background: url('../img/structure/warbg2.jpg');
+}
+
+th, td {
+    padding: 7px;
+}
+
+th {
+    text-align: center;
+}
+
+th img {
+    width: 20px;
+}
+
+td {
+    border: 2px solid #2E1007;
+}
+
+/* Lands */
+#lands .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+#lands .points-row {
+    height: 25px;
+    width: 100%;
+    background-image: url("../img/structure/back6.jpg");
+    border-top: 2px solid #100D0B;
+    border-bottom: 2px solid #100D0B;
+    padding-left: 10px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+#lands .col-3 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#lands .land, #lands .lands-description {
+    background-image: url("../img/structure/back1.jpg");
+}
+
+#lands .lands-description {
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border-left: 2px solid #100D0B;
+}
+
+#lands .land p {
+    font-size: 10px;
+    margin-bottom: 0;
+}
+
+#lands .land img {
+    height: 110px;
+    width: 110px;
+    border-left: 2px solid #100D0B;
+    border-right: 2px solid #100D0B;
+}
+
+.management-row {
+    margin-bottom: 20px;
+}
+
+.right-form .input-management {
+    width: 120px;
+    margin-right: 10px;
+}
+
+.right-form .input-management.recruitment {
+    width: 150px;
+}
+
+.right-form.big .input-management {
+    width: 250px;
+}
+
+.right-form .validate-management {
+    width: 120px;
+}
+
+/* Modal */
+.modal-body {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.head-form {
+    background: url("../img/structure/back1dark.jpg");
+    border-bottom: 2px solid #100D0B;
+}
+
+.head-form > .d-flex > div:first-of-type {
+    border-right: 2px solid #100D0B;
+}
+
+.head-form > .d-flex > div:last-of-type {
+    text-align: right;
+}
+
+.head-form > .d-flex > div > select {
+    width: 90%;
+}
+
+/* Alliance list table */
+
+table.alliances-list thead tr {
+    background: url("../img/structure/back1dark.jpg");
+}
+
+.list-element-2 {
+    background: url("../img/structure/back1dark.jpg");
+}
+
+form[name="join_alliance"] {
+    margin-top: 20px;
+}

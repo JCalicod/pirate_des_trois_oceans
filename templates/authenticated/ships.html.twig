@@ -1,0 +1,189 @@
+{% extends 'authenticated/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/ships.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {% if label == 'success' %}<span class="fas fa-check"></span>{% elseif label == 'danger' %}<span class="fas fa-times"></span>{% endif %} {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="modal fade" id="transfer" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Transfert d'équipage et / ou de marchandises</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{ path('app_ships_transfer') }}">
+                        <div class="head-form">
+                            <div class="d-flex">
+                                <div class="w-50">
+                                    <p class="p-2 font-weight-bold m-0"><img src="{{ asset('img/icons/helm.png') }}" class="logo-big" alt="ship"> NAVIRE SOURCE</p>
+                                    <select name="source" class="input-white m-2">
+                                        {% for ship in user.ships %}
+                                            <option value="{{ ship.id }}">{{ ship.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="w-50">
+                                    <p class="p-2 font-weight-bold m-0">NAVIRE CIBLE <img src="{{ asset('img/icons/helm.png') }}" class="logo-big" alt="ship"></p>
+                                    <select name="target" class="input-white m-2 text-right">
+                                        {% for ship in user.ships %}
+                                            <option value="{{ ship.id }}">{{ ship.name }}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="w-100 mt-3 mb-3">
+                            <tr>
+                                <td><span class="blue-text">Matelots</span> <input type="number" min="0" name="seaman" value="0" class="input-white"></td>
+                                <td><span class="blue-text">Explorateurs</span> <input type="number" min="0" name="explorer" value="0" class="input-white"></td>
+                                <td><span class="blue-text">Canonniers</span> <input type="number" min="0" name="gunner" value="0" class="input-white"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="blue-text">Cuisiniers</span> <input type="number" min="0" name="cook" value="0" class="input-white"></td>
+                                <td><span class="blue-text">Charpentiers</span> <input type="number" min="0" name="carpenter" value="0" class="input-white"></td>
+                                <td><span class="blue-text">Chirurgiens</span> <input type="number" min="0" name="surgeon" value="0" class="input-white"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="red-text">Canons</span> <input type="number" min="0" name="gun" value="0" class="input-white"></td>
+                                <td><span class="green-text">Nourriture</span> <input type="number" min="0" name="food" value="0" class="input-white"></td>
+                                <td><span class="brown-text">Bois</span> <input type="number" min="0" name="wood" value="0" class="input-white"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="red-text">Armement</span> <input type="number" min="0" name="arsenal" value="0" class="input-white"></td>
+                                <td><span class="green-text">Alcool</span> <input type="number" min="0" name="alcohol" value="0" class="input-white"></td>
+                                <td><span class="brown-text">Cuivre</span> <input type="number" min="0" name="copper" value="0" class="input-white"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="gold-dark">Gemmes</span> <input type="number" min="0" name="gemstone" value="0" class="input-white"></td>
+                                <td><span class="gold-dark">Etoffes</span> <input type="number" min="0" name="stuff" value="0" class="input-white"></td>
+                                <td><span class="gold-dark">Manuscrits</span> <input type="number" min="0" name="manuscript" value="0" class="input-white"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="gold-dark">Bijoux</span> <input type="number" min="0" name="jewellery" value="0" class="input-white"></td>
+                                <td><span class="gold-dark">Fourrures</span> <input type="number" min="0" name="fur" value="0" class="input-white"></td>
+                                <td><span class="gold-dark">Epices</span> <input type="number" min="0" name="spice" value="0" class="input-white"></td>
+                            </tr>
+                        </table>
+
+                        <input type="submit" name="transfer" value="Transférer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <form method="post" action="{{ path('app_ships_action') }}">
+        <div class="row">
+            <div class="col-12">
+                <div class="card no-min-height">
+                    <div class="card-header">
+                        Gestion des Navires
+                    </div>
+                    <div class="card-body card-back1">
+                        <div class="row">
+                            <div class="top-card-body col-12">
+                                <select class="input-white" name="choice">
+                                    <option value="repair">Réparer le Navire et / ou le Repaire</option>
+                                    <option value="moral">Remonter le moral de l'équipage</option>
+                                    <option value="upgrade">Améliorer le Navire / le Repaire</option>
+                                </select> <input type="submit" name="action" value="Valider" class="mini-input">
+                                <div class="mt-1 ml-3 mini2"><img src="{{ asset('img/icons/coin.png') }}" class="logo" alt="gold"> <b>{{ user.gold|number_format(0, '.', ' ') }}</b> Pièces d'Or
+                                    <a href="#" class="float-right mr-3" data-toggle="modal" data-target="#transfer"><span class="mini2">Transfert de Marchandises et/ou d'Equipage</span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        {% for ship in ships %}
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="top-card-body-2">
+                        <input type="checkbox" value="{{ ship.id }}" name="ship[]"> <label><span><span></span></span></label>
+                        {% if ship is instanceof('App\\Entity\\Den') %}<img src="{{ asset('img/icons/den.png') }}" class="logo-hudge" alt="ship">{% else %}<img src="{{ asset('img/icons/helm.png') }}" class="logo-hudge" alt="ship">{% endif %} <strong>{{ ship.name }}</strong> [{{ ship.position.id }} - {{ ship.position.name }}]
+                        <span class="ship-level">Niveau {{ ship.level }}</span> <a href="{{ path('app_ship_order_move_up', { id: ship.id }) }}"><img src="{{ asset('img/icons/up.png') }}" class="icon-mini" alt="up"></a><a href="{{ path('app_ship_order_move_down', { id: ship.id }) }}"><img src="{{ asset('img/icons/down.png') }}" class="icon-mini" alt="down"></a>
+                        <a href="#" style="position: absolute; right: 0;" data-toggle="modal" data-target="#rename{{ ship.id }}"><img src="{{ asset('img/icons/rename.png') }}" class="logo-hudge ml-3 mr-1" alt="rename" title="Renommer"></a>
+                    </div>
+                    <div class="row no-margin">
+                        <img src="{{ asset('img/ships/' ~ ship.avatar ~ '.jpg' ) }}" alt="avatar" class="ship-img">
+                        <div class="ship-crew">
+                            <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-hudge" alt="arsenal"> <strong>Equipage</strong> <span class="float-right">{{ ship.getCrew|number_format(0, '.', ' ') }}/{{ ship.getMaxCrew|number_format(0, '.', ' ') }}</span><br>
+                            <span class="blue-text"><strong>Matelots</strong></span> <span class="float-right">{{ ship.seaman|number_format(0, '.', ' ') }}/{{ ship.getMaxSeaman|number_format(0, '.', ' ') }}</span><br>
+                            <span class="blue-text"><strong>Explorateurs</strong></span> <span class="float-right">{{ ship.explorer|number_format(0, '.', ' ') }}/{{ ship.getMaxExplorer|number_format(0, '.', ' ') }}</span><br>
+                            <span class="blue-text"><strong>Canonniers</strong></span> <span class="float-right">{{ ship.gunner|number_format(0, '.', ' ') }}/{{ ship.getMaxGunner|number_format(0, '.', ' ') }}</span><br>
+                            <span class="blue-text"><strong>Cuisiniers</strong></span> <span class="float-right">{{ ship.cook|number_format(0, '.', ' ') }}/{{ ship.getMaxCook|number_format(0, '.', ' ') }}</span><br>
+                            <span class="blue-text"><strong>Charpentiers</strong></span> <span class="float-right">{{ ship.carpenter|number_format(0, '.', ' ') }}/{{ ship.getMaxCarpenter|number_format(0, '.', ' ') }}</span><br>
+                            <span class="blue-text"><strong>Chirurgiens</strong></span> <span class="float-right">{{ ship.surgeon|number_format(0, '.', ' ') }}/{{ ship.getMaxSurgeon|number_format(0, '.', ' ') }}</span><br>
+                        </div>
+                        <div class="ship-merchandise">
+                            <img src="{{ asset('img/icons/merchandise.png') }}" class="logo-big" alt="saber"> <strong>Marchandise</strong>
+                            <span class="float-right">{{ ship.getMerchandisesSum|number_format(0, '.', ' ') }} / {{ ship.getMaxMerchandises|number_format(0, '.', ' ') }}</span><br>
+                            <div class="row pl-4 pr-4">
+                                <div class="left-merchandise">
+                                    <span class="red-text"><strong>Canons</strong></span> <span class="float-right">{{ ship.gun|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="green-text"><strong>Nourriture</strong></span> <span class="float-right">{{ ship.food|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="brown-text"><strong>Bois</strong></span> <span class="float-right">{{ ship.wood|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="gold-dark"><strong>Gemmes</strong></span> <span class="float-right">{{ ship.gemstone|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="gold-dark"><strong>Etoffes</strong></span> <span class="float-right">{{ ship.stuff|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="gold-dark"><strong>Manuscrits</strong></span> <span class="float-right">{{ ship.manuscript|number_format(0, '.', ' ') }}</span><br>
+                                </div>
+                                <div class="right-merchandise">
+                                    <span class="red-text"><strong>Armement</strong></span> <span class="float-right">{{ ship.arsenal|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="green-text"><strong>Alcool</strong></span> <span class="float-right">{{ ship.alcohol|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="brown-text"><strong>Cuir</strong></span> <span class="float-right">{{ ship.copper|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="gold-dark"><strong>Bijoux</strong></span> <span class="float-right">{{ ship.jewellery|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="gold-dark"><strong>Fourrures</strong></span> <span class="float-right">{{ ship.fur|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="gold-dark"><strong>Epices</strong></span> <span class="float-right">{{ ship.spice|number_format(0, '.', ' ') }}</span><br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="personal-vertical-bar" title="Structure : {{ ship.structure }}/100"><div class="structure-vertical" style="height: {{ ship.structure }}%;"></div></div>
+                        <div class="personal-vertical-bar" title="Moral : {{ ship.moral }}/100"><div class="morale-vertical" style="height: {{ ship.moral }}%;"></div></div>
+                        <div class="personal-vertical-bar" title="Expérience : {{ ship.getXpDisp }}/{{ ship.getMaxXpDisp }}"><div class="xp-vertical" style="height: {{ ship.getXpDisp / ship.getMaxXpDisp * 100 }}%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </form>
+    {% for ship in ships %}
+        <!-- Rename Modal -->
+        <div class="modal fade" id="rename{{ ship.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form method="post" action="{{ path('app_ship_rename', {id: ship.id}) }}">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Renommer {{ ship.name }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" name="id" value="{{ ship.id }}">
+                            <input type="text" name="name" class="input-white" placeholder="Nouveau nom de navire" required="required"><br><br>
+                            <input type="submit" name="rename" value="Renommer">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

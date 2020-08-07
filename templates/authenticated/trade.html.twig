@@ -1,0 +1,115 @@
+{% extends 'authenticated/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/trade.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="ajax-response"></div>
+
+    <div class="card no-min-height">
+        <div class="card-header">
+            Commerce
+        </div>
+        <div class="card-back-msg p-0">
+            <div class="card-title d-flex justify-content-between">Transaction de Marchandises <img src="{{ asset('img/icons/treasure.png') }}" alt="treasure"></div>
+
+            <div class="trade-display d-flex justify-content-between">
+                <div class="buyer d-flex">
+                    <div class="avatar">
+                        <img src="{{ asset('img/avatars/' ~ app.user.avatar ~ '.jpg') }}" alt="avatar">
+                    </div>
+                    <div class="content">
+                        <div class="d-flex mb-1">
+                            <img src="{{ asset('img/icons/lantern.png') }}" alt="profile" class="logo">
+                            <div>
+                                <b>{{ app.user.username }}</b><br>
+                                <i>"Voilà c'que j'vous propose !"</i>
+                            </div>
+                        </div>
+                        <div id="buyer-choices">
+                        </div>
+                    </div>
+                </div>
+                <div class="seller d-flex">
+                    <div class="content">
+                        <div class="d-flex mb-1">
+                            <img src="{{ asset('img/icons/lantern.png') }}" alt="profile" class="logo">
+                            <div>
+                                <b>Marchand</b><br>
+                                <i>"J'accepte votre offre.."</i>
+                            </div>
+                        </div>
+                        <div id="seller-choices">
+                        </div>
+                    </div>
+                    <div class="avatar">
+                        <img src="{{ asset('img/avatars/7.jpg') }}" alt="avatar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="trade-inputs d-flex justify-content-between">
+                <div class="buyer-inputs d-flex justify-content-between">
+                    <input type="number" min="0" class="input-white" id="buy-quantity" value="0">
+                    <select class="input-white" id="buy-object">
+                        <option value="gun">Canon</option>
+                        <option value="arsenal">Armement</option>
+                        <option value="food">Nourriture</option>
+                        <option value="alcohol">Alcool</option>
+                        <option value="wood">Bois</option>
+                        <option value="copper">Cuir</option>
+                        <option value="gemstone">Gemme</option>
+                        <option value="jewellery">Bijoux</option>
+                        <option value="stuff">Etoffe</option>
+                        <option value="fur">Fourrure</option>
+                        <option value="manuscript">Manuscrit</option>
+                        <option value="spice">Epice</option>
+                    </select>
+                    <button type="submit" id="buy-add">Ajouter</button>
+                </div>
+                <div class="seller-inputs d-flex justify-content-between">
+                    <input type="number" min="0" class="input-white" id="sell-quantity" value="0">
+                    <select class="input-white" id="sell-object">
+                        <option value="gun">Canon</option>
+                        <option value="arsenal">Armement</option>
+                        <option value="food">Nourriture</option>
+                        <option value="alcohol">Alcool</option>
+                        <option value="wood">Bois</option>
+                        <option value="copper">Cuir</option>
+                        <option value="gemstone">Gemme</option>
+                        <option value="jewellery">Bijoux</option>
+                        <option value="stuff">Etoffe</option>
+                        <option value="fur">Fourrure</option>
+                        <option value="manuscript">Manuscrit</option>
+                        <option value="spice">Epice</option>
+                    </select>
+                    <button type="submit" id="sell-add">Ajouter</button>
+                </div>
+            </div>
+
+            <div class="trade-transaction d-flex justify-content-between">
+                <div class="buyer-transaction">
+                    <div>
+                        <img src="{{ asset('img/icons/coin.png') }}" alt="gold" class="logo"> Pièces d'or
+                        <div class="float-right font-weight-bold" id="user-gold">{{ app.user.gold|number_format(0, '.', ' ') }}</div>
+                    </div>
+                    <div class="font-weight-bold green-text mt-2"><br>Valider la Transaction de Marchandises <button type="submit" id="validate-trade" name="trade" value="Valider" class="float-right">Valider</button></div>
+                </div>
+                <div class="seller-transaction">
+                    <div class="font-weight-bold">
+                        <img src="{{ asset('img/icons/coin.png') }}" alt="gold" class="logo"> <span class="orange-text">Taxe Commerciale Totale du Jour</span>
+                        <div class="float-right">{{ trade.amount|number_format(0, '.', ' ') }}</div>
+                    </div>
+                    <div class="mt-2"><span class="font-weight-bold">Taux du Marché à {{ trade.rate }}%</span><br><span class="font-italic">{{ trade.description }}</span></div>
+                </div>
+            </div>
+
+            <div class="card-title d-flex justify-content-between">Caverne aux trésors <img src="{{ asset('img/icons/treasure.png') }}" alt="treasure"></div>
+            <div class="trade-cave p-3">Cette fonctionnalité n'est pas encore disponible.</div>
+        </div>
+    </div>
+
+    {% include 'authenticated/script/trade.html.twig' %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'authenticated/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/exploration.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="card no-min-height">
+        <div class="card-header">
+            Exploration
+        </div>
+        <div class="card-back-msg d-flex p-0">
+            <div class="exploration-image">
+                <img src="{{ asset('img/avatars/explore.jpg') }}" alt="npc">
+            </div>
+            <div class="exploration-message">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div {% if label == 'danger' %}class="text-danger"{% endif %}>
+                            {{ message|raw }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

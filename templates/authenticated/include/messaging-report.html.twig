@@ -1,0 +1,113 @@
+<table class="war-report-table">
+    <tr>
+        <td>
+            <b>{% if attacker['save'][0].owner.alliance %}<span class="font-weight-bold alliance-{{ attacker['save'][0].owner.alliance.color }}">[{{ attacker['save'][0].owner.alliance.abbreviation }}]</span>{% endif %} {{ attacker['save'][0].owner.username }}</b>
+            <span class="float-right">
+                                    {%  if victory %}
+                                        <span class="green-text font-weight-bold">VICTOIRE</span>
+                                    {% else %}
+                                        <span class="red-text font-weight-bold">DEFAITE</span>
+                                    {% endif %}
+                                </span>
+        </td>
+        <td>
+            <b>{% if defender['save'][0].owner.alliance %}<span class="font-weight-bold alliance-{{ defender['save'][0].owner.alliance.color }}">[{{ defender['save'][0].owner.alliance.abbreviation }}]</span>{% endif %} {{ defender['save'][0].owner.username }}</b>
+            <span class="float-right">
+                                    {%  if victory == false %}
+                                        <span class="green-text font-weight-bold">VICTOIRE</span>
+                                    {% else %}
+                                        <span class="red-text font-weight-bold">DEFAITE</span>
+                                    {% endif %}
+                                </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% for ship in attacker['fleet'] %}
+                <b>{{ ship.name }}</b>
+                <span class="float-right">Niveau <b>{{ ship.level }}</b></span><br>
+            {% endfor %}
+        </td>
+        <td>
+            {% for ship in defender['fleet'] %}
+                <b>{{ ship.name }}</b>
+                <span class="float-right">Niveau <b>{{ ship.level }}</b></span><br>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            {% set max = attacker['fleet']|length %}
+
+            {% for i in range(0, max - 1) %}
+                <img src="{{ asset('img/icons/helm.png') }}" class="helm-logo" alt="helm"> <b>{{ attacker['fleet'][i].name }}</b><br>
+                <div class="text-right">
+                    Etat initial : <b>{{ attacker['save'][i].structure }}/100</b><br>
+                    Etat final : <b>{% if attacker['lost'][i]['structure'] > 0 %}<span class="red-text">{% endif %}{{ attacker['save'][i].structure - attacker['lost'][i]['structure'] }}{% if attacker['lost'][i]['structure'] > 0 %}</span>{% endif %}/100</b><br>
+                    {% if attacker['lost'][i]['structure'] >= attacker['save'][i].structure %}
+                        <b class="red-text">Navire coulé</b><br>
+                    {% else %}
+                        <b class="green-text">+ {{ attacker['gain_xp'] }} d'Exp</b><br>
+                    {% endif %}
+                    {% if attacker['lost'][i]['seaman'] > 0 %}
+                        <b><span class="red-text">{{ attacker['lost'][i]['seaman'] }}</span> Matelots tués</b><br>
+                    {% endif %}
+                    {% if attacker['lost'][i]['explorer'] > 0 %}
+                        <b><span class="red-text">{{ attacker['lost'][i]['explorer'] }}</span> Explorateurs tués</b><br>
+                    {% endif %}
+                    {% if attacker['lost'][i]['gunner'] > 0 %}
+                        <b><span class="red-text">{{ attacker['lost'][i]['gunner'] }}</span> Canonniers tués</b><br>
+                    {% endif %}
+                    {% if attacker['lost'][i]['cook'] > 0 %}
+                        <b><span class="red-text">{{ attacker['lost'][i]['cook'] }}</span> Cuisiniers tués</b><br>
+                    {% endif %}
+                    {% if attacker['lost'][i]['carpenter'] > 0 %}
+                        <b><span class="red-text">{{ attacker['lost'][i]['carpenter'] }}</span> Charpentiers tués</b><br>
+                    {% endif %}
+                    {% if attacker['lost'][i]['surgeon'] > 0 %}
+                        <b><span class="red-text">{{ attacker['lost'][i]['surgeon'] }}</span> Chirurgiens tués</b><br>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% if victory %}
+                <br><br>
+                <div class="text-right">
+                    Butin de Guerre<br>
+                    <b class="gold-dark">{{ theft['gold']|number_format(0, '.', ' ') }}</b> Pièces d'Or<br>
+                </div>
+            {% endif %}
+        </td>
+        <td>
+            {% set max = defender['fleet']|length %}
+            {% for i in range(0, max - 1) %}
+                <img src="{{ asset('img/icons/helm.png') }}" class="helm-logo" alt="helm"> <b>{{ defender['fleet'][i].name }}</b><br>
+                <div class="text-right">
+                    Etat initial : <b>{{ defender['save'][i].structure }}/100</b><br>
+                    Etat final : <b>{% if defender['save'][i].structure != defender['fleet'][i].structure %}<span class="red-text">{% endif %}{{ defender['fleet'][i].structure }}{% if defender['save'][i].structure != defender['fleet'][i].structure %}</span>{% endif %}/100</b><br>
+                    {% if defender['fleet'][i].structure <= 0 %}
+                        <b class="red-text">Navire coulé</b><br>
+                    {% endif %}
+                    {% if defender['fleet'][i].seaman < defender['save'][i].seaman %}
+                        <b><span class="red-text">{{ (defender['save'][i].seaman - defender['fleet'][i].seaman) }}</span> Matelots tués</b><br>
+                    {% endif %}
+                    {% if defender['fleet'][i].explorer < defender['save'][i].explorer %}
+                        <b><span class="red-text">{{ (defender['save'][i].explorer - defender['fleet'][i].explorer) }}</span> Explorateurs tués</b><br>
+                    {% endif %}
+                    {% if defender['fleet'][i].gunner < defender['save'][i].gunner %}
+                        <b><span class="red-text">{{ (defender['save'][i].gunner - defender['fleet'][i].gunner) }}</span> Canonniers tués</b><br>
+                    {% endif %}
+                    {% if defender['fleet'][i].cook < defender['save'][i].cook %}
+                        <b><span class="red-text">{{ defender['save'][i].cook - defender['fleet'][i].cook }}</span> Cuisiniers tués</b><br>
+                    {% endif %}
+                    {% if defender['fleet'][i].carpenter < defender['save'][i].carpenter %}
+                        <b><span class="red-text">{{ defender['save'][i].carpenter - defender['fleet'][i].carpenter }}</span> Charpentiers tués</b><br>
+                    {% endif %}
+                    {% if defender['fleet'][i].surgeon < defender['save'][i].surgeon %}
+                        <b><span class="red-text">{{ defender['save'][i].surgeon - defender['fleet'][i].surgeon }}</span> Chirurgiens tués</b><br>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </td>
+    </tr>
+</table>

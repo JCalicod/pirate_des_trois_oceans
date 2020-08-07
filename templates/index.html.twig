@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger mb-5">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="registration-pub mb-4"><a href="{{ path('app_signup') }}"><img src="{{ asset('img/pub_registration.png') }}"></a></div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    Le Jeu
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                    <form method="post">
+                        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="mb-2" placeholder="Pseudo" required autofocus><br>
+                        <input type="password" name="password" id="inputPassword" class="mb-2" required="required">
+                        <input type="submit" name="connection" value="Connexion">
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+                    </form>
+                    </p>
+
+                    <hr>
+
+                    <p class="card-text">
+                        <img src="{{ asset('img/icons/offline.png') }}" class="mr-2"> <b>{{ nb_users }}</b> joueurs inscrits<br>
+                        <img src="{{ asset('img/icons/online.png') }}" class="mr-2"> <a href="{{ path('app_logged') }}" target="_blank"><b>{{ logged|length }}</b></a> joueurs en ligne
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    Présentation
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Jeu de pirate gratuit en ligne.</h5>
+                    <p class="card-text pr-4">
+                        Capitaine d'une bande de pirates écumant les trois océans d'Ilshenar, vous allez sillonner les mers pour devenir un pirate craint et respecté de tous. Abordages sanglants, combats en mer, braconnages, complots en tout genre, chasses aux trésors et soirées mouvementées à la taverne : voilà ce qui vous attend !
+                    </p>
+
+                    <p class="card-text pr-4">
+                        Gérez votre flotte de guerre au quotidien dans la plus grande tradition de la flibuste. Recrutez un équipage digne de ce nom et partez à l'aventure. Au cours de vos voyages, explorez un monde fascinant et faites-y ce que bon vous semble ! Echangez d'assourdissants coups de canons avec les navires ennemis et partez à l'abordage sabre à la main vous emparer de son trésor. Fondez une puissante alliance ou rejoignez d'autres pirates dans la lutte pour le contrôle du monde...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12 p-0">
+            <div class="card">
+                <div class="card-header m-0">
+                    Panthéon des héros
+                </div>
+                <div class="card-body m-0 p-0">
+                    <div class="row p-0 m-0">
+                        {% for user in ranking %}
+                            <div class="col-3 p-0">
+                                <div class="ranking">
+                                    <div class="ranking-name">{% if user.activity %}<img src="{{ asset('img/icons/online.png') }}" alt="etat">{% else %}<img src="{{ asset('img/icons/offline.png') }}" alt="etat">{% endif %} <a target=_blank href="{{ path('app_profile', {id: user['id']}) }}"><b>{{ user['username'] }}</b></a></div>
+                                    <div class="row p-0 m-0">
+                                        <div class="ranking-avatar"><img src="{{ asset('img/avatars/' ~ user['avatar'] ~ '.jpg' ) }}"></div>
+                                        <div class="ranking-number"><img src="{{ asset('img/numbers/' ~ loop.index ~ '.png' ) }}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

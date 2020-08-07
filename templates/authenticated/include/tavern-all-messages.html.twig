@@ -1,0 +1,17 @@
+{% set i = 1 %}
+{% for message in messages %}
+    <div class="message message-{{ i }} d-flex">
+        <div class="left-part">
+            <p class="author m-0">{% if message.owner.isActiveNow %}<img src="{{ asset('img/icons/online.png') }}" alt="etat" class="online-state">{% else %}<img src="{{ asset('img/icons/offline.png') }}" alt="etat" class="online-state">{% endif %} {{ message.owner.username }}</p>
+            Le {{ message.getMomentDate|date('d/m/') }}{{ message.getMomentDate|date('Y') - 315 }} à {{ message.getMomentDate|date('H') }}h{{ message.getMomentDate|date('i') }}
+        </div>
+        <div class="right-part d-flex">
+            <p class="m-auto">{{ message.message }}</p>
+        </div>
+    </div>
+    {% if i == 1 %}
+        {% set i = 2 %}
+    {% else %}
+        {% set i = 1 %}
+    {% endif %}
+{% endfor %}

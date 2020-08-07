@@ -1,0 +1,214 @@
+{% extends 'authenticated/base.html.twig' %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {% if label == 'success' %}<span class="fas fa-check"></span>{% elseif label == 'danger' %}<span class="fas fa-times"></span>{% endif %} {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% set alliance = app.user.alliance %}
+
+    {% include 'authenticated/alliance-advert.html.twig' with {'alliance': alliance} %}
+
+<div class="row">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                Carnet de Bord
+            </div>
+            <div class="card-body card-back1">
+                <div class="cat"> <img src="{{ asset('img/icons/coin.png') }}" alt="coin">Pièces d'or <span class="float-right font-weight-bold">{{ app.user.gold|number_format(0, '.', ' ') }}</span></div>
+                <div class="cat"> <img src="{{ asset('img/icons/pa.png') }}" alt="pa">Points d'Action <span class="float-right font-weight-bold green-text">{{ app.user.pa }}</span></div>
+                    <a href="{{ path('app_messaging') }}"><div class="cat{% if nb_new_messages > 0 %}gold {% endif %}"> <img src="{{ asset('img/icons/envelope.png') }}" alt="envelope">Messagerie <span class="float-right font-weight-bold">{{ nb_new_messages }}</span></div></a>
+                <div class="cat"> <img src="{{ asset('img/icons/helm.png') }}" alt="lantern">Navires <span class="float-right font-weight-bold">{{ app.user.ships|length - 1 }}</span></div>
+                <div class="cat"> <img src="{{ asset('img/icons/arsenal.png') }}" alt="saber">Equipage <span class="float-right font-weight-bold">{{ crew|number_format(0, '.', ' ') }}</span></div>
+                <div class="cat"> <img src="{{ asset('img/icons/gun.png') }}" alt="cannon">Puissance <span class="float-right font-weight-bold">{{ power|number_format(0, '.', ' ') }}</span></div>
+                <div class="cat"> <img src="{{ asset('img/icons/lantern.png') }}" alt="lantern">Classement <span class="float-right font-weight-bold gold-dark">{{ ranking|number_format(0, '.', ' ') }} / {{ nb_users|number_format(0, '.', ' ') }}</span></div>
+                <div class="cat"> <img src="{{ asset('img/icons/skull.png') }}" alt="skull">Ratio Guerre <span class="float-right font-weight-bold">{{ (app.user.victories - app.user.defeats)|number_format(0, '.', ' ') }} </span></div>
+                <div class="cat"> <img src="{{ asset('img/icons/den.png') }}" alt="den">Alliance <span class="float-right font-weight-bold">{% if alliance %}<span class="font-weight-bold alliance-{{ alliance.color }}">[{{ alliance.abbreviation }}]</span>{% else %}Aucune{% endif %}</span></div>
+                <div class="cat-dark-bg text-center"><a href="{{ path('app_settings') }}">Modifier mon Profil</a> | <a href="{{ path('app_logged') }}" target="_blank">{{ logged|length }} Connectés</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header">
+                Repaire du Pirate
+            </div>
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="cat-head-bg text-center">
+                        Exploration
+                    </div>
+
+                    <div class="cat-head-bg text-center">
+                        Braconnage
+                    </div>
+
+                    <div class="cat-head-bg text-center">
+                        Espionnage
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cat-body-bg text-center">
+                        {% if explorer_positions|length > 0 %}
+                            <form method="post" action="{{ path('app_explore') }}">
+                                <div class="form-group mx-auto pl-3">
+                                    <select name="land" class="input-white">
+                                        {% for position in explorer_positions %}
+                                            <option value="{{ position.id }}">{{ position.id }} - {{ position.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <input type="submit" name="explore" value="Explorer" class="mt-2">
+                                </div>
+                            </form>
+                        {% else %}
+                            <p>Aucun explorateur disponible.</p>
+                        {% endif %}
+                        {#<a href="#"><span class="mini2">Chasse aux Trésors</span></a>#}
+                    </div>
+
+                    <div class="cat-body-bg text-center">
+                        {% if explorer_positions|length > 0 %}
+                        <form method="post" action="{{ path('app_poach') }}">
+                            <div class="form-group mx-auto pl-3">
+                                <select name="land" class="input-white">
+                                    {% for position in explorer_positions %}
+                                        <option value="{{ position.id }}">{{ position.id }} - {{ position.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" name="poach" value="Chasser" class="mt-2">
+                            </div>
+                        </form>
+                        {% else %}
+                            <p>Aucun explorateur disponible.</p>
+                        {% endif %}
+                        {#<a href="#"><span class="mini2">Trophées de Chasse</span></a>#}
+                    </div>
+
+                    <div class="cat-body-bg text-center">
+                            <div class="form-group mx-auto">
+                                {{ form_start(spyForm, {'action': path('app_spy')}) }}
+
+                                {{ form_widget(spyForm.username) }}
+                                {{ form_widget(spyForm.spy) }}
+
+                                {{ form_end(spyForm) }}
+                            </div>
+                        <p class="mini2">Coût : 1 000 Pièces d'or</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cat-season">
+                        <span id="heure"></span>
+                    </div>
+
+                    <div class="cat-avatar"><div class="cat-pseudo"><a target=_blank href="{{ path('app_profile', {'id': app.user.id}) }}" target="_blank">{{ app.user.username }}</a></div><img src="{{ asset('img/avatars/' ~ app.user.avatar ~ '.jpg') }}" alt="avatar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row mt-5">
+        <div class="col-12 p-0">
+            <div class="card">
+                <div class="card-header m-0">
+                    Cartographie
+                </div>
+                <div class="card-body m-0 p-0">
+                    <div class="cartographie-selection d-flex justify-content-between">
+                        {% set movable = false %}
+                        {% for ship in app.user.ships %}
+                            {% if ship.seaman > 0 and ship is not instanceof('App\\Entity\\Den') %}
+                                {% set movable = true %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if movable %}
+                            <form method="post" action="{{ path('app_travel') }}">
+                                <select class="input-white" name="fleet_position">
+                                    {% for pos in movable_fleet %}
+                                        <option value="{{ pos.id }}">Flotte en {{ pos.id }}. {{ pos.name }}</option>
+                                    {% endfor %}
+                                    {% for ship in app.user.ships %}
+                                        {% if ship is not instanceof('App\\Entity\\Den') %}
+                                            <option value="ship{{ ship.id }}">{{ ship.name }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+
+                                <select name="target_position" class="input-white">
+                                    <option value="1">1 - Banquise</option>
+                                    <option value="2">2 - Montagnes Blanches</option>
+                                    <option value="3">3 - Terres du Nord</option>
+                                    <option value="4">4 - Terres Glacées</option>
+                                    <option value="5">5 - Forêt Mystique</option>
+                                    <option value="6">6 - Ile Volcanique</option>
+                                    <option value="7">7 - Marécages</option>
+                                    <option value="8">8 - Forêt de Jade</option>
+                                    <option value="9">9 - Golfe des Naufragés</option>
+                                    <option value="10">10 - Montagnes Grises</option>
+                                    <option value="11">11 - Plaines de Drimmor</option>
+                                    <option value="12">12 - Monts Lance-Pierre</option>
+                                    <option value="13">13 - Forêt Morte</option>
+                                    <option value="14">14 - Jungle</option>
+                                    <option value="15">15 - Ile aux Forbans</option>
+                                    <option value="16">16 - Baie des Tortues</option>
+                                    <option value="17">17 - Forêt Tropicale</option>
+                                    <option value="18">18 - Désert</option>
+                                    <option value="19">19 - Oasis</option>
+                                    <option value="20">20 - Terres du Sud</option>
+                                    <option value="21">21 - Ile Assaron</option>
+                                </select>
+                                <input type="submit" name="travel" value="Voyager"> {#<img src="{{ asset('img/icons/pa_cost.png') }}">#}
+                            </form>
+                        {% else %}
+                            <b>Aucun de vos navires ne peut actuellement se déplacer.</b>
+                        {% endif %}
+                    </div>
+                    <div class="row m-0">
+                        <div class="cartographie-background" id="cartographie-background">
+                            <img src="{{ asset('img/icons/den.png') }}" class="logo-big den-{{ den.position.id }}" alt="den">
+                            {% for ship in app.user.ships %}
+                                {% if ship is not instanceof('App\\Entity\\Den') %}
+                                    <img src="{{ asset('img/icons/ship.png') }}" class="logo-big ship-{{ ship.position.id }}" alt="den">
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="cartographie-infos">
+                            <div class="cat-pseudo text-center p-1" style="border-top: 1px solid #2E1007;">
+                                Navires
+                            </div>
+
+                            <div class="cartographie-navires">
+                                {% for key, arr_value in pos_order %}
+                                    <b>{{ key }}</b><br>
+                                    {% for value in arr_value %}
+                                        {{ value }}<br>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+
+                            <div class="cat-pseudo text-center p-1">
+                                Légende
+                            </div>
+
+                            <div class="cartographie-legende">
+                                <img src="{{ asset('img/icons/ship.png') }}" class="logo-big mb-2" alt="navires"> Navires<br>
+                                <img src="{{ asset('img/icons/den.png') }}" alt="repaire" class="logo-big mb-2"> Repaire<br>
+                                <img src="{{ asset('img/icons/treasure.png') }}" alt="navires" class="logo-big"> Indices
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'authenticated/script/hour.html.twig' %}
+{% endblock %}

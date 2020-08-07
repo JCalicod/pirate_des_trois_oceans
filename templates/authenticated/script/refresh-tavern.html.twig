@@ -1,0 +1,23 @@
+<script>
+    var requests = [];
+
+    function getAllMessages() {
+        var request = $.ajax({
+            url : "{{ path('app_tavern_refresh') }}",
+            type : "GET",
+            dataType: "html"
+        }).done(function (response) {
+            $('#tavern').html(response);
+        });
+
+        requests.push(request);
+    }
+
+    function refresh(){
+        setTimeout( function(){
+            getAllMessages();
+            refresh();
+        }, 5000);
+    }
+    refresh();
+</script>

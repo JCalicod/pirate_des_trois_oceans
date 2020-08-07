@@ -1,0 +1,77 @@
+{% extends 'authenticated/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/settings.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {% if label == 'success' %}<span class="fas fa-check"></span>{% elseif label == 'danger' %}<span class="fas fa-times"></span>{% endif %} {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {{ form_start(form) }}
+        <div class="card no-min-height mb-3">
+            <div class="card-header">
+                Modification du profil
+            </div>
+            <div class="card-body card-back1">
+                <div class="d-flex">
+                    <div class="avatar">
+                        <img src="{{ asset('img/avatars/' ~ user.avatar ~ '.jpg') }}" alt="avatar" id="avatar-img"><br>
+                        {{ form_widget(form.avatar, { 'id': 'avatar', 'value': user.avatar }) }}
+                    </div>
+                    <div class="content pl-5 pr-5 pt-3">
+                        <label>Ancien mot de passe</label><br>
+                        {{ form_widget(form.old_password) }}
+                        <label>Nouveau mot de passe</label><br>
+                        {{ form_widget(form.password) }}<br><br>
+                        {{ form_widget(form.save) }}<br>
+                        <span class="star">* Laisser vide pour ne modifier que l'avatar.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{ form_end(form) }}
+
+    {% if godchildren|length > 0 %}
+            <div class="card no-min-height mb-3">
+                <div class="card-header">
+                    Liste des filleuls
+                </div>
+                <div class="card-body card-back1">
+                    {% for godson in godchildren %}
+                        <div class="d-flex godson">
+                            <div class="avatar">
+                                <img src="{{ asset('img/avatars/' ~ godson.avatar ~ '.jpg') }}" alt="avatar" id="avatar"><br>
+                            </div>
+                            <div class="content d-flex">
+                                <div class="w-50">
+                                    <img src="{{ asset('img/icons/lantern.png') }}" alt="lantern" class="mini"> <a href="{{ path('app_profile', { id: godson.id }) }}" target="_blank">{{ godson.username }}</a> - Inscrit le <b>{{ godson.registration|date('d/m/') }}{{ godson.registration|date('Y') - 315 }}</b><br>
+                                    <img src="{{ asset('img/icons/gun.png') }}" alt="gun" class="mini"> {{ godchildren_power[loop.index0]|number_format(0, '.', ' ') }}<br>
+                                    <img src="{{ asset('img/icons/coin.png') }}" alt="coin" class="mini"> {{ godson.gold|number_format(0, '.', ' ') }}
+                                </div>
+                                <div class="w-50 d-flex">
+                                    <p class="m-auto">
+                                        Dernière apparition<br>
+                                        {% if godson.getLastConnection %}
+                                            Le <b>{{ godson.getLastConnection|date('d/m/') }}{{ godson.getLastConnection|date('Y') - 315 }} </b> à <b>{{ godson.getLastConnection|date('H') }}h{{ godson.getLastConnection|date('i') }}</b>
+                                        {% else %}
+                                            <b>Jamais connecté.</b>
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+    {% endif %}
+
+    {% include 'script/display_avatar.html.twig' %}
+
+{% endblock %}

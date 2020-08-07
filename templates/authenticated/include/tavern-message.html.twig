@@ -1,0 +1,9 @@
+<div class="message message-1 d-flex">
+    <div class="left-part">
+        <p class="author m-0">{% if tavern.owner.isActiveNow %}<img src="{{ asset('img/icons/online.png') }}" alt="etat" class="online-state">{% else %}<img src="{{ asset('img/icons/offline.png') }}" alt="etat" class="online-state">{% endif %} {{ tavern.owner.username }}</p>
+        Le {{ tavern.getMomentDate|date('d/m/') }}{{ tavern.getMomentDate|date('Y') - 315 }} à {{ tavern.getMomentDate|date('H') }}h{{ tavern.getMomentDate|date('i') }}
+    </div>
+    <div class="right-part d-flex">
+        <p class="m-auto">{{ tavern.message }}</p>
+    </div>
+</div>

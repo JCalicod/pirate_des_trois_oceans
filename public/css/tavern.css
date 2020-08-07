@@ -1,0 +1,72 @@
+.tavern {
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
+
+.tavern > .message {
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    padding-left: 30px;
+    border-bottom: 3px solid #2E231F;
+}
+
+.tavern > .message.message-1 {
+    background: url("../img/structure/back6.jpg");
+    background-position: center;
+}
+
+.tavern > .message.message-2 {
+    background: url("../img/structure/back6-2.jpg");
+    background-position: center;
+}
+
+.tavern > .message > .left-part {
+    margin-right: 20px;
+}
+
+.tavern > .message > .left-part .author {
+    text-align: right;
+    font-weight: bold;
+}
+
+.tavern-send-message input {
+    background-color: #DED0BB;
+}
+
+.tavern-send-message button {
+    width: 100px;
+    color: #000;
+    background-color: #C8AE8B;
+}
+
+.tavern-rules {
+    height: 400px;
+}
+
+.tavern-rules .illustration {
+    width: 60%;
+    background: url("../img/tavern_illustration.jpg");
+    background-size: cover;
+    background-position: top center;
+    border-right: 2px solid #2E231F;
+}
+
+.tavern-rules .rules {
+    width: 40%;
+    background: url("../img/structure/back1.jpg");
+}
+
+.tavern-rules .rules h1 {
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    background: url("../img/structure/back_at2.jpg");
+    -webkit-background-size: contain;
+    background-size: 100% 100%;
+    background-position: center;
+    border-bottom: 2px solid #2E231F;
+}

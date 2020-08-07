@@ -1,0 +1,28 @@
+<script>
+
+    function desactivateOtherTabs(id) {
+        $('.tab').each(function() {
+            if ($(this).attr('id') != id) {
+                $(this).removeClass('active');
+            }
+        });
+    }
+
+    function hideOtherBlocks(id) {
+        $('.tab-block').each(function() {
+            if ($(this).attr('id') != id) {
+                $(this).hide();
+            }
+        });
+    }
+
+    $('.tab').click(function() {
+        var id = $(this).attr('id');
+        $(this).addClass('active');
+        desactivateOtherTabs(id);
+        id = id.substr(4);
+        $('#' + id).css('display', 'block');
+        hideOtherBlocks(id);
+    });
+
+</script>

@@ -1,0 +1,41 @@
+.avatar {
+    border-right: 3px solid #100D0B;
+}
+
+.content {
+    width: 100%;
+    background: url("../img/structure/back1.jpg");
+    font-size: 14px;
+}
+
+.godson {
+    border-bottom: 3px solid #100D0B;
+}
+
+.godson a {
+    font-weight: bold;
+}
+
+.godson .avatar img {
+    height: 100px;
+}
+
+img.mini {
+    width: 22px;
+}
+
+.content > div {
+    padding: 10px;
+}
+
+.content > div:first-of-type {
+    border-right: 3px solid #100D0B;
+}
+
+.star {
+    font-size: 12px;
+}
+
+input[type="password"], select {
+    background-color: #DEC8A0;
+}

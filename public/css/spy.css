@@ -1,0 +1,29 @@
+h1 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+}
+
+tr.tr-1 {
+    background: url('../img/structure/warbg1.jpg');
+}
+
+tr.tr-2 {
+    background: url('../img/structure/warbg2.jpg');
+}
+
+th {
+    text-align: center;
+}
+
+th img {
+    width: 20px;
+    margin-bottom: 10px;
+}
+
+td {
+    border: 2px solid #100D0B;
+}

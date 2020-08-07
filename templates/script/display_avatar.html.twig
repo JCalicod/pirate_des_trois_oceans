@@ -1,0 +1,5 @@
+<script>
+    $('#avatar').on('input', function() {
+        $('#avatar-img').attr('src', '{{ asset('img/avatars/') }}' + $(this).val() + '.jpg');
+    });
+</script>

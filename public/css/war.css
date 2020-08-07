@@ -1,0 +1,27 @@
+.top-card-body .float-right select {
+    width: 150px;
+}
+
+.top-card-body .float-right input[type="submit"] {
+    width: 100px;
+}
+
+.target-choice {
+    border-top: 2px solid #100D0B;
+}
+
+.war-stats {
+    border-right: 2px solid #100D0B;
+}
+
+.alex {
+    border-top: 2px solid #100D0B;
+}
+
+td {
+    border-right: 2px solid #100D0B;
+}
+
+.bb2 {
+    border-bottom: 2px solid #100D0B;
+}

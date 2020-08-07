@@ -1,0 +1,85 @@
+.card-back-msg {
+    padding: 0;
+}
+
+.categories {
+    width: 100%;
+}
+
+.categories .tab {
+    padding: 5px;
+    border: 1px solid #100D0B;
+    border-top: 0;
+    border-bottom: 2px solid #100D0B;
+    width: 100%;
+    text-align: center;
+    color: #100D0B;
+    font-weight: bold;
+}
+
+.categories .tab:hover {
+    color: #196F43;
+    cursor: pointer;
+}
+
+.categories .tab.active {
+    color: #196F43;
+}
+
+/* Blocks */
+.block .block-header {
+    background: url('../img/structure/back6.jpg');
+    height: 40px;
+    line-height: 35px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: 3px solid #100D0B;
+    border-bottom: 3px solid #100D0B;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+.block .block-header img {
+    width: 18px;
+    margin-right: 5px;
+}
+
+.block .block-content {
+    background-image: url("../img/structure/back1.jpg");
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+}
+
+tr.tr-1 {
+    background: url('../img/structure/warbg1.jpg');
+}
+
+tr.tr-2 {
+    background: url('../img/structure/warbg2.jpg');
+}
+
+th {
+    padding-left: 10px;
+}
+
+th img {
+    width: 20px;
+    margin-bottom: 10px;
+}
+
+td {
+    border: 2px solid #100D0B;
+}
+
+a:hover {
+    color: #196F43;
+}
+
+a.active {
+    color: #196F43;
+}

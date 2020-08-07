@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {% if label == 'success' %}<span class="fas fa-check"></span>{% elseif label == 'danger' %}<span class="fas fa-times"></span>{% endif %} {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        Avatar
+                    </div>
+                    <div class="card-body p-1 m-0 bg-cla">
+                        <div class="registration-avatar"><img src="{{ asset('img/avatars/1.jpg') }}" id="avatar-img"></div>
+                        <div class="registration-infos p-1 m-auto">
+                            <p class="mb-1">Image<br>
+                                {{ form_widget(form.avatar, { 'id': 'avatar'} ) }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        Principal
+                    </div>
+                    <div class="card-body p-0 pt-4 m-0 bg-cla">
+                        <div class="row p-0 m-0">
+
+                            <div class="registration-infos p-1 m-auto">
+                                <p class="mb-1">
+                                    {{ form_label(form.username) }}<br>
+                                    <span class="mini">Entre 3 et 20 caractères</span><br>
+                                    {{ form_widget(form.username) }}
+                                </p>
+
+                                <p class="mb-1">
+                                    {{ form_label(form.password.pass) }}<br>
+                                    <span class="mini">3 caractères minimum</span><br>
+                                    {{ form_widget(form.password.pass) }}
+                                </p>
+
+                                <p class="mb-1">
+                                    {{ form_label(form.password.confirm) }}<br>
+                                    <span class="mini">Retapez le mot de passe</span><br>
+                                    {{ form_widget(form.password.confirm) }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        Autres
+                    </div>
+
+                    <div class="card-body p-0 pt-4 m-0 bg-cla">
+                        <div class="row p-0 m-0">
+                            <div class="registration-infos p-1 m-auto">
+                                <p class="mb-1">
+                                    {{ form_label(form.email_address) }}<br>
+                                    <span class="mini">Entrez une adresse valide</span><br>
+                                    {{ form_widget(form.email_address) }}
+                                </p>
+                                <p class="mb-1">
+                                    {{ form_label(form.godfather) }}<br>
+                                    <span class="mini">Optionnel</span><br>
+                                    {{ form_widget(form.godfather) }}
+                                </p>
+                                <p class="mb-1">
+                                    {{ form_label(form.ship_name) }}<br>
+                                    <span class="mini">Entre 3 et 20 caractères</span><br>
+                                    {{ form_widget(form.ship_name) }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="den-header mt-4">
+            Ilshenar
+        </div>
+
+        <div class="den-choice">
+            Choix du repaire : {{ form_widget(form.position, { 'attr': { 'class': 'den-select' } } ) }}
+        </div>
+
+        <div class="ilshenar-map">
+        </div>
+
+        <div class="den-choice text-center">
+            {{ form_widget(form.save) }}
+        </div>
+    {{ form_end(form) }}
+
+    {% include 'script/display_avatar.html.twig' %}
+
+{% endblock %}

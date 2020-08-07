@@ -1,0 +1,12 @@
+<div id="log" class="tab-block">
+    <div class="block">
+        <div class="block-header">
+            <img src="{{ asset('img/icons/medal.png') }}" alt="medal"> Livre de Bord
+        </div>
+        <div class="block-content font-weight-bold">
+            {% for log in logs %}
+                <p>{{ log.getLogDate|date('d/m/') }}{{ log.getLogDate|date('Y') - 315 }} - {{ log.content|raw }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>

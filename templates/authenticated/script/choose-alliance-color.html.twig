@@ -1,0 +1,17 @@
+<script>
+
+    function resetColorsBorder() {
+        $('.color').each(function() {
+            $(this).css('border', '2px solid #100D0B');
+        });
+    }
+
+    $('.color').click(function() {
+        var id = $(this).attr('id');
+        var radio = $('#create_alliance_color_' + id);
+        radio.prop('checked', 'checked');
+        resetColorsBorder();
+        $(this).css('border', '4px solid #100D0B');
+    });
+
+</script>

@@ -1,0 +1,17 @@
+{% if alliance and alliance.advert|length > 0 %}
+
+    <div class="card card-advert mb-3">
+        <div class="card-header">
+            Annonce du Chef des <span class="font-weight-bold alliance-{{ alliance.color }}">[{{ alliance.abbreviation }}]</span>
+        </div>
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="avatar-profile">
+                    <img src="{{ asset('img/avatars/' ~ alliance.getLeader.avatar ~ '.jpg') }}" alt="Chef">
+                </div>
+                <p>{{ alliance.advert }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endif %}

@@ -1,0 +1,89 @@
+{% extends app.user ? 'authenticated/base.html.twig' : 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="card no-min-height">
+        <div class="card-header">
+            Foire aux Questions
+        </div>
+        <div class="card-back-msg">
+            <div class="category">
+                <div class="category-header">
+                    Un mode vacances est-il intégré ?
+                </div>
+                <div class="category-body">
+                    Le mode vacances ou plutôt absence est incorporé directement dans le fonctionnement du jeu. Ne pouvant recevoir que 2 attaques maximum par région sur une période de 24h, et ne remettant ce compteur à 0 que lors de sa première connexion journalière, tant que l'on ne se connecte pas, une fois les 2 attaques atteintes, personne ne pourra plus vous attaquer dans cette région. Ce mode se déclenche automatiquement dès que l'on a été attaqué 2 fois dans une région et que l'on ne se connecte plus sur le jeu. En cas d'absence, on n'accumule pas les points d'action pendant les jours où l'on ne se connecte pas sur le jeu.
+                </div>
+                <div class="category-header">
+                    A quoi servent les Points d'Action ?
+                </div>
+                <div class="category-body">
+                    Les Points d'Action permettent de faire toutes sortes d'action dans le jeu : exploration, braconnage, voyage, chasse aux trésors, guerre... 30 Points d'Action sont donnés par jour lors de sa première connexion.
+                </div>
+                <div class="category-header">
+                    Comment gagner de l'or ?
+                </div>
+                <div class="category-body">
+                    Il y a une multitude de façons pour gagner des pièces d'or. Comme le braconnage, la chasse aux trésors et le commerce. Il est aussi possible de voler un butin de guerre lorsque l'on attaque un autre joueur. Et pour finir, le contrôle de région par une Alliance permet à tous ses membres de toucher une rente quotidienne.
+                </div>
+                <div class="category-header">
+                    Comment est calculée la puissance ?
+                </div>
+                <div class="category-body">
+                    Le calcul de la puissance se base sur le niveau de vos navires et la fortune que vous avez amassée.
+                </div>
+                <div class="category-header">
+                    A quoi servent les instructions de Guerre ?
+                </div>
+                <div class="category-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="text-center font-weight-bold blue-text">Ordres à l'Equipage</div>
+
+                            <br><b>A l'Abordage !</b><br>
+                            Il s'agit d'une attaque normale, équilibrée entre le tir aux canons et l'abordage du navire ennemi.
+
+                            <br><br><b>Pas de Quartier !</b><br>
+                            La priorité est donnée à l'abordage. Vous utilisez moins longtemps vos canons et votre puissance de tir est donc amoindrie. En revanche, vos navires foncent droit sur l'ennemi pour l'aborder, et gagnez donc en conséquence un bonus pour la phase d'abordage. Une bonne tactique pour le vol de butin et la capture de navire à condition d'avoir bien armé son équipage.
+
+                            <br><br><b>Feu à Volonté !</b><br>
+                            La priorité est donnée aux canons. Vos navires se concentrent sur l'utilisation des canons, en augmentant ainsi la puissance et la précision de vos tirs. Votre abordage se limite au stricte minimum, et perdez donc en efficacité dans cette phase là. Avec un vaisseau lourdement armé et cette stratégie d'attaque, vous coulerez un bon nombre de navires ennemis.
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center font-weight-bold red-text">Consignes aux Canonniers</div>
+
+                            <br><b>Tir Plein Bois</b><br>
+                            Le tir en plein bois, à hauteur de batterie, cherche la destruction de l'artillerie, du matériel et des canonniers ennemis. Redoutablement meurtrier pour l'équipage à bord, et capable de détruire un navire.
+
+                            <br><br><b>Tir à Démâter</b><br>
+                            Le tir à démâter vise la destruction de la mâture et des gréements du vaisseau adverse pour le mettre en difficulté ou dans l'impossibilité de manœuvrer. Cette tactique est privilégiée pour immobiliser le navire ennemi et éviter qu'il ne prenne la fuite, mais provoquant que des pertes humaines légères.
+
+                            <br><br><b>Tir à Mitraille</b><br>
+                            Le tir à mitraille consiste à tirer des paquets de petits morceaux de fer d'origines diverses, pour décimer les équipages adverses. Cette tactique cause moins de dégâts au navire ennemi, mais ses pertes humaines sont considérables.
+                        </div>
+                    </div>
+                </div>
+                <div class="category-header">Comment sont répartis les territoires ?</div>
+                <div class="category-body">
+                    Chaque Alliance a la possibilité de contrôler une ou plusieurs régions d'Ilshenar. Ceci afin de gagner en réputation et de toucher sa part quotidienne sur la taxe commerciale totale du jour. Il suffit de combattre d'autres pirates dans une région pour marquer des points, et les visualiser dans l'onglet Territoire de la page Alliance. Le calcul pour l'attribution des régions aux alliances dominantes et la distribution d'or se fait tous les jours à minuit.
+                </div>
+                <div class="category-header">Comment renommer un navire ?</div>
+                <div class="category-body">
+                    Pour renommer un navire, il suffit de se rendre sur la page Navire et de cliquer sur l'icône de plume. Une popin apparaîtra alors.
+                </div>
+                <div class="category-header">Comment capturer un navire ?</div>
+                <div class="category-body">
+                    Pour augmenter la taille de sa flotte, il suffit d'attaquer les pêcheurs, les marchands et la marine royale et espérer réussir à leur capturer un navire. Il est possible d'avoir jusqu'à 10 navires au maximum. Mais rien n'interdit de jouer avec moins de navires pour économiser ses points d'action...
+                </div>
+                <div class="category-header">Je n'arrive plus à déplacer mon navire, pourquoi ?</div>
+                <div class="category-body">
+                    Si vous ne pouvez plus déplacer votre navire, c'est sans doute car vous n'avez plus un seul matelot à bord. Il faudra alors en recruter au moins un à l'aide de la page Equipage. Si ce n'est pas ça, c'est que vous n'avez plus de points d'action à utiliser.
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

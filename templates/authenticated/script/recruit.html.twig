@@ -1,0 +1,15 @@
+<script>
+    $('#enroll_crew_ships').on('input', function() {
+        var shipID = $(this).val();
+        var crewData = {{ crewData|json_encode()|raw }};
+        var data = crewData[shipID];
+
+        $('#seaman-crew').html(data['seaman'].actual + ' / ' + data['seaman'].max);
+        $('#explorer-crew').html(data['explorer'].actual + ' / ' + data['explorer'].max);
+        $('#gunner-crew').html(data['gunner'].actual + ' / ' + data['gunner'].max);
+        $('#cook-crew').html(data['cook'].actual + ' / ' + data['cook'].max);
+        $('#carpenter-crew').html(data['carpenter'].actual + ' / ' + data['carpenter'].max);
+        $('#surgeon-crew').html(data['surgeon'].actual + ' / ' + data['surgeon'].max);
+
+    });
+</script>

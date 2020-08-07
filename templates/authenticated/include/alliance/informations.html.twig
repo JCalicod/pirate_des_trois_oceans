@@ -1,0 +1,58 @@
+<div id="informations" class="tab-block">
+    <div class="block">
+        <div class="block-header">
+            <img src="{{ asset('img/icons/medal.png') }}" alt="medal"> Informations principales
+        </div>
+        <div class="block-content">
+            {% include "authenticated/include/alliance/block-line.html.twig" with {"title": "Nom", "value": alliance.name} %}
+            {% include "authenticated/include/alliance/block-line.html.twig" with {
+                "title": "Tag",
+                "value": "<span class='font-weight-bold alliance-" ~ alliance.color ~"'>[" ~ alliance.abbreviation ~ "]</span>"
+            }
+            %}
+            {% include "authenticated/include/alliance/block-line.html.twig" with {"title": "Chef", "value": alliance.getLeader.username} %}
+            {% include "authenticated/include/alliance/block-line.html.twig" with {"title": "Membres", "value": alliance.getAllianceMembers|length, "icon": "arsenal"} %}
+            {% include "authenticated/include/alliance/block-line.html.twig" with {"title": "Date de création", "value": alliance.creation|date('d/m/') ~ "" ~ (alliance.creation|date('Y') - 315) ~ ""} %}
+            {% include "authenticated/include/alliance/block-line.html.twig" with {"title": "", "value": "<a href='#' data-toggle='modal' data-target='#leave'><span class='text-danger-dark'>Quitter l'Alliance</span></a>"} %}
+        </div>
+    </div>
+
+    <div class="block">
+        <div class="block-header">
+            <img src="{{ asset('img/icons/medal.png') }}" alt="medal"> Description
+        </div>
+        <div class="block-content">
+            {{ alliance.description }}
+        </div>
+    </div>
+
+    <div class="block">
+        <div class="block-header">
+            <img src="{{ asset('img/icons/medal.png') }}" alt="medal"> Code du Pirate
+        </div>
+        <div class="block-content">
+            {% if alliance.getPirateCode %}
+                {{ alliance.getPirateCode }}
+            {% else %}
+                Le code n'a pas encore été rédigé..
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="leave" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Quitter l'Alliance</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Etes-vous sûr de vouloir quitter l'Alliance ?
+                    {{ form(forms['leave']) }}
+                </div>
+        </div>
+    </div>
+</div>

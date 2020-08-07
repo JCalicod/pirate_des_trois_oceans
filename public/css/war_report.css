@@ -1,0 +1,24 @@
+table.war-report-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.war-report-table td {
+    width: 50%;
+    text-align: left;
+    border: 2px solid #100D0B;
+    vertical-align: top;
+    background-image: url("../img/structure/back1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-weight: normal !important;
+}
+
+table.war-report-table tr:first-of-type td {
+    background: url("../img/structure/back1dark.jpg");
+}
+
+table.war-report-table td img.helm-logo {
+    height: 30px;
+}

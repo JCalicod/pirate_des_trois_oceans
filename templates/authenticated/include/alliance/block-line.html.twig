@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-between">
+    <p>
+        {% if title|length > 0 %}
+            <b class="list-title"><span class="list-icon">▸</span> {{ title }}</b>
+        {% endif %}
+    </p>
+    <p>
+        <b>{{ value|raw }}</b>
+    </p>
+</div>

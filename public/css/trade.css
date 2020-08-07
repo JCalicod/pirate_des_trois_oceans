@@ -1,0 +1,126 @@
+.green-text {
+    color: #466848;
+}
+
+.blue-text {
+    color: #232D8E;
+}
+
+.red-text {
+    color: #A7250A;
+}
+
+.brown-text {
+    color: #592E00;
+}
+
+.orange-text {
+    color: #A85A13;
+}
+
+.card .card-back-msg .card-title {
+    background: url('../img/structure/back6.jpg');
+    height: 35px;
+    line-height: 35px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 3px solid #100D0B;
+    margin-bottom: 0;
+}
+
+.card .card-back-msg .card-title img {
+    height: 20px;
+    margin-top: 6px;
+}
+
+.card .card-back-msg .trade-display,
+.card .card-back-msg .trade-inputs {
+    border-bottom: 3px solid #100D0B;
+}
+
+.card .card-back-msg .buyer {
+    border-right: 3px solid #100D0B;
+}
+
+.card .card-back-msg .buyer, .card .card-back-msg .seller {
+    width: 50%;
+    max-height: 170px;
+}
+
+.card .card-back-msg .buyer .avatar {
+    border-right: 3px solid #100D0B;
+}
+
+.card .card-back-msg .seller .avatar {
+    border-left: 3px solid #100D0B;
+}
+
+.card .card-back-msg .content {
+    width: 100%;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.logo {
+    height: 20px;
+    width: auto;
+    margin-right: 5px;
+}
+
+.cross {
+    margin-top: 4px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.card .card-back-msg .trade-inputs {
+    height: 25px;
+}
+
+.card .card-back-msg .trade-transaction {
+     border-bottom: 3px solid #100D0B;
+ }
+
+.card .card-back-msg .trade-inputs .buyer-inputs {
+    border-right: 3px solid #100D0B;
+}
+
+.card .card-back-msg .trade-inputs .buyer-inputs,
+.card .card-back-msg .trade-inputs .seller-inputs,
+.card .card-back-msg .trade-transaction .buyer-transaction,
+.card .card-back-msg .trade-transaction .seller-transaction {
+    width: 50%;
+}
+
+.card .card-back-msg .trade-inputs .buyer-inputs input,
+.card .card-back-msg .trade-inputs .buyer-inputs select,
+.card .card-back-msg .trade-inputs .buyer-inputs button,
+.card .card-back-msg .trade-inputs .seller-inputs input,
+.card .card-back-msg .trade-inputs .seller-inputs select,
+.card .card-back-msg .trade-inputs .seller-inputs button {
+    width: 33.3%;
+    margin: 0;
+    height: 100%;
+}
+
+.input-white {
+    background-color: #fff;
+}
+
+.card .card-back-msg .trade-transaction .buyer-transaction,
+.card .card-back-msg .trade-transaction .seller-transaction {
+    padding: 10px;
+}
+
+.card .card-back-msg .trade-transaction .buyer-transaction {
+    border-right: 3px solid #100D0B;
+}
+
+button[type="submit"] {
+    width: 100px;
+}
+
+.card .card-back-msg .trade-cave {
+    width: 100%;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Anton|East+Sea+Dokdo|Pacifico|Acme" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('img/icons/skull.png') }}" />
+
+    <title>{% block title %}Pirate des trois océans{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    {% endblock %}
+</head>
+
+<body>
+
+{% set alliance = user.alliance %}
+<div class="conteneur d-flex">
+    <div class="list">
+        <div class="list-header">
+            {% if user.isActiveNow %}
+                <img src="{{ asset('img/icons/online.png') }}" alt="online">
+            {% else %}
+                <img src="{{ asset('img/icons/offline.png') }}" alt="offline">
+            {% endif %}
+            {% if alliance %}<span class="font-weight-bold alliance-{{ alliance.color }}">[{{ alliance.abbreviation }}]</span>{% endif %} {{ user.username }}
+        </div>
+        <div class="list-body d-flex">
+            <div class="avatar"><img src="{{ asset('img/avatars/' ~ user.avatar ~ '.jpg') }}" alt="avatar"></div>
+            <div class="infos">
+                <div class="list-element"><img src="{{ asset('img/icons/lantern.png') }}" alt="lantern" class="logo"> Classement <span class="float-right font-weight-bold gold-dark">{{ ranking|number_format(0, '.', ' ') }} / {{ nb_users|number_format(0, '.', ' ') }}</div>
+                <div class="list-element"><img src="{{ asset('img/icons/gun.png') }}" alt="lantern" class="logo"> Puissance <span class="float-right font-weight-bold gold-dark">{{ power|number_format(0, '.', ' ') }}</div>
+                <div class="list-element"><img src="{{ asset('img/icons/helm.png') }}" alt="lantern" class="logo"> Navires <span class="float-right font-weight-bold gold-dark">{{ user.ships|length  - 1 }}</div>
+                <div class="list-element"><img src="{{ asset('img/icons/coin.png') }}" alt="lantern" class="logo"> Fortune <span class="float-right font-weight-bold gold-dark">{{ user.gold|number_format(0, '.', ' ') }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

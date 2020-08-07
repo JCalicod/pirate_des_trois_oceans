@@ -1,0 +1,99 @@
+{% extends 'authenticated/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/alliance.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {% if label == 'success' %}<span class="fas fa-check"></span>{% elseif label == 'danger' %}<span class="fas fa-times"></span>{% endif %} {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="card no-min-height">
+        <div class="card-header">
+            Créer mon Alliance
+        </div>
+        <div class="card-back-msg d-flex">
+            <div class="npc">
+                <img src="{{ asset('img/avatars/tutoriel.jpg') }}" alt="npc">
+            </div>
+            <div class="create-alliance">
+                {{ form_start(form) }}
+                    <div class="d-flex justify-content-between">
+                        {{ form_widget(form.name) }}
+                        {{ form_widget(form.abbreviation) }}
+                    </div>
+                {{ form_widget(form.description) }}
+                {{ form_widget(form.color) }}
+                <div class="d-flex justify-content-between">
+                    <div class="font-weight-bold"><img class="skull" src="{{ asset('img/icons/skull.png') }}" alt="skull"> Choix de la couleur de l'alliance</div>
+                    <div class="d-flex">
+                        <div class="color green" id="0"></div>
+                        <div class="color purple" id="1"></div>
+                        <div class="color red" id="2"></div>
+                        <div class="color blue" id="3"></div>
+                        <div class="color black" id="4"></div>
+                        <div class="color yellow" id="5"></div>
+                        <div class="color orange" id="6"></div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="card no-min-height mt-3">
+        <div class="card-header">
+            Rejoindre une Alliance
+        </div>
+        <div class="card-back-msg p-3">
+            <table class="alliances-list">
+                <thead>
+                    <tr>
+                        <td>Initiales</td>
+                        <td>Nom</td>
+                        <td>Chef</td>
+                        <td>Membres</td>
+                        <td>Puissance requise</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% set i = 0 %}
+                    {% for alliance in alliances %}
+                        {% set chief = alliance.getLeader %}
+                        <tr class="{% if i % 2 == 0 %}list-element-1{% else %}list-element-2{% endif %}">
+                            <td><span class="font-weight-bold alliance-{{ alliance.color }}">[{{ alliance.abbreviation }}]</span></td>
+                            <td>{{ alliance.name }}</td>
+                            <td><a target=_blank href="{{ path('app_profile', {id: chief.id}) }}">{{ chief.username }}</a></td>
+                            <td>{{ alliance.users|length }} / 10</td>
+                            <td>{{ alliance.getRequiredPower|number_format(0, '.', ' ') }}</td>
+                        </tr>
+                        {% set i = i + 1 %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {{ form_start(joinForm, {'action': path('app_alliance_join')}) }}
+
+            <div class="row">
+                <div class="col-7">
+                    {{ form_widget(joinForm.alliance) }}
+                </div>
+                <div class="col-1"></div>
+                <div class="col-4">
+                    {{ form_widget(joinForm.save) }}
+                </div>
+            </div>
+            {{ form_end(joinForm) }}
+        </div>
+    </div>
+
+    {% include 'authenticated/script/choose-alliance-color.html.twig' %}
+
+{% endblock %}

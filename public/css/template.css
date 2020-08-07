@@ -1,0 +1,1439 @@
+@font-face {
+    font-family: 'pirate';
+    src: url('../fonts/pirate.ttf');
+}
+
+body {
+    background: url("../img/background.jpg") no-repeat fixed center top;
+    color: black !important;
+    font-size: 12px;
+}
+
+.text-danger-dark {
+    color: #950412;
+}
+
+.conteneur {
+    margin: auto;
+    margin-top: 50px;
+    width: 820px;
+    min-height: 80vh;
+    background-color: black;
+    border-style: solid;
+    -moz-border-image: url("../img/structure/border-image-style2.png") 10 / 1 / 0 round;
+    -webkit-border-image: url("../img/structure/border-image-style2.png") 10 / 1 / 0 round;
+    -o-border-image: url("../img/structure/border-image-style2.png") 10 / 1 / 0 round;
+    border-image: url("../img/structure/border-image-style2.png") 10 / 1 / 0 round;
+    border-width: 10px;
+    padding: 0px;
+    margin-bottom: 50px;
+}
+
+.banner {
+    width: 100%;
+    height: 170px;
+    background: url("../img/buttons/banner.jpg");
+}
+
+.menu {
+    width: 100%;
+    height: 30px;
+    background: url("../img/structure/barre2.jpg");
+}
+
+.menu a {
+  color: #846D59;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: 'pirate';
+  margin-left: 7px;
+  margin-right: 6px;
+  line-height: 25px;
+}
+
+/* Affichage correct du menu sous Edge */
+@supports (-ms-ime-align:auto) {
+  .menu a { font-size: 12.5px; }
+}
+
+.main {
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.menu a:hover {
+  color: #A08670;
+}
+
+.mini-lien {
+  font-size: 11px !important;
+}
+
+.gold {
+  background: -webkit-gradient(linear, left top, left bottom, from(#986A1B), to(#D9BB7B));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-dark {
+  color: #A85923;
+}
+
+.gold:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#C78923), to(#E7D3AD));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logout {
+  color: #E34743 !important;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.logout:hover {
+  color: #FE716D !important;
+}
+
+.card {
+    border: 0;
+    min-height: 290px;
+}
+
+.no-min-height {
+  min-height: 0px;
+}
+
+/* Row and col */
+
+.col-12 {
+  padding: 0 !important;
+}
+
+/* No margin */
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.card > .card-header {
+    height: 30px;
+    background: url("../img/structure/barre.jpg");
+    color: #846D59;
+    font-size: 16px;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.card > .card-body {
+    background: url("../img/structure/backp.jpg");
+    overflow: hidden;
+}
+
+.card > .card-back1 {
+    padding: 0 !important;
+}
+
+/* Messgaging Card */
+
+.card-back-msg {
+  padding: 10px;
+  background: url("../img/structure/back1.jpg");
+}
+
+.card-back-msg input {
+  width: 48%;
+  padding: 5px;
+}
+
+.card-back-msg textarea {
+  margin-top: 10px;
+  margin-bottom: 6px;
+  width: 100%;
+  background-color: #554641;
+  resize: none;
+  padding: 5px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.card-back-msg input[type="submit"] {
+  padding: 8px;
+  width: 710px;
+}
+
+.msg-look {
+  padding: 10px;
+  width: 100%;
+  background: url("../img/structure/back1.jpg");
+  background-position: center;
+  font-size: 15px;
+    height: 170px;
+    overflow-y: scroll;
+}
+
+.msg-look table.war-report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.msg-look table.war-report-table td {
+    width: 50%;
+    text-align: left;
+    border: 2px solid #100D0B;
+    vertical-align: top;
+    background-image: url("../img/structure/back1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-weight: normal !important;
+}
+
+.msg-look table.war-report-table tr:first-of-type td {
+    background: url("../img/structure/back1dark.jpg");
+}
+
+.msg-look table.war-report-table td img.helm-logo {
+    height: 30px;
+}
+
+
+
+
+
+
+.cat, .card > .card-body > a:hover {
+  color: inherit;
+}
+
+.card > .card-body > .cat, .card > .card-body > a > .cat {
+  background: url("../img/structure/backc2.jpg");
+  background-position: left;
+  border-bottom: 2px solid #361B06;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.cat, .card > .card-body > a > .catgold {
+  background: url("../img/structure/backc2gold.jpg");
+  background-position: left;
+  border-bottom: 2px solid #361B06;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.card > .card-body > .cat  img, .card > .card-body > a > .cat img, .card > .card-body > a > .catgold img {
+  width: 26px;
+  margin-right: 5px;
+  opacity: 0.8;
+}
+
+.logo-mini {
+  width: 12px;
+}
+
+.logo {
+  width: 16px;
+}
+
+.logo-middle {
+  width: 20px;
+}
+
+.logo-big {
+  width: 25px;
+}
+
+.logo-hudge {
+  width: 30px;
+  opacity: 0.8;
+}
+
+.logo-hudge:hover {
+  opacity: 1;
+}
+
+.card > .card-body > .cat-dark-bg {
+  background: url("../img/structure/back6.jpg") !important;
+  background-position: center;
+  font-size: 11px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.cat-head-bg {
+  background: url("../img/structure/back_at.jpg") !important;
+  width: 32.6%;
+  margin: 0 !important;
+  border-bottom: 2px solid #2E1007;
+  border-left: 2px solid #2E1007;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.cat-body-bg {
+  background: url("../img/structure/backc2.jpg") !important;
+  background-size: cover !important;
+  width: 32.6%;
+  border-left: 2px solid #2E1007;
+  border-bottom: 2px solid #2E1007;
+  padding: 10px;
+  text-align: center;
+}
+
+.cat-season {
+  width: 349px;
+  margin-left: 15px;
+  background: url("../img/structure/season.jpg") !important;
+  border-right: 2px solid #2E1007;
+  padding-left: 20px;
+}
+
+.cat-avatar {
+  width: 110px;
+}
+
+.cat-pseudo {
+  background: url("../img/structure/back_at.jpg") !important;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #2E1007;
+  font-size: 14px;
+}
+
+.card > .card-body > .card-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.card > .card-body > .card-text {
+    font-size: 12px;
+}
+
+a .green-text:hover {
+  color: white;
+}
+
+.green-text {
+  color: #466848;
+}
+
+.green-text-table {
+  color: #385800;
+}
+
+.blue-text {
+  color: #232D8E;
+}
+
+.blue-text-table {
+  color: #0D287A;
+}
+
+.pirate-text {
+  color: #2E1007;
+}
+
+.red-text {
+  color: #A7250A;
+}
+
+.red-text-table {
+  color: #8A1800;
+}
+
+.brown-text {
+  color: #592E00;
+}
+
+.brown-text-table {
+  color: #663100;
+}
+
+.gold-dark-table {
+  color: #B59900;
+}
+
+input, select {
+    width: 100%;
+    color: black;
+    font-weight: bold;
+    background-color: #554641;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #796F6B;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #796F6B;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #796F6B;
+}
+
+.little-input {
+  width: 200px !important;
+}
+
+/* Checkbox
+ */
+
+input[type=checkbox]:not(old){
+  width   : 2em;
+  margin  : 0;
+  padding : 0;
+  font-size: 1em;
+  opacity : 0;
+}
+
+input[type=checkbox]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -2em;
+  line-height  : 1.5em;
+}
+
+input[type=checkbox]:not(old) + label > span{
+  display          : inline-block;
+  width            : 1em;
+  height           : 1em;
+  margin           : 0.25em 0.5em 0.25em 0.25em;
+  border           : 0.0625em solid rgb(192,192,192);
+  border-radius    : 0.25em;
+  background       : rgb(224,224,224);
+  background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  vertical-align   : bottom;
+}
+
+input[type=checkbox]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+input[type=checkbox]:not(old):checked + label > span:before{
+  content     : '✓';
+  display     : block;
+  width       : 1em;
+  color       : rgb(153,204,102);
+  font-size   : 0.875em;
+  line-height : 1em;
+  text-align  : center;
+  text-shadow : 0 0 0.0714em rgb(115,153,77);
+  font-weight : bold;
+}
+
+input[type=radio]:not(old):checked + label > span > span{
+  display          : block;
+  width            : 0.5em;
+  height           : 0.5em;
+  margin           : 0.125em;
+  border           : 0.0625em solid rgb(115,153,77);
+  border-radius    : 0.125em;
+  background       : rgb(153,204,102);
+  background-image :    -moz-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :     -ms-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :      -o-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image : -webkit-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :         linear-gradient(rgb(179,217,140),rgb(153,204,102));
+}
+
+button[type="submit"], input[type="submit"] {
+    text-align: center;
+    width: 100%;
+    color: black;
+    font-weight: bold;
+    background-color: #554641;
+    border: 1px solid black;
+    padding: 2px;
+    color: #D2A741;
+}
+
+hr {
+    height: 1px;
+    color: black;
+    background-color: black;
+}
+
+/*
+  TABLES
+*/
+
+.ranking-name {
+    text-align: center;
+    background: url("../img/structure/back_at.jpg");
+    border: 1px solid #2E1007;
+}
+
+.ranking-name img {
+    margin-bottom: 5px;
+}
+
+.ranking-avatar {
+    width: 110px;
+}
+
+.ranking-number {
+    width: 73px;
+    background: url("../img/structure/back_cla.jpg");
+    line-height: 150px;
+    padding-left: 20px;
+}
+
+.online-state {
+    margin-bottom: 5px;
+}
+
+/*
+  REGISTRATION
+*/
+
+label {
+    margin-bottom: 0;
+}
+
+.registration-pub {
+  background: url("../img/structure/back6.jpg");
+  margin-top: -20px;
+}
+
+.registration-avatar {
+    margin: auto;
+    margin-top: 20px;
+    padding: 0;
+    width: 112px;
+    height: 171px;
+    border: 1px solid #2E1007;
+}
+
+.registration-ship {
+    border-left: 2px solid #2E1007;
+}
+
+.registration-infos {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.bg-cla {
+    background: url("../img/structure/back_cla.jpg") !important;
+    background-size: cover !important;
+}
+
+.mini {
+    font-size: 10px;
+    font-weight: normal;
+}
+
+.mini2 {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.mini3 {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.mini4 {
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.middle {
+  font-size: 14px;
+}
+
+.den-header {
+    width: 600px;
+    height: 30px;
+    background: url("../img/structure/barre.jpg");
+    color: #654f37;
+    font-size: 16px;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+}
+
+.den-choice {
+    width: 600px;
+    height: 40px;
+    background: url("../img/structure/back1.jpg");
+    background-position: right;
+    margin: auto;
+    padding: 5px;
+}
+
+.den-select {
+    width: 200px;
+    float: right;
+}
+
+.ilshenar-map {
+    width: 600px;
+    height: 500px;
+    background: url("../img/ilshenar.jpg");
+    margin: auto;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 820px !important;
+    }
+}
+
+/*
+    FLASH MESSAGES
+
+*/
+
+.flash-warning {
+    background: url("../img/structure/flash_error.jpg");
+    margin-bottom: 50px;
+}
+
+.flash-success {
+    background: url("../img/structure/flash_success.jpg");
+    margin-bottom: 50px;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+/* Cartographie */
+
+.cartographie-selection {
+  width: 100%;
+  padding: 5px;
+  background: url("../img/structure/back1.jpg");
+}
+
+.cartographie-selection input, .cartographie-selection select {
+  margin: 5px;
+  width: 210px;
+}
+
+.cartographie-background {
+  width: 600px;
+  height: 500px;
+  background: url("../img/ilshenar.jpg");
+  border: 2px solid #2E1007;
+  cursor: crosshair;
+}
+
+.cartographie-infos {
+  width: 134px;
+  border-top: 2px solid #2E1007;
+}
+
+.cartographie-navires {
+  height: 335px;
+  border-bottom: 2px solid #2E1007;
+  background: url("../img/structure/back1.jpg");
+  padding: 5px;
+  font-size: 11px;
+}
+
+.cartographie-legende {
+  height: 100px;
+  background: url("../img/structure/back1.jpg");
+  padding: 5px;
+  padding-left: 15px;
+  font-size: 14px;
+}
+
+/* Den positions on the map */
+
+.den-1 {
+  position: relative;
+  left: 120px;
+  top: 60px;
+}
+
+.den-2 {
+  position: relative;
+  left: 180px;
+  top: 45px;
+}
+
+.den-3 {
+  position: relative;
+  left: 260px;
+  top: 5px;
+}
+
+.den-4 {
+  position: relative;
+  left: 395px;
+  top: 60px;
+}
+
+.den-5 {
+  position: relative;
+  left: 110px;
+  top: 150px;
+}
+
+.den-6 {
+  position: relative;
+  left: 170px;
+  top: 140px;
+}
+
+.den-7 {
+  position: relative;
+  left: 420px;
+  top: 150px;
+}
+
+.den-8 {
+  position: relative;
+  left: 460px;
+  top: 150px;
+}
+
+.den-9 {
+  position: relative;
+  left: 110px;
+  top: 190px;
+}
+
+.den-10 {
+  position: relative;
+  left: 170px;
+  top: 210px;
+}
+
+.den-11 {
+  position: relative;
+  left: 420px;
+  top: 230px;
+}
+
+.den-12 {
+  position: relative;
+  left: 460px;
+  top: 220px;
+}
+
+.den-13 {
+  position: relative;
+  left: 110px;
+  top: 320px;
+}
+
+.den-14 {
+  position: relative;
+  left: 180px;
+  top: 320px;
+}
+
+.den-15 {
+  position: relative;
+  left: 268px;
+  top: 285px;
+}
+
+.den-16 {
+  position: relative;
+  left: 430px;
+  top: 320px;
+}
+
+.den-17 {
+  position: relative;
+  left: 490px;
+  top: 330px;
+}
+
+.den-18 {
+  position: relative;
+  left: 110px;
+  top: 420px;
+}
+
+.den-19 {
+  position: relative;
+  left: 170px;
+  top: 390px;
+}
+
+.den-20 {
+  position: relative;
+  left: 420px;
+  top: 400px;
+}
+
+.den-21 {
+  position: relative;
+  left: 455px;
+  top: 400px;
+}
+
+/* Ship positions on the map */
+
+.ship-1 {
+  position: absolute;
+  left: 65px;
+  top: 130px;
+}
+
+.ship-2 {
+  position: absolute;
+  left: 160px;
+  top: 90px;
+}
+
+.ship-3 {
+  position: absolute;
+  left: 280px;
+  top: 130px;
+}
+
+.ship-4 {
+  position: absolute;
+  left: 370px;
+  top: 90px;
+}
+
+.ship-5 {
+  position: absolute;
+  left: 50px;
+  top: 175px;
+}
+
+.ship-6 {
+  position: absolute;
+  left: 215px;
+  top: 175px;
+}
+
+.ship-7 {
+  position: absolute;
+  left: 355px;
+  top: 215px;
+}
+
+.ship-8 {
+  position: absolute;
+  left: 500px;
+  top: 170px;
+}
+
+.ship-9 {
+  position: absolute;
+  left: 15px;
+  top: 300px;
+}
+
+.ship-10 {
+  position: absolute;
+  left: 225px;
+  top: 295px;
+}
+
+.ship-11 {
+  position: absolute;
+  left: 370px;
+  top: 310px;
+}
+
+.ship-12 {
+  position: absolute;
+  left: 530px;
+  top: 260px;
+}
+
+.ship-13 {
+  position: absolute;
+  left: 20px;
+  top: 380px;
+}
+
+.ship-14 {
+  position: absolute;
+  left: 230px;
+  top: 385px;
+}
+
+.ship-15 {
+  position: absolute;
+  left: 310px;
+  top: 370px;
+}
+
+.ship-16 {
+  position: absolute;
+  left: 363px;
+  top: 410px;
+}
+
+.ship-17 {
+  position: absolute;
+  left: 525px;
+  top: 395px;
+}
+
+.ship-18 {
+  position: absolute;
+  left: 25px;
+  top: 470px;
+}
+
+.ship-19 {
+  position: absolute;
+  left: 210px;
+  top: 495px;
+}
+
+.ship-20 {
+  position: absolute;
+  left: 355px;
+  top: 523px;
+}
+
+.ship-21 {
+  position: absolute;
+  left: 520px;
+  top: 507px;
+}
+
+#timer {
+  font-weight: bold;
+  color: #466848;
+}
+
+/* Tutorial */
+
+.tuto {
+  margin-top: -40px;
+  margin-bottom: 20px;
+}
+
+.tuto .card {
+  min-height: 170px !important;
+}
+
+.tuto .card-body {
+  background: url("../img/structure/back1.jpg");
+}
+
+.tuto-avatar {
+  border-right: 2px solid #2E1007;
+  height: 170px;
+}
+
+.tuto-content {
+  width: 600px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.tutorial-arrow {
+  position: absolute;
+  right: 5px;
+  top: 80px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.tuto-link {
+  color: #1C4688;
+
+}
+
+.tuto-link:hover, .tuto-hide:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.tuto-hide {
+  color: #846D59;
+  font-weight: bold;
+}
+
+.tutorial-arrow:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.linkButton {
+  background: none !important;
+  border: none !important;
+  color: black !important;
+  cursor: pointer;
+  float: right;
+  width: 100px !important;
+}
+
+.linkButton:hover {
+  color: white !important;
+}
+
+.linkButton:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+/* */
+
+.top-card-body {
+  background: url("../img/structure/back6.jpg");
+  background-size: cover;
+  width: 100%;
+  padding: 6px !important;
+  padding-left: 30px !important;
+  border-bottom: 2px solid #2E1007;
+}
+
+.top-card-body select {
+    width: 50% !important;
+}
+
+.top-card-body button[type="submit"] {
+    float: right;
+    margin-right: 20px;
+}
+
+.top-card-body-2 {
+  background: url("../img/structure/back1dark.jpg");
+  padding: 10px !important;
+  border-bottom: 2px solid #2E1007;
+  font-size: 17px;
+}
+
+.top-card-body input, .top-card-body select {
+  width: 500px;
+  margin-left: 15px !important;
+}
+
+.input-white {
+  background-color: #DEC8A0;
+}
+
+.mini-input {
+    width: 200px !important;
+}
+
+.top-card-body button[type="submit"] {
+  width: 150px;
+  margin-left: 15px;
+}
+
+/* Ship display */
+.ship-level {
+  margin-left: 100px;
+  font-family: 'pirate';
+  font-size: 18px;
+  background-color: #DEC8A0;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  border: 2px dashed #000;
+  position: absolute;
+  right: 40px;
+}
+
+
+.icon-mini {
+    height: 20px;
+}
+
+.ship-img {
+  border-right: 2px solid #2E1007;
+    height: 170px;
+}
+
+.ship-crew {
+  padding: 10px;
+  width: 230px;
+  background: url("../img/structure/back1.jpg");
+  background-position: center;
+  border-right: 2px solid #2E1007;
+  font-size: 13px;
+}
+
+.ship-merchandise {
+  font-size: 13px;
+  width: 350px;
+  padding: 10px;
+  background: url("../img/structure/back1.jpg");
+  background-position: center;
+  border-right: 2px solid #2E1007;
+}
+
+.left-merchandise {
+  width: 48%;
+}
+
+.right-merchandise {
+  width: 52%;
+  padding-left: 15px;
+}
+
+/* Crew */
+
+.crew-bg {
+  width: 590px;
+  height: 170px;
+  background: url("../img/structure/crew.jpg");
+  position: relative;
+}
+
+/* Personal vertical progress bar */
+.personal-vertical-bar {
+  width: 14px;
+  height: 170px;
+  background-color: #BBAB94;
+  border-left: 2px solid #2E1007;
+  -webkit-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  -o-transform:rotate(180deg);
+  -ms-transform:rotate(180deg);
+  transform:rotate(180deg);
+  box-shadow: inset 0 0 6px black;
+}
+
+.personal-vertical-bar div {
+  width: 12px;
+  box-shadow: inset 0 0 6px black;
+}
+
+.xp-vertical {
+  background-color: #5E6F3F;
+
+  opacity: 0.8;
+}
+
+.structure-vertical {
+  background-color: #AA2E2C;
+
+  opacity: 0.8;
+}
+
+.morale-vertical {
+  background-color: #A97030;
+
+  opacity: 0.8;
+}
+
+/* Border brown */
+
+.border-bottom-brown {
+  border-bottom: 2px solid #2E1007;
+}
+
+.border-top-brown {
+  border-top: 2px solid #2E1007;
+}
+
+.border-left-brown {
+  border-left: 2px solid #2E1007;
+}
+
+.border-right-brown {
+  border-right: 2px solid #2E1007;
+}
+
+/* Float */
+
+.float-right-bottom {
+  position: absolute;
+  bottom: 5px;
+  background-color: #A85923;
+  border-radius: 10px;
+  padding: 5px;
+  font-weight: bold;
+  right: 10px;
+}
+
+/* Profile */
+
+.profile {
+  width: 400px;
+  margin: auto;
+}
+
+.header-profile {
+  height: 30px;
+  background: url("../img/structure/barre.jpg");
+  color: #846D59;
+  font-size: 16px;
+  padding: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.content-profile {
+  background: url("../img/structure/back1.jpg");
+  margin: 0 !important;
+  border: 2px solid #2E1007;
+}
+
+.avatar-profile {
+  border-right: 2px solid #2E1007;
+}
+
+.infos-profile {
+  width: 284px;
+}
+
+.stat-profile {
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #2E1007;
+  height: 42.5px;
+  line-height: 27px;
+}
+
+/* Modal */
+
+.modal-content {
+  border: 0;
+}
+
+.modal-header {
+  height: 30px;
+  background: url("../img/structure/barre.jpg");
+  color: #846D59;
+  font-size: 16px;
+  padding: 0;
+}
+
+.modal-title {
+  font-weight: bold !important;
+    font-size: 16px;
+}
+
+.modal-header > h5 {
+  width: 100% !important;
+  text-align: center;
+}
+
+.modal-body {
+  background: url("../img/structure/back1.jpg");
+}
+
+.modal-footer {
+}
+
+/* Table */
+
+table {
+}
+
+td {
+  padding: 10px;
+  font-weight: bold;
+}
+
+td > input {
+  padding: 5px;
+  font-weight: normal;
+}
+
+.modal-body > select {
+  font-weight: normal;
+}
+
+/* Ilshenar table */
+
+.ilshenar-table {
+  width: 624px;
+  height: 172px;
+  font-size: 12px;
+}
+
+.ilshenar tr, .ilshenar td .ilshenar th {
+  padding: 0 !important;
+}
+
+.ilshenar-table th {
+  border: 2px solid #2E1007;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ilshenar-table td {
+  font-weight: normal;
+}
+
+.ilshenar-table td, .ilshenar-table th {
+  width: 33.3%;
+  background: url('../img/structure/backc2.jpg');
+  background-size: cover;
+}
+
+/* War */
+
+.war-avatar-block {
+  width: 110px;
+}
+
+.war-avatar {
+  border-top: 2px solid #2E1007;
+  border-left: 0;
+  height: 180px;
+  width: 110px;
+}
+
+.war-bg-1 {
+  background: url('../img/structure/warbg1.jpg');
+  border-bottom: 2px solid #2E1007;
+}
+
+.war-bg-2 {
+  background: url('../img/structure/warbg2.jpg');
+  border-bottom: 2px solid #2E1007;
+}
+
+/* table.war-report {
+  background: transparent;
+  width: 100%;
+}
+
+table.war-report tr {
+  width: 100%;
+}
+
+table.war-report td {
+  background: url('../img/structure/back1.jpg');
+}
+
+table.war-report td.img {
+  padding: 0;
+  width: 110px;
+} */
+
+.war-report-infos {
+  background: url("../img/structure/back1dark.jpg");
+  width: 100%;
+  font-size: 16px;
+  border-bottom: 2px solid #2E1007;
+  font-weight: bold;
+}
+
+.war-left-infos, .war-right-infos {
+  width: 48%;
+}
+
+.war-left-infos {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.war-right-infos {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.war-report {
+  border-bottom: 2px solid #2E1007;
+}
+
+.war-report-left, .war-report-right {
+  background: url('../img/structure/back1.jpg');
+}
+
+.war-report-left img, .war-report-right img {
+  border-right: 2px solid #2E1007;
+}
+
+.war-report-left {
+  width: 49%;
+  border-right: 2px solid #2E1007;
+}
+
+.war-report-right {
+  width: 51%;
+}
+
+.infos-war-report {
+  padding: 5px;
+  width: 100%;
+}
+
+.ship-name-report {
+  font-size: 15px;
+}
+
+.no-style-table {
+  background-color: transparent;
+  width: 100%;
+}
+
+.no-style-table td {
+  border: 0;
+  padding: 0;
+  width: 25%;
+}
+
+
+/* Alliance Colors */
+.alliance-green {
+    color: #196F43;
+}
+
+.alliance-purple {
+    color: #242A6E;
+}
+
+.alliance-red {
+    color: #9F4124;
+}
+
+.alliance-blue {
+    color: #1B4965;
+}
+
+.alliance-black {
+    color: #34314c;
+}
+
+.alliance-yellow {
+    color: #9F7E24;
+}
+
+.alliance-orange {
+    color: #9F6724;
+}
+
+/* ADVERT */
+.card-advert {
+    min-height: 170px !important;
+}
+
+.card-advert .card-body {
+    background: url("../img/structure/back1.jpg") !important;
+    padding: 0 !important;
+    font-weight: bold;
+}
+
+.card-advert .card-body p {
+    padding: 10px;
+}

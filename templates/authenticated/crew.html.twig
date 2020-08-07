@@ -1,0 +1,121 @@
+{% extends 'authenticated/base.html.twig' %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {% if label == 'success' %}<span class="fas fa-check"></span>{% elseif label == 'danger' %}<span class="fas fa-times"></span>{% endif %} {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="card no-min-height mb-3">
+        <div class="card-header">
+            Recrutement
+        </div>
+        <div class="card-body card-back1">
+            <div class="row">
+                <div class="top-card-body col-12">
+                    {{ form_start(form) }}
+                        <img src="{{ asset('img/icons/coin.png') }}" class="logo" alt="gold"> <b>{{ app.user.gold|number_format(0, '.', ' ') }}</b> Pièces d'or
+                        {{ form_widget(form.ships) }}
+                        {{ form_widget(form.save) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-card-body col-12 border-bottom-brown">
+        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Matelot</strong> <span class="float-right" id="seaman">Déjà à bord <span id="seaman-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['seaman']['actual'] }} / {{ crewData|first['seaman']['max'] }}</span> {{ form_widget(form.seaman) }}</span>
+    </div>
+    <div class="d-flex">
+        <img src="{{ asset('img/avatars/8.jpg') }}" alt="matelot" class="ship-img">
+        <div class="crew-bg p-1">
+            <p class="middle"><b>Permet de déplacer un Navire et participe aux abordages.</b></p>
+
+            <p class="mini3">
+                Recrues affectées à de nombreuses tâches telles que l'entretien des canons, le nettoyage de la cabine du capitaine ou toutes sortes de besognes plus ou moins ingrates sur le navire. Lors des combats, ce sont les premiers sur le pont prêts à l'abordage. Ces pirates sont pour la plupart de nature robuste, disposant d'un physique adapté à la violence de leurs activités et des conditions de vie à bord. Cette vie intrépide ne leur laisse malheureusement que rarement le temps de faire de vieux os. Marins plus ou moins expérimentés, ils sont totalement indispensables sur un navire.
+                <span class="float-right-bottom">100 Pièces d'or</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="top-card-body col-12 border-bottom-brown mt-3">
+        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Explorateur</strong> <span class="float-right" id="explorer">Déjà à bord <span id="explorer-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['explorer']['actual'] }} / {{ crewData|first['explorer']['max'] }}</span> {{ form_widget(form.explorer) }}</span>
+    </div>
+    <div class="d-flex">
+        <img src="{{ asset('img/avatars/11.jpg') }}" alt="matelot" class="ship-img">
+        <div class="crew-bg p-1">
+            <p class="middle"><b>Permet de braconner, faire de l'exploration et participer aux abordages.</b></p>
+
+            <p class="mini3">
+                C'est un véritable aventurier qui n'a peur de rien. Il est principalement envoyé à terre lors des nombreuses escales en territoire inconnu. Il explore les environs à la recherche de nourriture et d'eau douce afin de réapprovisionner les cales du navire. Il excelle dans ses activités de braconnage et permettra donc d'accumuler de nombreux trophées de chasse au cours de vos voyages. Mais avant tout, ce baroudeur est un expert dans la chasse aux trésors. C'est grâce à lui et à ses compétences que vous allez découvrir des richesses inimaginables dissimulées à travers le monde d'Ilshenar.
+                <span class="float-right-bottom">200 Pièces d'or</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="top-card-body col-12 border-bottom-brown mt-3">
+        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Canonnier</strong> <span class="float-right" id="gunner">Déjà à bord <span id="gunner-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['gunner']['actual'] }} / {{ crewData|first['gunner']['max'] }}</span> {{ form_widget(form.gunner) }}</span>
+    </div>
+    <div class="d-flex">
+        <img src="{{ asset('img/avatars/9.jpg') }}" alt="matelot" class="ship-img">
+        <div class="crew-bg p-1">
+            <p class="middle"><b>Permet d'utiliser les canons à bord du navire.</b></p>
+
+            <p class="mini3">
+                Il commande l'artillerie du bord. Durant les engagements de combats, il dirige les équipes de canonniers afin de viser juste et de synchroniser les tirs d'une bordée de canons. Le nombre de canons à bord d'un navire, mais surtout l'efficacité avec laquelle ils sont utilisés, est très souvent décisif dans l'issue d'un affrontement en mer. Ceci le rend donc indispensable durant les batailles et il garantit une puissance de feu destructrice face à l'ennemi. Bien entendu, afin de mettre à profit ses compétences, il devra disposer d'une pièce d'artillerie. Un canonnier permettant de faire fonctionner un seul canon à la fois.
+                <span class="float-right-bottom">500 Pièces d'or</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="top-card-body col-12 border-bottom-brown mt-3">
+        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Cuisinier</strong> <span class="float-right" id="cook">Déjà à bord <span id="cook-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['carpenter']['actual'] }} / {{ crewData|first['carpenter']['max'] }}</span> {{ form_widget(form.cook) }}</span>
+    </div>
+    <div class="d-flex">
+        <img src="{{ asset('img/avatars/5.jpg') }}" alt="cuisinier" class="ship-img">
+        <div class="crew-bg p-1">
+            <p class="middle"><b>Permet de nourrir et divertir l'Equipage tout en remontant le moral du bord.</b></p>
+
+            <p class="mini3">
+                Le cuisinier est souvent un matelot qui, après une blessure au combat, ne peut plus servir à grand chose d'autre sur le navire. On le nomme cuisinier mais rien ne garantit qu'il ait la moindre compétence en matière de chaudron. Son rôle est évident : nourrir l'équipage mais aussi leur donner du coeur à l'ouvrage en accomodant au mieux la cambuse. Viandes boucanées, écrevisses, lézards, tortues de mer et bouteilles de rhum seront à la carte ! Il permet de remonter le moral de l'équipage en cas de besoin et donc d'influer sur leur ardeur au travail et au combat.
+                <span class="float-right-bottom">1 000 Pièces d'or</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="top-card-body col-12 border-bottom-brown mt-3">
+        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Charpentier</strong> <span class="float-right" id="carpenter">Déjà à bord <span id="carpenter-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['cook']['actual'] }} / {{ crewData|first['cook']['max'] }}</span> {{ form_widget(form.carpenter) }}</span>
+    </div>
+    <div class="d-flex">
+        <img src="{{ asset('img/avatars/12.jpg') }}" alt="cuisinier" class="ship-img">
+        <div class="crew-bg p-1">
+            <p class="middle"><b>Permet de réparer le navire et de l'améliorer.</b></p>
+
+            <p class="mini3">
+                Sans lui, il vous sera impossible de vous déplacer. En effet, le charpentier s'occupe d'entretien et d'améliorer la structure de votre navire fait de bois. Grâce à ses hautes compétences, vous pourrez réparer votre navire après un dur combat en mer et, ainsi, repartir de plus belle à la conquête d'Ilshenar. De plus, son savoir faire vous permettra également d'améliorer votre navire ce qui vous rendra plus fort lors des batailles en mer.
+                <span class="float-right-bottom">2 000 Pièces d'or</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="top-card-body col-12 border-bottom-brown mt-3">
+        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Chirgurgien</strong> <span class="float-right" id="surgeon">Déjà à bord <span id="surgeon-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['surgeon']['actual'] }} / {{ crewData|first['surgeon']['max'] }}</span> {{ form_widget(form.surgeon) }}</span>
+    </div>
+    <div class="d-flex">
+        <img src="{{ asset('img/avatars/4.jpg') }}" alt="chirurgien" class="ship-img">
+        <div class="crew-bg p-1">
+            <p class="middle"><b>Permet de soigner les membres de l'équipage.</b></p>
+
+            <p class="mini3">
+                Comme son nom le laisse suggérer, le chirurgien va vous permettre de soigner les membres de l'équipage à bord. En d'autres termes, lorsqu'une bataille aura eu lieu, il va pouvoir soigner quelques membres de l'équipage, leur épargnant une mort douloureuse et vous permettant d'économiser quelques hommes. Grâce à sa médecine traditionnelle, cette recrue va donc vous permettre, à termes, de faire des économies en recrutement, bien qu'il soit assez cher à enrôler..
+                <span class="float-right-bottom">5 000 Pièces d'or</span>
+            </p>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+    {% include 'authenticated/script/recruit.html.twig' %}
+{% endblock %}

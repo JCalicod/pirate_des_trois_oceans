@@ -1,0 +1,45 @@
+<script>
+    document.getElementById('send-tavern-message').addEventListener('click', sendMessage, false);
+    $(document).on('keypress', function(e) {
+        if(e.which == 13) {
+            sendMessage();
+        }
+    });
+
+    function getMessages() {
+        $.ajax({
+            url : "{{ path('app_tavern_refresh') }}",
+            type : "GET",
+            dataType: "html"
+        }).done(function (response) {
+            $('#tavern').html(response);
+            document.body.style.cursor = 'initial';
+        });
+    }
+
+    function abordRequests() {
+        for (var i = 0; i < requests.length; i++) {
+            requests[i].abort();
+        }
+    }
+
+    function sendMessage() {
+        if (document.body.style.cursor != 'wait') {
+            abordRequests();
+            var message = $('#tavern-message').val();
+            $('#tavern-message').val('');
+            document.body.style.cursor = 'wait';
+
+            $.ajax({
+                url: "{{ path('app_tavern_send_message') }}",
+                type: "POST",
+                data: {
+                    message: message
+                },
+                dataType: "html"
+            }).done(function (response) {
+                getMessages();
+            });
+        }
+    };
+</script>

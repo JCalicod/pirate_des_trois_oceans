@@ -1,0 +1,3 @@
+<div class="alert alert-{{ label }}">
+    {% if label == 'success' %}<span class="fas fa-check"></span>{% elseif label == 'danger' %}<span class="fas fa-times"></span>{% endif %} {{ message }}
+</div>

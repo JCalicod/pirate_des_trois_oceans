@@ -1,0 +1,134 @@
+<div id="management" class="tab-block">
+    <div class="block">
+        <div class="block-header">
+            <img src="{{ asset('img/icons/medal.png') }}" alt="medal"> Gestion des Membres
+        </div>
+        <div class="block-content">
+            {% if alliance.users|length > 1 %}
+                <div class="management-row d-flex justify-content-between">
+                    <div class="left-form">
+                        Nommer un nouveau Chef de l'Alliance
+                    </div>
+                    <div class="right-form">
+                        {{ form_start(forms['updateChief']) }}
+                        <div class="d-flex">
+                            <div class="input-management">
+                                {{ form_widget(forms['updateChief'].chief) }}
+                            </div>
+                            <div class="validate-management">
+                                {{ form_widget(forms['updateChief'].save) }}
+                            </div>
+                        </div>
+                    {{ form_end(forms['updateChief']) }}
+                    </div>
+                </div>
+                <div class="management-row d-flex justify-content-between mb-0">
+                    <div class="left-form">
+                        Exclure un Joueur de l'Alliance
+                    </div>
+                    <div class="right-form">
+                        {{ form_start(forms['excludeMember']) }}
+                        <div class="d-flex">
+                            <div class="input-management">
+                                {{ form_widget(forms['excludeMember'].member) }}
+                            </div>
+                            <div class="validate-management">
+                                {{ form_widget(forms['excludeMember'].save) }}
+                            </div>
+                        </div>
+                        {{ form_end(forms['excludeMember']) }}
+                    </div>
+                </div>
+            {% else %}
+                Il n'y a actuellement aucun membre sous votre commandement.
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="block">
+        <div class="block-header">
+            <img src="{{ asset('img/icons/medal.png') }}" alt="medal"> Gestion de l'Alliance
+        </div>
+        <div class="block-content">
+            <div class="management-row d-flex justify-content-between">
+                <div class="left-form">
+                    Présentation de l'Alliance
+                </div>
+                <div class="right-form big">
+                    {{ form_start(forms['updatePresentation']) }}
+                    <div class="d-flex">
+                        <div class="input-management">
+                            {{ form_widget(forms['updatePresentation'].description) }}
+                        </div>
+                        <div class="validate-management">
+                            {{ form_widget(forms['updatePresentation'].save) }}
+                        </div>
+                    </div>
+                    {{ form_end(forms['updatePresentation']) }}
+                </div>
+            </div>
+            <div class="management-row d-flex justify-content-between">
+                <div class="left-form">
+                    Code du Pirate
+                </div>
+                <div class="right-form big">
+                    {{ form_start(forms['updatePirateCode']) }}
+                    <div class="d-flex">
+                        <div class="input-management">
+                            {{ form_widget(forms['updatePirateCode'].pirate_code) }}
+                        </div>
+                        <div class="validate-management">
+                            {{ form_widget(forms['updatePirateCode'].save) }}
+                        </div>
+                    </div>
+                    {{ form_end(forms['updatePirateCode']) }}
+                </div>
+            </div>
+            <div class="management-row d-flex justify-content-between mb-0">
+                <div class="left-form">
+                    Faire une Annonce
+                </div>
+                <div class="right-form big">
+                    {{ form_start(forms['updateAdvert']) }}
+                    <div class="d-flex">
+                        <div class="input-management">
+                            {{ form_widget(forms['updateAdvert'].advert) }}
+                        </div>
+                        <div class="validate-management">
+                            {{ form_widget(forms['updateAdvert'].save) }}
+                        </div>
+                    </div>
+                    {{ form_end(forms['updateAdvert']) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block">
+        <div class="block-header">
+            <img src="{{ asset('img/icons/medal.png') }}" alt="medal"> Gestion du Recrutement
+        </div>
+        <div class="block-content">
+            <div class="management-row d-flex justify-content-between">
+                <div class="left-form">
+                    Status et Puissance requise
+                </div>
+                <div class="right-form">
+                    {{ form_start(forms['updateStatusAndPower']) }}
+                    <div class="d-flex">
+                        <div class="input-management recruitment">
+                            {{ form_widget(forms['updateStatusAndPower'].open) }}
+                        </div>
+                        <div class="input-management">
+                            {{ form_widget(forms['updateStatusAndPower'].required_power) }}
+                        </div>
+                        <div class="validate-management">
+                            {{ form_widget(forms['updateStatusAndPower'].save) }}
+                        </div>
+                    </div>
+                    {{ form_end(forms['updateStatusAndPower']) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
