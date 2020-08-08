@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Entity\Lands;
+use App\Entity\War;
 use App\Service\MessagingServices;
 use App\Service\ShipServices;
 use App\Service\WarServices;
@@ -112,11 +113,13 @@ class WarController extends AbstractController {
             }
         }
 
+        $stats = $this->em->getRepository(War::class)->getRecentStats();
 
         return $this->render('authenticated/war.html.twig', [
             'lands' => $lands,
             'oponents' => $oponents,
-            'selected' => $selected
+            'selected' => $selected,
+            'stats' => $stats
         ]);
     }
 }

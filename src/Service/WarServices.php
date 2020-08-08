@@ -177,7 +177,7 @@ class WarServices {
             $track->setDefender($this->defender['user']);
         }
         $this->em->persist($track);
-        if ($this->user->getAlliance() || $this->defender['user']->getAlliance()) {
+        if (($this->user->getAlliance() || $this->defender['user']->getAlliance()) && $this->defender['user']) {
             $allianceTrack = new AllianceWar();
             $allianceTrack->setPoints($this->getPoints());
             $allianceTrack->setWar($track);

@@ -201,15 +201,49 @@ class __TwigTemplate_c8bf5d8e8abf7d2d1d8abeb4a20388dcc3dbca0835e89908030e63af85c
                                 <td rowspan=\"3\" class=\"war-stats\">
                                     <p>
                                         <span class=\"gold-dark font-weight-bold\">Statistiques du Jour</span><br>
-                                        Nombre de Batailles <span class=\"float-right font-weight-bold\">0</span><br>
-                                        Navires Coulés <span class=\"float-right font-weight-bold\">0</span><br>
-                                        Navires Capturés <span class=\"float-right font-weight-bold\">0</span>
+                                        Nombre de Batailles <span class=\"float-right font-weight-bold\">";
+        // line 51
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 51, $this->source); })()), "today", [], "array", false, false, false, 51), "battles", [], "array", false, false, false, 51), "html", null, true);
+        echo "</span><br>
+                                        Navires Coulés <span class=\"float-right font-weight-bold\">";
+        // line 52
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 52, $this->source); })()), "today", [], "array", false, false, false, 52), "sunk", [], "array", false, false, false, 52)) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 52, $this->source); })()), "today", [], "array", false, false, false, 52), "sunk", [], "array", false, false, false, 52), "html", null, true);
+        } else {
+            echo "0";
+        }
+        echo "</span><br>
+                                        Navires Capturés <span class=\"float-right font-weight-bold\">";
+        // line 53
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 53, $this->source); })()), "today", [], "array", false, false, false, 53), "captured", [], "array", false, false, false, 53)) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 53, $this->source); })()), "today", [], "array", false, false, false, 53), "captured", [], "array", false, false, false, 53), "html", null, true);
+        } else {
+            echo "0";
+        }
+        echo "</span>
                                     </p>
                                     <p>
                                         <span class=\"gold-dark font-weight-bold\">Statistiques de la Veille</span><br>
-                                        Nombre de Batailles <span class=\"float-right font-weight-bold\">0</span><br>
-                                        Navires Coulés <span class=\"float-right font-weight-bold\">0</span><br>
-                                        Navires Capturés <span class=\"float-right font-weight-bold\">0</span>
+                                        Nombre de Batailles <span class=\"float-right font-weight-bold\">";
+        // line 57
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 57, $this->source); })()), "yesterday", [], "array", false, false, false, 57), "battles", [], "array", false, false, false, 57), "html", null, true);
+        echo "</span><br>
+                                        Navires Coulés <span class=\"float-right font-weight-bold\">";
+        // line 58
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 58, $this->source); })()), "yesterday", [], "array", false, false, false, 58), "sunk", [], "array", false, false, false, 58)) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 58, $this->source); })()), "yesterday", [], "array", false, false, false, 58), "sunk", [], "array", false, false, false, 58), "html", null, true);
+        } else {
+            echo "0";
+        }
+        echo "</span><br>
+                                        Navires Capturés <span class=\"float-right font-weight-bold\">";
+        // line 59
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 59, $this->source); })()), "yesterday", [], "array", false, false, false, 59), "captured", [], "array", false, false, false, 59)) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["stats"]) || array_key_exists("stats", $context) ? $context["stats"] : (function () { throw new RuntimeError('Variable "stats" does not exist.', 59, $this->source); })()), "yesterday", [], "array", false, false, false, 59), "captured", [], "array", false, false, false, 59), "html", null, true);
+        } else {
+            echo "0";
+        }
+        echo "</span>
                                     </p>
                                 </td>
                                 <td class=\"bb2\">
@@ -518,7 +552,7 @@ class __TwigTemplate_c8bf5d8e8abf7d2d1d8abeb4a20388dcc3dbca0835e89908030e63af85c
 
     public function getDebugInfo()
     {
-        return array (  486 => 214,  482 => 213,  479 => 212,  473 => 211,  470 => 210,  467 => 209,  464 => 208,  461 => 207,  459 => 206,  447 => 199,  442 => 196,  436 => 194,  433 => 193,  429 => 191,  423 => 189,  420 => 188,  418 => 187,  414 => 185,  408 => 183,  402 => 181,  400 => 180,  387 => 178,  380 => 175,  375 => 174,  373 => 173,  363 => 166,  358 => 164,  352 => 162,  348 => 161,  335 => 151,  330 => 149,  324 => 147,  320 => 146,  307 => 136,  302 => 134,  296 => 132,  292 => 131,  282 => 124,  273 => 118,  197 => 45,  193 => 44,  187 => 43,  177 => 36,  172 => 33,  155 => 31,  151 => 30,  146 => 28,  132 => 16,  126 => 15,  111 => 12,  106 => 11,  101 => 10,  96 => 9,  86 => 8,  74 => 5,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  520 => 214,  516 => 213,  513 => 212,  507 => 211,  504 => 210,  501 => 209,  498 => 208,  495 => 207,  493 => 206,  481 => 199,  476 => 196,  470 => 194,  467 => 193,  463 => 191,  457 => 189,  454 => 188,  452 => 187,  448 => 185,  442 => 183,  436 => 181,  434 => 180,  421 => 178,  414 => 175,  409 => 174,  407 => 173,  397 => 166,  392 => 164,  386 => 162,  382 => 161,  369 => 151,  364 => 149,  358 => 147,  354 => 146,  341 => 136,  336 => 134,  330 => 132,  326 => 131,  316 => 124,  307 => 118,  241 => 59,  233 => 58,  229 => 57,  218 => 53,  210 => 52,  206 => 51,  197 => 45,  193 => 44,  187 => 43,  177 => 36,  172 => 33,  155 => 31,  151 => 30,  146 => 28,  132 => 16,  126 => 15,  111 => 12,  106 => 11,  101 => 10,  96 => 9,  86 => 8,  74 => 5,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -573,15 +607,15 @@ class __TwigTemplate_c8bf5d8e8abf7d2d1d8abeb4a20388dcc3dbca0835e89908030e63af85c
                                 <td rowspan=\"3\" class=\"war-stats\">
                                     <p>
                                         <span class=\"gold-dark font-weight-bold\">Statistiques du Jour</span><br>
-                                        Nombre de Batailles <span class=\"float-right font-weight-bold\">0</span><br>
-                                        Navires Coulés <span class=\"float-right font-weight-bold\">0</span><br>
-                                        Navires Capturés <span class=\"float-right font-weight-bold\">0</span>
+                                        Nombre de Batailles <span class=\"float-right font-weight-bold\">{{ stats['today']['battles'] }}</span><br>
+                                        Navires Coulés <span class=\"float-right font-weight-bold\">{% if stats['today']['sunk'] %}{{ stats['today']['sunk'] }}{% else %}0{% endif %}</span><br>
+                                        Navires Capturés <span class=\"float-right font-weight-bold\">{% if stats['today']['captured'] %}{{ stats['today']['captured'] }}{% else %}0{% endif %}</span>
                                     </p>
                                     <p>
                                         <span class=\"gold-dark font-weight-bold\">Statistiques de la Veille</span><br>
-                                        Nombre de Batailles <span class=\"float-right font-weight-bold\">0</span><br>
-                                        Navires Coulés <span class=\"float-right font-weight-bold\">0</span><br>
-                                        Navires Capturés <span class=\"float-right font-weight-bold\">0</span>
+                                        Nombre de Batailles <span class=\"float-right font-weight-bold\">{{ stats['yesterday']['battles'] }}</span><br>
+                                        Navires Coulés <span class=\"float-right font-weight-bold\">{% if stats['yesterday']['sunk'] %}{{ stats['yesterday']['sunk'] }}{% else %}0{% endif %}</span><br>
+                                        Navires Capturés <span class=\"float-right font-weight-bold\">{% if stats['yesterday']['captured'] %}{{ stats['yesterday']['captured'] }}{% else %}0{% endif %}</span>
                                     </p>
                                 </td>
                                 <td class=\"bb2\">
@@ -746,6 +780,6 @@ class __TwigTemplate_c8bf5d8e8abf7d2d1d8abeb4a20388dcc3dbca0835e89908030e63af85c
     </div>
 
 {% endblock %}
-", "authenticated/war.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\war.html.twig");
+", "authenticated/war.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\war.html.twig");
     }
 }

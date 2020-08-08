@@ -48,15 +48,15 @@
                                 <td rowspan="3" class="war-stats">
                                     <p>
                                         <span class="gold-dark font-weight-bold">Statistiques du Jour</span><br>
-                                        Nombre de Batailles <span class="float-right font-weight-bold">0</span><br>
-                                        Navires Coulés <span class="float-right font-weight-bold">0</span><br>
-                                        Navires Capturés <span class="float-right font-weight-bold">0</span>
+                                        Nombre de Batailles <span class="float-right font-weight-bold">{{ stats['today']['battles'] }}</span><br>
+                                        Navires Coulés <span class="float-right font-weight-bold">{% if stats['today']['sunk'] %}{{ stats['today']['sunk'] }}{% else %}0{% endif %}</span><br>
+                                        Navires Capturés <span class="float-right font-weight-bold">{% if stats['today']['captured'] %}{{ stats['today']['captured'] }}{% else %}0{% endif %}</span>
                                     </p>
                                     <p>
                                         <span class="gold-dark font-weight-bold">Statistiques de la Veille</span><br>
-                                        Nombre de Batailles <span class="float-right font-weight-bold">0</span><br>
-                                        Navires Coulés <span class="float-right font-weight-bold">0</span><br>
-                                        Navires Capturés <span class="float-right font-weight-bold">0</span>
+                                        Nombre de Batailles <span class="float-right font-weight-bold">{{ stats['yesterday']['battles'] }}</span><br>
+                                        Navires Coulés <span class="float-right font-weight-bold">{% if stats['yesterday']['sunk'] %}{{ stats['yesterday']['sunk'] }}{% else %}0{% endif %}</span><br>
+                                        Navires Capturés <span class="float-right font-weight-bold">{% if stats['yesterday']['captured'] %}{{ stats['yesterday']['captured'] }}{% else %}0{% endif %}</span>
                                     </p>
                                 </td>
                                 <td class="bb2">
