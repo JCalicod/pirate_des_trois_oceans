@@ -97,7 +97,7 @@
                     <div class="card-body card-back1">
                         <div class="row">
                             <div class="top-card-body col-12">
-                                <select class="input-white" name="choice">
+                                <select class="input-white" name="choice" id="choice">
                                     <option value="repair">Réparer le Navire et / ou le Repaire</option>
                                     <option value="moral">Remonter le moral de l'équipage</option>
                                     <option value="upgrade">Améliorer le Navire / le Repaire</option>
@@ -111,15 +111,20 @@
             </div>
         </div>
 
+        <div class="estimate">
+            <img src="{{ asset('img/icons/coin.png') }}" class="logo" alt="gold"> Estimation du coût total : <span id="estimate" class="font-weight-bold">0</span> PO
+            <p id="estimate-more"></p>
+        </div>
+
 
 
         {% for ship in ships %}
             <div class="row mt-3">
-                <div class="col-12">
+                <div class="col-12 ship-col">
                     <div class="top-card-body-2">
                         <input type="checkbox" value="{{ ship.id }}" name="ship[]"> <label><span><span></span></span></label>
                         {% if ship is instanceof('App\\Entity\\Den') %}<img src="{{ asset('img/icons/den.png') }}" class="logo-hudge" alt="ship">{% else %}<img src="{{ asset('img/icons/helm.png') }}" class="logo-hudge" alt="ship">{% endif %} <strong>{{ ship.name }}</strong> [{{ ship.position.id }} - {{ ship.position.name }}]
-                        <span class="ship-level">Niveau {{ ship.level }}</span> <a href="{{ path('app_ship_order_move_up', { id: ship.id }) }}"><img src="{{ asset('img/icons/up.png') }}" class="icon-mini" alt="up"></a><a href="{{ path('app_ship_order_move_down', { id: ship.id }) }}"><img src="{{ asset('img/icons/down.png') }}" class="icon-mini" alt="down"></a>
+                        <span class="ship-level">Niveau <span class="level">{{ ship.level }}</span></span> <a href="{{ path('app_ship_order_move_up', { id: ship.id }) }}"><img src="{{ asset('img/icons/up.png') }}" class="icon-mini" alt="up"></a><a href="{{ path('app_ship_order_move_down', { id: ship.id }) }}"><img src="{{ asset('img/icons/down.png') }}" class="icon-mini" alt="down"></a>
                         <a href="#" style="position: absolute; right: 0;" data-toggle="modal" data-target="#rename{{ ship.id }}"><img src="{{ asset('img/icons/rename.png') }}" class="logo-hudge ml-3 mr-1" alt="rename" title="Renommer"></a>
                     </div>
                     <div class="row no-margin">
@@ -139,22 +144,30 @@
                             <div class="row pl-4 pr-4">
                                 <div class="left-merchandise">
                                     <span class="red-text"><strong>Canons</strong></span> <span class="float-right">{{ ship.gun|number_format(0, '.', ' ') }}</span><br>
-                                    <span class="green-text"><strong>Nourriture</strong></span> <span class="float-right">{{ ship.food|number_format(0, '.', ' ') }}</span><br>
-                                    <span class="brown-text"><strong>Bois</strong></span> <span class="float-right">{{ ship.wood|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="green-text"><strong>Nourriture</strong></span> <span class="float-right food">{{ ship.food|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="brown-text"><strong>Bois</strong></span> <span class="float-right wood">{{ ship.wood|number_format(0, '.', ' ') }}</span><br>
                                     <span class="gold-dark"><strong>Gemmes</strong></span> <span class="float-right">{{ ship.gemstone|number_format(0, '.', ' ') }}</span><br>
                                     <span class="gold-dark"><strong>Etoffes</strong></span> <span class="float-right">{{ ship.stuff|number_format(0, '.', ' ') }}</span><br>
                                     <span class="gold-dark"><strong>Manuscrits</strong></span> <span class="float-right">{{ ship.manuscript|number_format(0, '.', ' ') }}</span><br>
                                 </div>
                                 <div class="right-merchandise">
                                     <span class="red-text"><strong>Armement</strong></span> <span class="float-right">{{ ship.arsenal|number_format(0, '.', ' ') }}</span><br>
-                                    <span class="green-text"><strong>Alcool</strong></span> <span class="float-right">{{ ship.alcohol|number_format(0, '.', ' ') }}</span><br>
-                                    <span class="brown-text"><strong>Cuir</strong></span> <span class="float-right">{{ ship.copper|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="green-text"><strong>Alcool</strong></span> <span class="float-right alcohol">{{ ship.alcohol|number_format(0, '.', ' ') }}</span><br>
+                                    <span class="brown-text"><strong>Cuir</strong></span> <span class="float-right copper">{{ ship.copper|number_format(0, '.', ' ') }}</span><br>
                                     <span class="gold-dark"><strong>Bijoux</strong></span> <span class="float-right">{{ ship.jewellery|number_format(0, '.', ' ') }}</span><br>
                                     <span class="gold-dark"><strong>Fourrures</strong></span> <span class="float-right">{{ ship.fur|number_format(0, '.', ' ') }}</span><br>
                                     <span class="gold-dark"><strong>Epices</strong></span> <span class="float-right">{{ ship.spice|number_format(0, '.', ' ') }}</span><br>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="d-none structure">{{ ship.structure }}</div>
+
+                        <div class="d-none moral">{{ ship.moral }}</div>
+
+                        <div class="d-none xp">{{ ship.getXpDisp }}</div>
+
+                        <div class="d-none xpmax">{{ ship.getMaxXpDisp }}</div>
 
                         <div class="personal-vertical-bar" title="Structure : {{ ship.structure }}/100"><div class="structure-vertical" style="height: {{ ship.structure }}%;"></div></div>
                         <div class="personal-vertical-bar" title="Moral : {{ ship.moral }}/100"><div class="morale-vertical" style="height: {{ ship.moral }}%;"></div></div>
@@ -186,4 +199,6 @@
             </div>
         </div>
     {% endfor %}
+
+    {% include 'authenticated/script/ships-estimate.html.twig' %}
 {% endblock %}

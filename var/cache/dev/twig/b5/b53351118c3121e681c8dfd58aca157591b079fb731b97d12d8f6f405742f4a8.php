@@ -253,7 +253,7 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
                     <div class=\"card-body card-back1\">
                         <div class=\"row\">
                             <div class=\"top-card-body col-12\">
-                                <select class=\"input-white\" name=\"choice\">
+                                <select class=\"input-white\" name=\"choice\" id=\"choice\">
                                     <option value=\"repair\">Réparer le Navire et / ou le Repaire</option>
                                     <option value=\"moral\">Remonter le moral de l'équipage</option>
                                     <option value=\"upgrade\">Améliorer le Navire / le Repaire</option>
@@ -272,23 +272,31 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
             </div>
         </div>
 
+        <div class=\"estimate\">
+            <img src=\"";
+        // line 115
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/coin.png"), "html", null, true);
+        echo "\" class=\"logo\" alt=\"gold\"> Estimation du coût total : <span id=\"estimate\" class=\"font-weight-bold\">0</span> PO
+            <p id=\"estimate-more\"></p>
+        </div>
+
 
 
         ";
-        // line 116
+        // line 121
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["ships"]) || array_key_exists("ships", $context) ? $context["ships"] : (function () { throw new RuntimeError('Variable "ships" does not exist.', 116, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["ships"]) || array_key_exists("ships", $context) ? $context["ships"] : (function () { throw new RuntimeError('Variable "ships" does not exist.', 121, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["ship"]) {
-            // line 117
+            // line 122
             echo "            <div class=\"row mt-3\">
-                <div class=\"col-12\">
+                <div class=\"col-12 ship-col\">
                     <div class=\"top-card-body-2\">
                         <input type=\"checkbox\" value=\"";
-            // line 120
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 120), "html", null, true);
+            // line 125
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 125), "html", null, true);
             echo "\" name=\"ship[]\"> <label><span><span></span></span></label>
                         ";
-            // line 121
+            // line 126
             if ($this->extensions['App\Twig\AppExtension']->isInstanceOf($context["ship"], "App\\Entity\\Den")) {
                 echo "<img src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/den.png"), "html", null, true);
@@ -299,168 +307,188 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
                 echo "\" class=\"logo-hudge\" alt=\"ship\">";
             }
             echo " <strong>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "name", [], "any", false, false, false, 121), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "name", [], "any", false, false, false, 126), "html", null, true);
             echo "</strong> [";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["ship"], "position", [], "any", false, false, false, 121), "id", [], "any", false, false, false, 121), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["ship"], "position", [], "any", false, false, false, 126), "id", [], "any", false, false, false, 126), "html", null, true);
             echo " - ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["ship"], "position", [], "any", false, false, false, 121), "name", [], "any", false, false, false, 121), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["ship"], "position", [], "any", false, false, false, 126), "name", [], "any", false, false, false, 126), "html", null, true);
             echo "]
-                        <span class=\"ship-level\">Niveau ";
-            // line 122
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "level", [], "any", false, false, false, 122), "html", null, true);
-            echo "</span> <a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ship_order_move_up", ["id" => twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 122)]), "html", null, true);
+                        <span class=\"ship-level\">Niveau <span class=\"level\">";
+            // line 127
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "level", [], "any", false, false, false, 127), "html", null, true);
+            echo "</span></span> <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ship_order_move_up", ["id" => twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 127)]), "html", null, true);
             echo "\"><img src=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/up.png"), "html", null, true);
             echo "\" class=\"icon-mini\" alt=\"up\"></a><a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ship_order_move_down", ["id" => twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 122)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ship_order_move_down", ["id" => twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 127)]), "html", null, true);
             echo "\"><img src=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/down.png"), "html", null, true);
             echo "\" class=\"icon-mini\" alt=\"down\"></a>
                         <a href=\"#\" style=\"position: absolute; right: 0;\" data-toggle=\"modal\" data-target=\"#rename";
-            // line 123
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 123), "html", null, true);
+            // line 128
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 128), "html", null, true);
             echo "\"><img src=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/rename.png"), "html", null, true);
             echo "\" class=\"logo-hudge ml-3 mr-1\" alt=\"rename\" title=\"Renommer\"></a>
                     </div>
                     <div class=\"row no-margin\">
                         <img src=\"";
-            // line 126
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl((("img/ships/" . twig_get_attribute($this->env, $this->source, $context["ship"], "avatar", [], "any", false, false, false, 126)) . ".jpg")), "html", null, true);
+            // line 131
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl((("img/ships/" . twig_get_attribute($this->env, $this->source, $context["ship"], "avatar", [], "any", false, false, false, 131)) . ".jpg")), "html", null, true);
             echo "\" alt=\"avatar\" class=\"ship-img\">
                         <div class=\"ship-crew\">
                             <img src=\"";
-            // line 128
+            // line 133
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/arsenal.png"), "html", null, true);
             echo "\" class=\"logo-hudge\" alt=\"arsenal\"> <strong>Equipage</strong> <span class=\"float-right\">";
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getCrew", [], "any", false, false, false, 128), 0, ".", " "), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getCrew", [], "any", false, false, false, 133), 0, ".", " "), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxCrew", [], "any", false, false, false, 128), 0, ".", " "), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxCrew", [], "any", false, false, false, 133), 0, ".", " "), "html", null, true);
             echo "</span><br>
                             <span class=\"blue-text\"><strong>Matelots</strong></span> <span class=\"float-right\">";
-            // line 129
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "seaman", [], "any", false, false, false, 129), 0, ".", " "), "html", null, true);
+            // line 134
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "seaman", [], "any", false, false, false, 134), 0, ".", " "), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxSeaman", [], "any", false, false, false, 129), 0, ".", " "), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxSeaman", [], "any", false, false, false, 134), 0, ".", " "), "html", null, true);
             echo "</span><br>
                             <span class=\"blue-text\"><strong>Explorateurs</strong></span> <span class=\"float-right\">";
-            // line 130
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "explorer", [], "any", false, false, false, 130), 0, ".", " "), "html", null, true);
+            // line 135
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "explorer", [], "any", false, false, false, 135), 0, ".", " "), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxExplorer", [], "any", false, false, false, 130), 0, ".", " "), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxExplorer", [], "any", false, false, false, 135), 0, ".", " "), "html", null, true);
             echo "</span><br>
                             <span class=\"blue-text\"><strong>Canonniers</strong></span> <span class=\"float-right\">";
-            // line 131
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "gunner", [], "any", false, false, false, 131), 0, ".", " "), "html", null, true);
+            // line 136
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "gunner", [], "any", false, false, false, 136), 0, ".", " "), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxGunner", [], "any", false, false, false, 131), 0, ".", " "), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxGunner", [], "any", false, false, false, 136), 0, ".", " "), "html", null, true);
             echo "</span><br>
                             <span class=\"blue-text\"><strong>Cuisiniers</strong></span> <span class=\"float-right\">";
-            // line 132
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "cook", [], "any", false, false, false, 132), 0, ".", " "), "html", null, true);
+            // line 137
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "cook", [], "any", false, false, false, 137), 0, ".", " "), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxCook", [], "any", false, false, false, 132), 0, ".", " "), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxCook", [], "any", false, false, false, 137), 0, ".", " "), "html", null, true);
             echo "</span><br>
                             <span class=\"blue-text\"><strong>Charpentiers</strong></span> <span class=\"float-right\">";
-            // line 133
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "carpenter", [], "any", false, false, false, 133), 0, ".", " "), "html", null, true);
+            // line 138
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "carpenter", [], "any", false, false, false, 138), 0, ".", " "), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxCarpenter", [], "any", false, false, false, 133), 0, ".", " "), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxCarpenter", [], "any", false, false, false, 138), 0, ".", " "), "html", null, true);
             echo "</span><br>
                             <span class=\"blue-text\"><strong>Chirurgiens</strong></span> <span class=\"float-right\">";
-            // line 134
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "surgeon", [], "any", false, false, false, 134), 0, ".", " "), "html", null, true);
+            // line 139
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "surgeon", [], "any", false, false, false, 139), 0, ".", " "), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxSurgeon", [], "any", false, false, false, 134), 0, ".", " "), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxSurgeon", [], "any", false, false, false, 139), 0, ".", " "), "html", null, true);
             echo "</span><br>
                         </div>
                         <div class=\"ship-merchandise\">
                             <img src=\"";
-            // line 137
+            // line 142
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/merchandise.png"), "html", null, true);
             echo "\" class=\"logo-big\" alt=\"saber\"> <strong>Marchandise</strong>
                             <span class=\"float-right\">";
-            // line 138
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMerchandisesSum", [], "any", false, false, false, 138), 0, ".", " "), "html", null, true);
+            // line 143
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMerchandisesSum", [], "any", false, false, false, 143), 0, ".", " "), "html", null, true);
             echo " / ";
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxMerchandises", [], "any", false, false, false, 138), 0, ".", " "), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxMerchandises", [], "any", false, false, false, 143), 0, ".", " "), "html", null, true);
             echo "</span><br>
                             <div class=\"row pl-4 pr-4\">
                                 <div class=\"left-merchandise\">
                                     <span class=\"red-text\"><strong>Canons</strong></span> <span class=\"float-right\">";
-            // line 141
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "gun", [], "any", false, false, false, 141), 0, ".", " "), "html", null, true);
+            // line 146
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "gun", [], "any", false, false, false, 146), 0, ".", " "), "html", null, true);
             echo "</span><br>
-                                    <span class=\"green-text\"><strong>Nourriture</strong></span> <span class=\"float-right\">";
-            // line 142
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "food", [], "any", false, false, false, 142), 0, ".", " "), "html", null, true);
+                                    <span class=\"green-text\"><strong>Nourriture</strong></span> <span class=\"float-right food\">";
+            // line 147
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "food", [], "any", false, false, false, 147), 0, ".", " "), "html", null, true);
             echo "</span><br>
-                                    <span class=\"brown-text\"><strong>Bois</strong></span> <span class=\"float-right\">";
-            // line 143
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "wood", [], "any", false, false, false, 143), 0, ".", " "), "html", null, true);
+                                    <span class=\"brown-text\"><strong>Bois</strong></span> <span class=\"float-right wood\">";
+            // line 148
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "wood", [], "any", false, false, false, 148), 0, ".", " "), "html", null, true);
             echo "</span><br>
                                     <span class=\"gold-dark\"><strong>Gemmes</strong></span> <span class=\"float-right\">";
-            // line 144
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "gemstone", [], "any", false, false, false, 144), 0, ".", " "), "html", null, true);
+            // line 149
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "gemstone", [], "any", false, false, false, 149), 0, ".", " "), "html", null, true);
             echo "</span><br>
                                     <span class=\"gold-dark\"><strong>Etoffes</strong></span> <span class=\"float-right\">";
-            // line 145
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "stuff", [], "any", false, false, false, 145), 0, ".", " "), "html", null, true);
+            // line 150
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "stuff", [], "any", false, false, false, 150), 0, ".", " "), "html", null, true);
             echo "</span><br>
                                     <span class=\"gold-dark\"><strong>Manuscrits</strong></span> <span class=\"float-right\">";
-            // line 146
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "manuscript", [], "any", false, false, false, 146), 0, ".", " "), "html", null, true);
+            // line 151
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "manuscript", [], "any", false, false, false, 151), 0, ".", " "), "html", null, true);
             echo "</span><br>
                                 </div>
                                 <div class=\"right-merchandise\">
                                     <span class=\"red-text\"><strong>Armement</strong></span> <span class=\"float-right\">";
-            // line 149
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "arsenal", [], "any", false, false, false, 149), 0, ".", " "), "html", null, true);
+            // line 154
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "arsenal", [], "any", false, false, false, 154), 0, ".", " "), "html", null, true);
             echo "</span><br>
-                                    <span class=\"green-text\"><strong>Alcool</strong></span> <span class=\"float-right\">";
-            // line 150
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "alcohol", [], "any", false, false, false, 150), 0, ".", " "), "html", null, true);
+                                    <span class=\"green-text\"><strong>Alcool</strong></span> <span class=\"float-right alcohol\">";
+            // line 155
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "alcohol", [], "any", false, false, false, 155), 0, ".", " "), "html", null, true);
             echo "</span><br>
-                                    <span class=\"brown-text\"><strong>Cuir</strong></span> <span class=\"float-right\">";
-            // line 151
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "copper", [], "any", false, false, false, 151), 0, ".", " "), "html", null, true);
+                                    <span class=\"brown-text\"><strong>Cuir</strong></span> <span class=\"float-right copper\">";
+            // line 156
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "copper", [], "any", false, false, false, 156), 0, ".", " "), "html", null, true);
             echo "</span><br>
                                     <span class=\"gold-dark\"><strong>Bijoux</strong></span> <span class=\"float-right\">";
-            // line 152
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "jewellery", [], "any", false, false, false, 152), 0, ".", " "), "html", null, true);
+            // line 157
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "jewellery", [], "any", false, false, false, 157), 0, ".", " "), "html", null, true);
             echo "</span><br>
                                     <span class=\"gold-dark\"><strong>Fourrures</strong></span> <span class=\"float-right\">";
-            // line 153
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "fur", [], "any", false, false, false, 153), 0, ".", " "), "html", null, true);
+            // line 158
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "fur", [], "any", false, false, false, 158), 0, ".", " "), "html", null, true);
             echo "</span><br>
                                     <span class=\"gold-dark\"><strong>Epices</strong></span> <span class=\"float-right\">";
-            // line 154
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "spice", [], "any", false, false, false, 154), 0, ".", " "), "html", null, true);
+            // line 159
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "spice", [], "any", false, false, false, 159), 0, ".", " "), "html", null, true);
             echo "</span><br>
                                 </div>
                             </div>
                         </div>
 
+                        <div class=\"d-none structure\">";
+            // line 164
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "structure", [], "any", false, false, false, 164), "html", null, true);
+            echo "</div>
+
+                        <div class=\"d-none moral\">";
+            // line 166
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "moral", [], "any", false, false, false, 166), "html", null, true);
+            echo "</div>
+
+                        <div class=\"d-none xp\">";
+            // line 168
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getXpDisp", [], "any", false, false, false, 168), "html", null, true);
+            echo "</div>
+
+                        <div class=\"d-none xpmax\">";
+            // line 170
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxXpDisp", [], "any", false, false, false, 170), "html", null, true);
+            echo "</div>
+
                         <div class=\"personal-vertical-bar\" title=\"Structure : ";
-            // line 159
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "structure", [], "any", false, false, false, 159), "html", null, true);
+            // line 172
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "structure", [], "any", false, false, false, 172), "html", null, true);
             echo "/100\"><div class=\"structure-vertical\" style=\"height: ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "structure", [], "any", false, false, false, 159), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "structure", [], "any", false, false, false, 172), "html", null, true);
             echo "%;\"></div></div>
                         <div class=\"personal-vertical-bar\" title=\"Moral : ";
-            // line 160
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "moral", [], "any", false, false, false, 160), "html", null, true);
+            // line 173
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "moral", [], "any", false, false, false, 173), "html", null, true);
             echo "/100\"><div class=\"morale-vertical\" style=\"height: ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "moral", [], "any", false, false, false, 160), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "moral", [], "any", false, false, false, 173), "html", null, true);
             echo "%;\"></div></div>
                         <div class=\"personal-vertical-bar\" title=\"Expérience : ";
-            // line 161
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getXpDisp", [], "any", false, false, false, 161), "html", null, true);
+            // line 174
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getXpDisp", [], "any", false, false, false, 174), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxXpDisp", [], "any", false, false, false, 161), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxXpDisp", [], "any", false, false, false, 174), "html", null, true);
             echo "\"><div class=\"xp-vertical\" style=\"height: ";
-            echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["ship"], "getXpDisp", [], "any", false, false, false, 161) / twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxXpDisp", [], "any", false, false, false, 161)) * 100), "html", null, true);
+            echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["ship"], "getXpDisp", [], "any", false, false, false, 174) / twig_get_attribute($this->env, $this->source, $context["ship"], "getMaxXpDisp", [], "any", false, false, false, 174)) * 100), "html", null, true);
             echo "%;\"></div></div>
                     </div>
                 </div>
@@ -470,29 +498,29 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ship'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 166
+        // line 179
         echo "    </form>
     ";
-        // line 167
+        // line 180
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["ships"]) || array_key_exists("ships", $context) ? $context["ships"] : (function () { throw new RuntimeError('Variable "ships" does not exist.', 167, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["ships"]) || array_key_exists("ships", $context) ? $context["ships"] : (function () { throw new RuntimeError('Variable "ships" does not exist.', 180, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["ship"]) {
-            // line 168
+            // line 181
             echo "        <!-- Rename Modal -->
         <div class=\"modal fade\" id=\"rename";
-            // line 169
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 169), "html", null, true);
+            // line 182
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 182), "html", null, true);
             echo "\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\">
             <div class=\"modal-dialog\" role=\"document\">
                 <div class=\"modal-content\">
                     <form method=\"post\" action=\"";
-            // line 172
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ship_rename", ["id" => twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 172)]), "html", null, true);
+            // line 185
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ship_rename", ["id" => twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 185)]), "html", null, true);
             echo "\">
                         <div class=\"modal-header\">
                             <h5 class=\"modal-title\">Renommer ";
-            // line 174
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "name", [], "any", false, false, false, 174), "html", null, true);
+            // line 187
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "name", [], "any", false, false, false, 187), "html", null, true);
             echo "</h5>
                             <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
                                 <span aria-hidden=\"true\">&times;</span>
@@ -500,8 +528,8 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
                         </div>
                         <div class=\"modal-body\">
                             <input type=\"hidden\" name=\"id\" value=\"";
-            // line 180
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 180), "html", null, true);
+            // line 193
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ship"], "id", [], "any", false, false, false, 193), "html", null, true);
             echo "\">
                             <input type=\"text\" name=\"name\" class=\"input-white\" placeholder=\"Nouveau nom de navire\" required=\"required\"><br><br>
                             <input type=\"submit\" name=\"rename\" value=\"Renommer\">
@@ -515,6 +543,11 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ship'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 202
+        echo "
+    ";
+        // line 203
+        $this->loadTemplate("authenticated/script/ships-estimate.html.twig", "authenticated/ships.html.twig", 203)->display($context);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -535,7 +568,7 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
 
     public function getDebugInfo()
     {
-        return array (  504 => 180,  495 => 174,  490 => 172,  484 => 169,  481 => 168,  477 => 167,  474 => 166,  459 => 161,  453 => 160,  447 => 159,  439 => 154,  435 => 153,  431 => 152,  427 => 151,  423 => 150,  419 => 149,  413 => 146,  409 => 145,  405 => 144,  401 => 143,  397 => 142,  393 => 141,  385 => 138,  381 => 137,  373 => 134,  367 => 133,  361 => 132,  355 => 131,  349 => 130,  343 => 129,  335 => 128,  330 => 126,  322 => 123,  310 => 122,  292 => 121,  288 => 120,  283 => 117,  279 => 116,  263 => 105,  245 => 90,  197 => 44,  186 => 42,  182 => 41,  177 => 39,  172 => 36,  161 => 34,  157 => 33,  152 => 31,  145 => 27,  132 => 16,  126 => 15,  111 => 12,  106 => 11,  101 => 10,  96 => 9,  86 => 8,  74 => 5,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  550 => 203,  547 => 202,  532 => 193,  523 => 187,  518 => 185,  512 => 182,  509 => 181,  505 => 180,  502 => 179,  487 => 174,  481 => 173,  475 => 172,  470 => 170,  465 => 168,  460 => 166,  455 => 164,  447 => 159,  443 => 158,  439 => 157,  435 => 156,  431 => 155,  427 => 154,  421 => 151,  417 => 150,  413 => 149,  409 => 148,  405 => 147,  401 => 146,  393 => 143,  389 => 142,  381 => 139,  375 => 138,  369 => 137,  363 => 136,  357 => 135,  351 => 134,  343 => 133,  338 => 131,  330 => 128,  318 => 127,  300 => 126,  296 => 125,  291 => 122,  287 => 121,  278 => 115,  263 => 105,  245 => 90,  197 => 44,  186 => 42,  182 => 41,  177 => 39,  172 => 36,  161 => 34,  157 => 33,  152 => 31,  145 => 27,  132 => 16,  126 => 15,  111 => 12,  106 => 11,  101 => 10,  96 => 9,  86 => 8,  74 => 5,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -639,7 +672,7 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
                     <div class=\"card-body card-back1\">
                         <div class=\"row\">
                             <div class=\"top-card-body col-12\">
-                                <select class=\"input-white\" name=\"choice\">
+                                <select class=\"input-white\" name=\"choice\" id=\"choice\">
                                     <option value=\"repair\">Réparer le Navire et / ou le Repaire</option>
                                     <option value=\"moral\">Remonter le moral de l'équipage</option>
                                     <option value=\"upgrade\">Améliorer le Navire / le Repaire</option>
@@ -653,15 +686,20 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
             </div>
         </div>
 
+        <div class=\"estimate\">
+            <img src=\"{{ asset('img/icons/coin.png') }}\" class=\"logo\" alt=\"gold\"> Estimation du coût total : <span id=\"estimate\" class=\"font-weight-bold\">0</span> PO
+            <p id=\"estimate-more\"></p>
+        </div>
+
 
 
         {% for ship in ships %}
             <div class=\"row mt-3\">
-                <div class=\"col-12\">
+                <div class=\"col-12 ship-col\">
                     <div class=\"top-card-body-2\">
                         <input type=\"checkbox\" value=\"{{ ship.id }}\" name=\"ship[]\"> <label><span><span></span></span></label>
                         {% if ship is instanceof('App\\\\Entity\\\\Den') %}<img src=\"{{ asset('img/icons/den.png') }}\" class=\"logo-hudge\" alt=\"ship\">{% else %}<img src=\"{{ asset('img/icons/helm.png') }}\" class=\"logo-hudge\" alt=\"ship\">{% endif %} <strong>{{ ship.name }}</strong> [{{ ship.position.id }} - {{ ship.position.name }}]
-                        <span class=\"ship-level\">Niveau {{ ship.level }}</span> <a href=\"{{ path('app_ship_order_move_up', { id: ship.id }) }}\"><img src=\"{{ asset('img/icons/up.png') }}\" class=\"icon-mini\" alt=\"up\"></a><a href=\"{{ path('app_ship_order_move_down', { id: ship.id }) }}\"><img src=\"{{ asset('img/icons/down.png') }}\" class=\"icon-mini\" alt=\"down\"></a>
+                        <span class=\"ship-level\">Niveau <span class=\"level\">{{ ship.level }}</span></span> <a href=\"{{ path('app_ship_order_move_up', { id: ship.id }) }}\"><img src=\"{{ asset('img/icons/up.png') }}\" class=\"icon-mini\" alt=\"up\"></a><a href=\"{{ path('app_ship_order_move_down', { id: ship.id }) }}\"><img src=\"{{ asset('img/icons/down.png') }}\" class=\"icon-mini\" alt=\"down\"></a>
                         <a href=\"#\" style=\"position: absolute; right: 0;\" data-toggle=\"modal\" data-target=\"#rename{{ ship.id }}\"><img src=\"{{ asset('img/icons/rename.png') }}\" class=\"logo-hudge ml-3 mr-1\" alt=\"rename\" title=\"Renommer\"></a>
                     </div>
                     <div class=\"row no-margin\">
@@ -681,22 +719,30 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
                             <div class=\"row pl-4 pr-4\">
                                 <div class=\"left-merchandise\">
                                     <span class=\"red-text\"><strong>Canons</strong></span> <span class=\"float-right\">{{ ship.gun|number_format(0, '.', ' ') }}</span><br>
-                                    <span class=\"green-text\"><strong>Nourriture</strong></span> <span class=\"float-right\">{{ ship.food|number_format(0, '.', ' ') }}</span><br>
-                                    <span class=\"brown-text\"><strong>Bois</strong></span> <span class=\"float-right\">{{ ship.wood|number_format(0, '.', ' ') }}</span><br>
+                                    <span class=\"green-text\"><strong>Nourriture</strong></span> <span class=\"float-right food\">{{ ship.food|number_format(0, '.', ' ') }}</span><br>
+                                    <span class=\"brown-text\"><strong>Bois</strong></span> <span class=\"float-right wood\">{{ ship.wood|number_format(0, '.', ' ') }}</span><br>
                                     <span class=\"gold-dark\"><strong>Gemmes</strong></span> <span class=\"float-right\">{{ ship.gemstone|number_format(0, '.', ' ') }}</span><br>
                                     <span class=\"gold-dark\"><strong>Etoffes</strong></span> <span class=\"float-right\">{{ ship.stuff|number_format(0, '.', ' ') }}</span><br>
                                     <span class=\"gold-dark\"><strong>Manuscrits</strong></span> <span class=\"float-right\">{{ ship.manuscript|number_format(0, '.', ' ') }}</span><br>
                                 </div>
                                 <div class=\"right-merchandise\">
                                     <span class=\"red-text\"><strong>Armement</strong></span> <span class=\"float-right\">{{ ship.arsenal|number_format(0, '.', ' ') }}</span><br>
-                                    <span class=\"green-text\"><strong>Alcool</strong></span> <span class=\"float-right\">{{ ship.alcohol|number_format(0, '.', ' ') }}</span><br>
-                                    <span class=\"brown-text\"><strong>Cuir</strong></span> <span class=\"float-right\">{{ ship.copper|number_format(0, '.', ' ') }}</span><br>
+                                    <span class=\"green-text\"><strong>Alcool</strong></span> <span class=\"float-right alcohol\">{{ ship.alcohol|number_format(0, '.', ' ') }}</span><br>
+                                    <span class=\"brown-text\"><strong>Cuir</strong></span> <span class=\"float-right copper\">{{ ship.copper|number_format(0, '.', ' ') }}</span><br>
                                     <span class=\"gold-dark\"><strong>Bijoux</strong></span> <span class=\"float-right\">{{ ship.jewellery|number_format(0, '.', ' ') }}</span><br>
                                     <span class=\"gold-dark\"><strong>Fourrures</strong></span> <span class=\"float-right\">{{ ship.fur|number_format(0, '.', ' ') }}</span><br>
                                     <span class=\"gold-dark\"><strong>Epices</strong></span> <span class=\"float-right\">{{ ship.spice|number_format(0, '.', ' ') }}</span><br>
                                 </div>
                             </div>
                         </div>
+
+                        <div class=\"d-none structure\">{{ ship.structure }}</div>
+
+                        <div class=\"d-none moral\">{{ ship.moral }}</div>
+
+                        <div class=\"d-none xp\">{{ ship.getXpDisp }}</div>
+
+                        <div class=\"d-none xpmax\">{{ ship.getMaxXpDisp }}</div>
 
                         <div class=\"personal-vertical-bar\" title=\"Structure : {{ ship.structure }}/100\"><div class=\"structure-vertical\" style=\"height: {{ ship.structure }}%;\"></div></div>
                         <div class=\"personal-vertical-bar\" title=\"Moral : {{ ship.moral }}/100\"><div class=\"morale-vertical\" style=\"height: {{ ship.moral }}%;\"></div></div>
@@ -728,7 +774,9 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
             </div>
         </div>
     {% endfor %}
+
+    {% include 'authenticated/script/ships-estimate.html.twig' %}
 {% endblock %}
-", "authenticated/ships.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\ships.html.twig");
+", "authenticated/ships.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\ships.html.twig");
     }
 }
