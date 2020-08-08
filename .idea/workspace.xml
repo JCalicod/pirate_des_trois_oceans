@@ -6,45 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="ec0071a9-dd85-4cbe-bec5-8337d7a4f361" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/template.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/template.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icons/cannon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icons/gun.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icons/coin.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icons/coin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icons/pa.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icons/pa.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icons/pa_cost.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icons/pa_cost.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icons/rename.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icons/rename.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icons/saber.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icons/arsenal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/structure/back1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/structure/back1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/structure/back6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/structure/back6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CrewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CrewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Den.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Den.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Lands.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lands.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Messaging.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Messaging.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ship.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ship.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/War.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/War.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LandsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LandsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ShipRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ShipRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/WarRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/WarRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/MessagingServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/MessagingServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/SecurityServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/SecurityServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ShipServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ShipServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authenticated/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authenticated/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authenticated/crew.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authenticated/crew.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authenticated/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authenticated/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authenticated/include/flash-ajax.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authenticated/include/flash-ajax.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authenticated/messaging.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authenticated/messaging.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authenticated/script/recruit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authenticated/script/recruit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerX5hPGwP.legacy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerX5hPGwP/removed-ids.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerX5hPGwP/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,18 +32,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Command/AddActionPointCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
+            <state relative-caret-position="816">
               <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
               <folding>
                 <element signature="e#123#143#0#PHP" expanded="true" />
@@ -81,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Command/UpdateTradeRateCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
+            <state relative-caret-position="1156">
               <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
               <folding>
                 <element signature="e#123#144#0#PHP" expanded="true" />
@@ -93,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/authenticated/script/trade.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2617">
+            <state relative-caret-position="884">
               <caret line="52" column="27" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="27" />
             </state>
           </provider>
@@ -102,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/TradeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="629">
               <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
               <folding>
                 <element signature="e#126#147#0#PHP" expanded="true" />
@@ -111,11 +76,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Service/TradeServices.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="321">
               <caret line="176" column="58" selection-start-line="176" selection-start-column="58" selection-end-line="176" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -214,7 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/css/alliance.css" />
         <option value="$PROJECT_DIR$/src/Controller/AllianceController.php" />
         <option value="$PROJECT_DIR$/templates/authenticated/alliance.html.twig" />
         <option value="$PROJECT_DIR$/src/Service/AllianceServices.php" />
@@ -265,6 +238,7 @@
         <option value="$PROJECT_DIR$/templates/authenticated/script/trade.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/TradeController.php" />
         <option value="$PROJECT_DIR$/src/Service/TradeServices.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -389,90 +363,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Command" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="authenticated" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="authenticated" type="462c0819:PsiDirectoryNode" />
-              <item name="exploration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pd3o" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pd3o" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="authenticated" type="462c0819:PsiDirectoryNode" />
-              <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -483,7 +375,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Vitalytech/Atlas" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -640,16 +532,18 @@
       <workItem from="1596542937566" duration="58000" />
       <workItem from="1596624700611" duration="4848000" />
       <workItem from="1596638307168" duration="4029000" />
+      <workItem from="1596886029216" duration="84000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="476566000" />
+    <option name="totallyTimeSpent" value="476650000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16308725" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16510066" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -674,13 +568,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="79" column="10" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Id.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -991,6 +878,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command/AddActionPointCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+          <folding>
+            <element signature="e#123#143#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command/UpdateTradeRateCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
+          <folding>
+            <element signature="e#123#144#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/authenticated/script/trade.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="27" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TradeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+          <folding>
+            <element signature="e#126#147#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/LandsRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
@@ -1025,54 +956,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Command/AddActionPointCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
-          <folding>
-            <element signature="e#123#143#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Command/UpdateTradeRateCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
-          <folding>
-            <element signature="e#123#144#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/authenticated/script/trade.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2617">
-          <caret line="52" column="27" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/TradeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-          <folding>
-            <element signature="e#126#147#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/TradeServices.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="321">
           <caret line="176" column="58" selection-start-line="176" selection-start-column="58" selection-end-line="176" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
