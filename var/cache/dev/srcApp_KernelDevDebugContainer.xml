@@ -386,6 +386,7 @@
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.helper"/>
       <argument type="service" id="App\Service\MessagingServices"/>
+      <argument type="service" id="App\Service\PaginatorServices"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\MessagingController"/>
       </call>

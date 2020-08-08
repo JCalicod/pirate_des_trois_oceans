@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'\\vendor/autoload.php';
-require __DIR__.'/ContainerDXDcsr5/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerCxmgcF3/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -45,7 +45,6 @@ $classes[] = 'App\Controller\PoachingController';
 $classes[] = 'App\Service\PoachingServices';
 $classes[] = 'App\Controller\RankingController';
 $classes[] = 'App\Service\RankingServices';
-$classes[] = 'App\Service\PaginatorServices';
 $classes[] = 'App\Controller\SecurityController';
 $classes[] = 'App\Service\SecurityServices';
 $classes[] = 'App\Controller\SettingsController';
@@ -84,6 +83,7 @@ $classes[] = 'App\Repository\UserRepository';
 $classes[] = 'App\Repository\WarRepository';
 $classes[] = 'App\Security\LoginFormAuthenticator';
 $classes[] = 'App\Service\MessagingServices';
+$classes[] = 'App\Service\PaginatorServices';
 $classes[] = 'App\Service\ShipServices';
 $classes[] = 'App\Service\UserServices';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
