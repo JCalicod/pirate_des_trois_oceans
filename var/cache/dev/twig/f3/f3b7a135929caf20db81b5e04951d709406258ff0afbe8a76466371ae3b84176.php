@@ -194,6 +194,6 @@ class __TwigTemplate_0ba7ba0da5761a7e2d3ffa578b21a8efa968b6aa35127f147603a71a79d
             </div>
         </div>
     </div>
-{% endblock %}", "authenticated/exploration/explore.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\exploration\\explore.html.twig");
+{% endblock %}", "authenticated/exploration/explore.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\exploration\\explore.html.twig");
     }
 }

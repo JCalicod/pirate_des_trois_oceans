@@ -323,6 +323,14 @@
         <argument>lands:create</argument>
       </call>
     </service>
+    <service id="App\Command\DistributionOfCommercialTaxCommand" class="App\Command\DistributionOfCommercialTaxCommand" autowire="true" autoconfigure="true">
+      <tag name="console.command"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Service\MessagingServices"/>
+      <call method="setName">
+        <argument>commercial-tax:distribution</argument>
+      </call>
+    </service>
     <service id="App\Command\UpdateTradeRateCommand" class="App\Command\UpdateTradeRateCommand" autowire="true" autoconfigure="true">
       <tag name="console.command"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -5137,6 +5145,8 @@
     <service id=".abstract.instanceof.App\Command\AddActionPointCommand" class="App\Command\AddActionPointCommand" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\CreateLandsCommand" class="App\Command\CreateLandsCommand" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Command\CreateLandsCommand" class="App\Command\CreateLandsCommand" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\DistributionOfCommercialTaxCommand" class="App\Command\DistributionOfCommercialTaxCommand" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Command\DistributionOfCommercialTaxCommand" class="App\Command\DistributionOfCommercialTaxCommand" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\UpdateTradeRateCommand" class="App\Command\UpdateTradeRateCommand" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Command\UpdateTradeRateCommand" class="App\Command\UpdateTradeRateCommand" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AllianceController" class="App\Controller\AllianceController" autowire="true" abstract="true"/>
@@ -6019,10 +6029,11 @@
     <service id=".errored..service_locator.tIQ5Q0N.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.apZJyWd.App\Entity\Ship" class="App\Entity\Ship"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.JlC5TtZ"/>
+      <argument type="service" id=".service_locator.ENcH09H"/>
       <argument type="collection">
         <argument key="pa:add">App\Command\AddActionPointCommand</argument>
         <argument key="lands:create">App\Command\CreateLandsCommand</argument>
+        <argument key="commercial-tax:distribution">App\Command\DistributionOfCommercialTaxCommand</argument>
         <argument key="trade-rate:update">App\Command\UpdateTradeRateCommand</argument>
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -6108,11 +6119,12 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.JlC5TtZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.ENcH09H" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Command\AddActionPointCommand" type="service" id="App\Command\AddActionPointCommand"/>
         <argument key="App\Command\CreateLandsCommand" type="service" id="App\Command\CreateLandsCommand"/>
+        <argument key="App\Command\DistributionOfCommercialTaxCommand" type="service" id="App\Command\DistributionOfCommercialTaxCommand"/>
         <argument key="App\Command\UpdateTradeRateCommand" type="service" id="App\Command\UpdateTradeRateCommand"/>
         <argument key="console.command.about" type="service" id="console.command.about"/>
         <argument key="console.command.assets_install" type="service" id="console.command.assets_install"/>

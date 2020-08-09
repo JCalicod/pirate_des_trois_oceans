@@ -128,7 +128,9 @@ class __TwigTemplate_233210efa7fae4417cb3802979b9ed01d0142a9455f4dfd3f7707da9e51
                     <div class=\"col-6\"><div class=\"float-right\"><a href=\"";
         // line 50
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_rules");
-        echo "\">Rè<span class=\"mini-lien\">g</span>les du Jeu</a> <a href=\"FAQ\">FAQ</a></div></div>
+        echo "\">Rè<span class=\"mini-lien\">g</span>les du Jeu</a> <a href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_faq");
+        echo "\">FAQ</a></div></div>
                 </div>
             </div>
         </div>
@@ -227,7 +229,7 @@ class __TwigTemplate_233210efa7fae4417cb3802979b9ed01d0142a9455f4dfd3f7707da9e51
 
     public function getDebugInfo()
     {
-        return array (  201 => 44,  188 => 20,  178 => 19,  159 => 17,  130 => 50,  123 => 45,  121 => 44,  106 => 38,  98 => 37,  90 => 36,  74 => 22,  72 => 19,  67 => 17,  62 => 15,  46 => 1,);
+        return array (  203 => 44,  190 => 20,  180 => 19,  161 => 17,  130 => 50,  123 => 45,  121 => 44,  106 => 38,  98 => 37,  90 => 36,  74 => 22,  72 => 19,  67 => 17,  62 => 15,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -281,7 +283,7 @@ class __TwigTemplate_233210efa7fae4417cb3802979b9ed01d0142a9455f4dfd3f7707da9e51
             <div class=\"menu\">
                 <div class=\"row m-0\">
                     <div class=\"col-6 text-warning\">Tous les droits appartiennent à WebK</div>
-                    <div class=\"col-6\"><div class=\"float-right\"><a href=\"{{ path('app_rules') }}\">Rè<span class=\"mini-lien\">g</span>les du Jeu</a> <a href=\"FAQ\">FAQ</a></div></div>
+                    <div class=\"col-6\"><div class=\"float-right\"><a href=\"{{ path('app_rules') }}\">Rè<span class=\"mini-lien\">g</span>les du Jeu</a> <a href=\"{{ path('app_faq') }}\">FAQ</a></div></div>
                 </div>
             </div>
         </div>
@@ -299,6 +301,6 @@ class __TwigTemplate_233210efa7fae4417cb3802979b9ed01d0142a9455f4dfd3f7707da9e51
         </script>
     </body>
 </html>
-", "authenticated/base.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\base.html.twig");
+", "authenticated/base.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\base.html.twig");
     }
 }

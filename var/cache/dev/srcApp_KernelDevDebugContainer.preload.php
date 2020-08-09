@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'\\vendor/autoload.php';
-require __DIR__.'/ContainerCxmgcF3/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerZa8rhZE/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -30,6 +30,7 @@ $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Command\AddActionPointCommand';
 $classes[] = 'App\Command\CreateLandsCommand';
+$classes[] = 'App\Command\DistributionOfCommercialTaxCommand';
 $classes[] = 'App\Command\UpdateTradeRateCommand';
 $classes[] = 'App\Controller\AllianceController';
 $classes[] = 'App\Service\AllianceServices';
