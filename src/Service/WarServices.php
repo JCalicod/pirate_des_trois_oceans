@@ -548,6 +548,7 @@ class WarServices {
     /**
      * @param Ship $ship
      * @param array $fleet
+     * @throws \Exception
      */
     private function sunkShip(Ship $ship, array $fleet) {
         $owner = null;
@@ -570,6 +571,7 @@ class WarServices {
             else {
                 $bark = new Ship();
                 $bark->setName('Barque');
+                $bark->setAvatar(random_int(1, 3));
                 $bark->setPosition($this->position);
                 $bark->setDisplayOrder(2);
                 /** @var Ship $fleet[0] */
