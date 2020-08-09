@@ -64,24 +64,32 @@ class SecurityController extends AbstractController {
         $form = $this->createForm(SignUpType::class);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            if ($result = $this->securityServices->registration($data)) {
-                /** @var User $godfather */
-                $godfather = $this->em->getRepository(User::class)->findOneBy(['username' => $data['godfather']]);
-                if ($godfather) {
-                    $godfather->setGold($godfather->getGold() + 1000);
-                    $this->em->persist($godfather);
-                }
-                $this->em->persist($result['ship']);
-                $this->em->persist($result['den']);
-                $this->em->persist($result['user']);
-                $this->em->flush();
+        if ($form->isSubmitted()) {
+            if ($form->isValid()) {
+                dump('valid');
+                $data = $form->getData();
+                if ($result = $this->securityServices->registration($data)) {
+                    /** @var User $godfather */
+                    $godfather = $this->em->getRepository(User::class)->findOneBy(['username' => $data['godfather']]);
+                    if ($godfather) {
+                        $godfather->setGold($godfather->getGold() + 1000);
+                        $this->em->persist($godfather);
+                    }
+                    $this->em->persist($result['ship']);
+                    $this->em->persist($result['den']);
+                    $this->em->persist($result['user']);
+                    $this->em->flush();
 
-                $this->addFlash('success', 'Votre pirate a bien été créé, vous pouvez dès à présent vous connecter, capitaine !');
+                    $this->addFlash('success', 'Votre pirate a bien été créé, vous pouvez dès à présent vous connecter, capitaine !');
+                } else {
+                    $error = $this->securityServices->getError();
+                    $this->addFlash('danger', $error);
+                }
             }
             else {
-                $this->addFlash('danger', $error);
+                foreach($form->getErrors(true, false) as $er) {
+                    $this->addFlash('danger', $er->__toString());
+                }
             }
         }
 

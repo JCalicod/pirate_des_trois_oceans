@@ -10,6 +10,7 @@ namespace App\Command;
 
 
 use App\Entity\Alliance;
+use App\Entity\AllianceWar;
 use App\Entity\Lands;
 use App\Entity\Trade;
 use App\Service\MessagingServices;
@@ -80,6 +81,13 @@ class DistributionOfCommercialTaxCommand extends Command
                 $this->em->persist($member);
             }
         }
+
+        // On supprime les données de guerre d'alliance
+        $wars = $this->em->getRepository(AllianceWar::class)->findAll();
+        foreach ($wars as $war) {
+            $this->em->remove($war);
+        }
+
         $this->em->flush();
     }
 
