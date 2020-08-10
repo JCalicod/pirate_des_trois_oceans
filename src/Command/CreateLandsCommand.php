@@ -178,7 +178,7 @@ class CreateLandsCommand extends Command
             ],
             [
                 'name' => 'Ile aux Forbans',
-                'percentage' => 4,
+                'percentage' => 20,
                 'description' => '',
                 'x' => 3,
                 'y' => 4
