@@ -183,11 +183,11 @@
     $.each(items, function(index, value) {
 
        $("body").on('click', "#" + index + "-remove-seller", function () {
-           total = parseInt(total) - Math.round(parseInt($("#" + index + "-number").text()) * parseInt(items[index]['price']) * rate);
+           total = parseInt(total) - Math.round(parseInt($("#" + index + "-number").text()) * parseInt(items[index]['price']));
            $("#" + index + "-div").remove();
            items[index]['quantity'] = 0;
            $("#total-buyer").html(total);
-           $("#additional-buyer").html(Math.round(total / 10 * rate));
+           $("#additional-buyer").html(Math.round(total / 10));
 
            if (total == 0) {
                $("#buyer-choices").html('');
@@ -203,7 +203,7 @@
             $("#" + index + "-div").remove();
             items[index]['quantity'] = 0;
             $("#total-seller").html(total);
-            $("#additional-seller").html(Math.round(total / 10 * rate));
+            $("#additional-seller").html(Math.round(total / 10));
 
             if (total == 0) {
                 $("#seller-choices").html('');
