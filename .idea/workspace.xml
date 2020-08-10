@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec0071a9-dd85-4cbe-bec5-8337d7a4f361" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Service/WarServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/WarServices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,18 +18,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Command/DistributionOfCommercialTaxCommand.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="87" column="36" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
-              <folding>
-                <element signature="e#123#147#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -81,14 +69,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Service/WarServices.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="749" column="59" selection-start-line="749" selection-start-column="59" selection-end-line="749" selection-end-column="59" />
+            <state relative-caret-position="595">
+              <caret line="767" column="7" lean-forward="true" selection-start-line="767" selection-start-column="7" selection-end-line="767" selection-end-column="7" />
               <folding>
                 <element signature="e#123#150#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -127,7 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Gold</find>
       <find>xp</find>
       <find>getActualAndMa</find>
       <find>crew</find>
@@ -157,6 +153,7 @@
       <find>error</find>
       <find>(($this-&gt;u</find>
       <find>Barque</find>
+      <find>debug</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -177,7 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/authenticated/ranking.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Lands.php" />
         <option value="$PROJECT_DIR$/src/Controller/RankingController.php" />
         <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
@@ -228,6 +224,7 @@
         <option value="$PROJECT_DIR$/src/Command/DistributionOfCommercialTaxCommand.php" />
         <option value="$PROJECT_DIR$/src/Command/CreateLandsCommand.php" />
         <option value="$PROJECT_DIR$/src/Service/WarServices.php" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -584,12 +581,12 @@
       <workItem from="1596964198122" duration="5000000" />
       <workItem from="1596976636287" duration="1812000" />
       <workItem from="1596997178121" duration="1698000" />
-      <workItem from="1597049084309" duration="756000" />
+      <workItem from="1597049084309" duration="980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="496311000" />
+    <option name="totallyTimeSpent" value="496535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -620,13 +617,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Request.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/rules.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1007,11 +997,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/WarServices.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="749" column="59" selection-start-line="749" selection-start-column="59" selection-end-line="749" selection-end-column="59" />
+        <state relative-caret-position="595">
+          <caret line="767" column="7" lean-forward="true" selection-start-line="767" selection-start-column="7" selection-end-line="767" selection-end-column="7" />
           <folding>
             <element signature="e#123#150#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
