@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/Service/TradeServices.php" line="191" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec0071a9-dd85-4cbe-bec5-8337d7a4f361" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-    </list>
+    <list default="true" id="ec0071a9-dd85-4cbe-bec5-8337d7a4f361" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,15 +50,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Service/SecurityServices.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="782">
@@ -81,11 +70,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+            <state relative-caret-position="289">
+              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -124,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>xp</find>
       <find>getActualAndMa</find>
       <find>crew</find>
       <find>explore.html.twig</find>
@@ -154,6 +151,7 @@
       <find>(($this-&gt;u</find>
       <find>Barque</find>
       <find>debug</find>
+      <find>project</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -352,64 +350,6 @@
               <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
               <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Command" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="authenticated" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pirate_des_trois_oceans" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pirate_des_trois_oceans" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="authenticated" type="462c0819:PsiDirectoryNode" />
-              <item name="script" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -581,16 +521,15 @@
       <workItem from="1596964198122" duration="5000000" />
       <workItem from="1596976636287" duration="1812000" />
       <workItem from="1596997178121" duration="1698000" />
-      <workItem from="1597049084309" duration="980000" />
+      <workItem from="1597049084309" duration="4632000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="496535000" />
+    <option name="totallyTimeSpent" value="500187000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17516778" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -617,13 +556,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/rules.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/RequestStack.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1007,8 +939,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        <state relative-caret-position="289">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
         </state>
       </provider>
     </entry>
