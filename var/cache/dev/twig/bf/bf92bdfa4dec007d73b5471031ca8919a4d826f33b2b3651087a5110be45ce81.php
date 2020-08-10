@@ -279,11 +279,11 @@ class __TwigTemplate_3077d8f4d9fb7596d9918562517a121a250c3979977ecb8c9edfdb5fb58
     \$.each(items, function(index, value) {
 
        \$(\"body\").on('click', \"#\" + index + \"-remove-seller\", function () {
-           total = parseInt(total) - Math.round(parseInt(\$(\"#\" + index + \"-number\").text()) * parseInt(items[index]['price']) * rate);
+           total = parseInt(total) - Math.round(parseInt(\$(\"#\" + index + \"-number\").text()) * parseInt(items[index]['price']));
            \$(\"#\" + index + \"-div\").remove();
            items[index]['quantity'] = 0;
            \$(\"#total-buyer\").html(total);
-           \$(\"#additional-buyer\").html(Math.round(total / 10 * rate));
+           \$(\"#additional-buyer\").html(Math.round(total / 10));
 
            if (total == 0) {
                \$(\"#buyer-choices\").html('');
@@ -299,7 +299,7 @@ class __TwigTemplate_3077d8f4d9fb7596d9918562517a121a250c3979977ecb8c9edfdb5fb58
             \$(\"#\" + index + \"-div\").remove();
             items[index]['quantity'] = 0;
             \$(\"#total-seller\").html(total);
-            \$(\"#additional-seller\").html(Math.round(total / 10 * rate));
+            \$(\"#additional-seller\").html(Math.round(total / 10));
 
             if (total == 0) {
                 \$(\"#seller-choices\").html('');
@@ -553,11 +553,11 @@ class __TwigTemplate_3077d8f4d9fb7596d9918562517a121a250c3979977ecb8c9edfdb5fb58
     \$.each(items, function(index, value) {
 
        \$(\"body\").on('click', \"#\" + index + \"-remove-seller\", function () {
-           total = parseInt(total) - Math.round(parseInt(\$(\"#\" + index + \"-number\").text()) * parseInt(items[index]['price']) * rate);
+           total = parseInt(total) - Math.round(parseInt(\$(\"#\" + index + \"-number\").text()) * parseInt(items[index]['price']));
            \$(\"#\" + index + \"-div\").remove();
            items[index]['quantity'] = 0;
            \$(\"#total-buyer\").html(total);
-           \$(\"#additional-buyer\").html(Math.round(total / 10 * rate));
+           \$(\"#additional-buyer\").html(Math.round(total / 10));
 
            if (total == 0) {
                \$(\"#buyer-choices\").html('');
@@ -573,7 +573,7 @@ class __TwigTemplate_3077d8f4d9fb7596d9918562517a121a250c3979977ecb8c9edfdb5fb58
             \$(\"#\" + index + \"-div\").remove();
             items[index]['quantity'] = 0;
             \$(\"#total-seller\").html(total);
-            \$(\"#additional-seller\").html(Math.round(total / 10 * rate));
+            \$(\"#additional-seller\").html(Math.round(total / 10));
 
             if (total == 0) {
                 \$(\"#seller-choices\").html('');
@@ -613,6 +613,6 @@ class __TwigTemplate_3077d8f4d9fb7596d9918562517a121a250c3979977ecb8c9edfdb5fb58
             });
         }
     });
-</script>", "authenticated/script/trade.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\script\\trade.html.twig");
+</script>", "authenticated/script/trade.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\script\\trade.html.twig");
     }
 }
