@@ -747,7 +747,7 @@ class WarServices {
      * @throws \Exception
      */
     private function userLost($attacker = true) {
-        // On calcule la structure perdue
+        // On calcule la structure perdue par l'utilisateur
         $structure_lost = $this->calculateStructureLost($attacker);
         $this->userCrewLost($structure_lost, $attacker);
     }
