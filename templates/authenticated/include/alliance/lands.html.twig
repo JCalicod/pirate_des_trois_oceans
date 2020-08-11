@@ -89,6 +89,7 @@
                         <img src="{{ asset('img/lands/' ~ land.id ~ '.jpg') }}" alt="land">
                         <p class="font-weight-bold p-1">
                             {% for rank in ranking[i] %}
+                                {{ dump(rank) }}
                                 {% if rank['points'] and rank['points'] > 0 %}
                                     <span class="font-weight-bold alliance-{{ rank['color'] }}">[{{ rank['tag'] }}]</span><br>
                                     <span class="green-text">{{ rank['points'] }} pts</span><br>
