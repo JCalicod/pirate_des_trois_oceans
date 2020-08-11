@@ -71,7 +71,7 @@
     </div>
 
     <div class="top-card-body col-12 border-bottom-brown mt-3">
-        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Cuisinier</strong> <span class="float-right" id="cook">Déjà à bord <span id="cook-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['carpenter']['actual'] }} / {{ crewData|first['carpenter']['max'] }}</span> {{ form_widget(form.cook) }}</span>
+        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Cuisinier</strong> <span class="float-right" id="cook">Déjà à bord <span id="cook-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['cook']['actual'] }} / {{ crewData|first['carpenter']['max'] }}</span> {{ form_widget(form.cook) }}</span>
     </div>
     <div class="d-flex">
         <img src="{{ asset('img/avatars/5.jpg') }}" alt="cuisinier" class="ship-img">
@@ -86,7 +86,7 @@
     </div>
 
     <div class="top-card-body col-12 border-bottom-brown mt-3">
-        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Charpentier</strong> <span class="float-right" id="carpenter">Déjà à bord <span id="carpenter-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['cook']['actual'] }} / {{ crewData|first['cook']['max'] }}</span> {{ form_widget(form.carpenter) }}</span>
+        <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Charpentier</strong> <span class="float-right" id="carpenter">Déjà à bord <span id="carpenter-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['carpenter']['actual'] }} / {{ crewData|first['cook']['max'] }}</span> {{ form_widget(form.carpenter) }}</span>
     </div>
     <div class="d-flex">
         <img src="{{ asset('img/avatars/12.jpg') }}" alt="cuisinier" class="ship-img">
