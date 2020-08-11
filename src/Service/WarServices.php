@@ -492,6 +492,9 @@ class WarServices {
         $order = $last_ship->getDisplayOrder() + 1;
         $captured->setDisplayOrder($order);
         $captured->setOwner($this->user);
+        if ($captured->getLevel() > 1) {
+            $captured->setXp(50 * pow($captured->getLevel() - 1, 2));
+        }
         $this->user->addShip($captured);
         $this->em->persist($captured);
 
