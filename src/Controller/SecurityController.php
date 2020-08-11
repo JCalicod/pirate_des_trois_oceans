@@ -66,7 +66,6 @@ class SecurityController extends AbstractController {
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
-                dump('valid');
                 $data = $form->getData();
                 if ($result = $this->securityServices->registration($data)) {
                     /** @var User $godfather */
