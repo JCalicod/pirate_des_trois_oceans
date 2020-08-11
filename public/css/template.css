@@ -134,6 +134,11 @@ body {
     overflow: hidden;
 }
 
+.card > .card-body.backp2 {
+    background: #000;
+    overflow: hidden;
+}
+
 .card > .card-back1 {
     padding: 0 !important;
 }

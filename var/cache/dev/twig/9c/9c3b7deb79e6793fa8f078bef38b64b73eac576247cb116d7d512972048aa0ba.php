@@ -153,7 +153,7 @@ class __TwigTemplate_787b9b3416d5d9cba3501886bad3347e06b1f9d623409d5bfa8c4952de4
                 <div class=\"card-header m-0\">
                     Panthéon des héros
                 </div>
-                <div class=\"card-body m-0 p-0\">
+                <div class=\"card-body backp2 m-0 p-0\">
                     <div class=\"row p-0 m-0\">
                         ";
         // line 65
@@ -312,7 +312,7 @@ class __TwigTemplate_787b9b3416d5d9cba3501886bad3347e06b1f9d623409d5bfa8c4952de4
                 <div class=\"card-header m-0\">
                     Panthéon des héros
                 </div>
-                <div class=\"card-body m-0 p-0\">
+                <div class=\"card-body backp2 m-0 p-0\">
                     <div class=\"row p-0 m-0\">
                         {% for user in ranking %}
                             <div class=\"col-3 p-0\">
@@ -331,6 +331,6 @@ class __TwigTemplate_787b9b3416d5d9cba3501886bad3347e06b1f9d623409d5bfa8c4952de4
         </div>
     </div>
 
-{% endblock %}", "index.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\index.html.twig");
+{% endblock %}", "index.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\index.html.twig");
     }
 }
