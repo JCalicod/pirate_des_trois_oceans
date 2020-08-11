@@ -219,7 +219,7 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
                             <tr>
                                 <td><span class=\"red-text\">Armement</span> <input type=\"number\" min=\"0\" name=\"arsenal\" value=\"0\" class=\"input-white\"></td>
                                 <td><span class=\"green-text\">Alcool</span> <input type=\"number\" min=\"0\" name=\"alcohol\" value=\"0\" class=\"input-white\"></td>
-                                <td><span class=\"brown-text\">Cuivre</span> <input type=\"number\" min=\"0\" name=\"copper\" value=\"0\" class=\"input-white\"></td>
+                                <td><span class=\"brown-text\">Cuir</span> <input type=\"number\" min=\"0\" name=\"copper\" value=\"0\" class=\"input-white\"></td>
                             </tr>
                             <tr>
                                 <td><span class=\"gold-dark\">Gemmes</span> <input type=\"number\" min=\"0\" name=\"gemstone\" value=\"0\" class=\"input-white\"></td>
@@ -641,7 +641,7 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
                             <tr>
                                 <td><span class=\"red-text\">Armement</span> <input type=\"number\" min=\"0\" name=\"arsenal\" value=\"0\" class=\"input-white\"></td>
                                 <td><span class=\"green-text\">Alcool</span> <input type=\"number\" min=\"0\" name=\"alcohol\" value=\"0\" class=\"input-white\"></td>
-                                <td><span class=\"brown-text\">Cuivre</span> <input type=\"number\" min=\"0\" name=\"copper\" value=\"0\" class=\"input-white\"></td>
+                                <td><span class=\"brown-text\">Cuir</span> <input type=\"number\" min=\"0\" name=\"copper\" value=\"0\" class=\"input-white\"></td>
                             </tr>
                             <tr>
                                 <td><span class=\"gold-dark\">Gemmes</span> <input type=\"number\" min=\"0\" name=\"gemstone\" value=\"0\" class=\"input-white\"></td>

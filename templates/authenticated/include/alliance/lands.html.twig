@@ -2,8 +2,8 @@
     <div class="points-row">
         {% set find = false %}
         {% for land in points %}
-            {% if land['land_id'] and land['points'] and land['land_id'] == 15 %}
-                {{ land['points'] }} points
+            {% if land.land_id is defined and land.points is defined and land.land_id == 15 %}
+                {{ land.points }} points
                 {% set find = true %}
             {% endif %}
         {% endfor %}
@@ -16,11 +16,12 @@
             <div class="land d-flex">
                 <img src="{{ asset('img/lands/15.jpg') }}" alt="land">
                 <p class="font-weight-bold p-1">
-                    {% set r = ranking[15] %}
-                    {% if r and r['points'] and r['points'] > 0 %}
-                        <span class="font-weight-bold alliance-{{ r['color'] }}">[{{ r['tag'] }}]</span><br>
-                        <span class="green-text">{{ r['points'] }} pts</span><br>
-                    {% endif %}
+                    {% for r in ranking[15] %}
+                        {% if r.points is defined and r.points > 0 %}
+                            <span class="font-weight-bold alliance-{{ r.color }}">[{{ r.tag }}]</span><br>
+                            <span class="green-text">{{ r.points }} pts</span><br>
+                        {% endif %}
+                    {% endfor %}
                 </p>
             </div>
         </div>
@@ -36,8 +37,8 @@
                         <div class="col-3">
                             {% set find = false %}
                             {% for land in points %}
-                                {% if land['land_id'] and land['points'] and land['land_id'] == i %}
-                                    {{ land['points'] }} points
+                                {% if land.land_id and land.points is defined and land.land_id == i %}
+                                    {{ land.points }} points
                                     {% set find = true %}
                                 {% endif %}
                             {% endfor %}
@@ -48,8 +49,8 @@
                         <div class="col-3">
                             {% set find = false %}
                             {% for land in points %}
-                                {% if land['land_id'] and land['points'] and land['land_id'] == (i + 1) %}
-                                    {{ land['points'] }} points
+                                {% if land.land_id is defined and land.points is defined and land.land_id == (i + 1) %}
+                                    {{ land.points }} points
                                     {% set find = true %}
                                 {% endif %}
                             {% endfor %}
@@ -60,16 +61,16 @@
                         <div class="col-3">
                             {% set find = false %}
                             {% for land in points %}
-                                {% if land['land_id'] and land['points'] and land['land_id'] == (i + 2) %}
-                                    {{ land['points'] }} points
+                                {% if land.land_id is defined and land.points is defined and land.land_id == (i + 2) %}
+                                    {{ land.points }} points
                                     {% set find = true %}
                                 {% endif %}
                             {% endfor %}
                             {% if find == false %}
                                 {% set find = false %}
                                 {% for land in points %}
-                                    {% if land['land_id'] and land['points'] and land['land_id'] == (i + 3) %}
-                                        {{ land['points'] }} points
+                                    {% if land.land_id is defined and land.points is defined and land.land_id == (i + 3) %}
+                                        {{ land.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -88,12 +89,21 @@
                     <div class="land d-flex">
                         <img src="{{ asset('img/lands/' ~ land.id ~ '.jpg') }}" alt="land">
                         <p class="font-weight-bold p-1">
-                            {% for rank in ranking[i] %}
-                                {% if rank['points'] and rank['points'] > 0 %}
-                                    <span class="font-weight-bold alliance-{{ rank['color'] }}">[{{ rank['tag'] }}]</span><br>
-                                    <span class="green-text">{{ rank['points'] }} pts</span><br>
-                                {% endif %}
-                            {% endfor %}
+                            {% if i < 15 %}
+                                {% for rank in ranking[i] %}
+                                    {% if rank.points and rank.points > 0 %}
+                                        <span class="font-weight-bold alliance-{{ rank['color'] }}">[{{ rank['tag'] }}]</span><br>
+                                        <span class="green-text">{{ rank['points'] }} pts</span><br>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                {% for rank in ranking[i + 1] %}
+                                    {% if rank.points and rank.points > 0 %}
+                                        <span class="font-weight-bold alliance-{{ rank['color'] }}">[{{ rank['tag'] }}]</span><br>
+                                        <span class="green-text">{{ rank['points'] }} pts</span><br>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
                         </p>
                     </div>
                 </div>

@@ -174,14 +174,11 @@ class __TwigTemplate_787b9b3416d5d9cba3501886bad3347e06b1f9d623409d5bfa8c4952de4
         }
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
             // line 66
-            echo "                            ";
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, $context["user"]);
-            echo "
-                            <div class=\"col-3 p-0\">
+            echo "                            <div class=\"col-3 p-0\">
                                 <div class=\"ranking\">
                                     <div class=\"ranking-name\">";
-            // line 69
-            if (twig_get_attribute($this->env, $this->source, $context["user"], "activity", [], "any", false, false, false, 69)) {
+            // line 68
+            if (twig_get_attribute($this->env, $this->source, $context["user"], "activity", [], "any", false, false, false, 68)) {
                 echo "<img src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/online.png"), "html", null, true);
                 echo "\" alt=\"etat\">";
@@ -191,18 +188,18 @@ class __TwigTemplate_787b9b3416d5d9cba3501886bad3347e06b1f9d623409d5bfa8c4952de4
                 echo "\" alt=\"etat\">";
             }
             echo " <a target=_blank href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "array", false, false, false, 69)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "array", false, false, false, 68)]), "html", null, true);
             echo "\"><b>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "username", [], "array", false, false, false, 69), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "username", [], "array", false, false, false, 68), "html", null, true);
             echo "</b></a></div>
                                     <div class=\"row p-0 m-0\">
                                         <div class=\"ranking-avatar\"><img src=\"";
-            // line 71
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl((("img/avatars/" . twig_get_attribute($this->env, $this->source, $context["user"], "avatar", [], "array", false, false, false, 71)) . ".jpg")), "html", null, true);
+            // line 70
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl((("img/avatars/" . twig_get_attribute($this->env, $this->source, $context["user"], "avatar", [], "array", false, false, false, 70)) . ".jpg")), "html", null, true);
             echo "\"></div>
                                         <div class=\"ranking-number\"><img src=\"";
-            // line 72
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl((("img/numbers/" . twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 72)) . ".png")), "html", null, true);
+            // line 71
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl((("img/numbers/" . twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 71)) . ".png")), "html", null, true);
             echo "\"></div>
                                     </div>
                                 </div>
@@ -220,7 +217,7 @@ class __TwigTemplate_787b9b3416d5d9cba3501886bad3347e06b1f9d623409d5bfa8c4952de4
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 77
+        // line 76
         echo "                    </div>
                 </div>
             </div>
@@ -248,7 +245,7 @@ class __TwigTemplate_787b9b3416d5d9cba3501886bad3347e06b1f9d623409d5bfa8c4952de4
 
     public function getDebugInfo()
     {
-        return array (  224 => 77,  205 => 72,  201 => 71,  184 => 69,  177 => 66,  160 => 65,  120 => 32,  114 => 31,  103 => 23,  96 => 19,  80 => 8,  77 => 7,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  221 => 76,  202 => 71,  198 => 70,  181 => 68,  177 => 66,  160 => 65,  120 => 32,  114 => 31,  103 => 23,  96 => 19,  80 => 8,  77 => 7,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -318,7 +315,6 @@ class __TwigTemplate_787b9b3416d5d9cba3501886bad3347e06b1f9d623409d5bfa8c4952de4
                 <div class=\"card-body backp2 m-0 p-0\">
                     <div class=\"row p-0 m-0\">
                         {% for user in ranking %}
-                            {{ dump(user) }}
                             <div class=\"col-3 p-0\">
                                 <div class=\"ranking\">
                                     <div class=\"ranking-name\">{% if user.activity %}<img src=\"{{ asset('img/icons/online.png') }}\" alt=\"etat\">{% else %}<img src=\"{{ asset('img/icons/offline.png') }}\" alt=\"etat\">{% endif %} <a target=_blank href=\"{{ path('app_profile', {id: user['id']}) }}\"><b>{{ user['username'] }}</b></a></div>
