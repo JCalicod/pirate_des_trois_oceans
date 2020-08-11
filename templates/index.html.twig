@@ -65,7 +65,7 @@
                         {% for user in ranking %}
                             <div class="col-3 p-0">
                                 <div class="ranking">
-                                    <div class="ranking-name">{% if user.isActiveNow %}<img src="{{ asset('img/icons/online.png') }}" alt="etat">{% else %}<img src="{{ asset('img/icons/offline.png') }}" alt="etat">{% endif %} <a target=_blank href="{{ path('app_profile', {id: user['id']}) }}"><b>{{ user['username'] }}</b></a></div>
+                                    <div class="ranking-name">{% if user.activity %}<img src="{{ asset('img/icons/online.png') }}" alt="etat">{% else %}<img src="{{ asset('img/icons/offline.png') }}" alt="etat">{% endif %} <a target=_blank href="{{ path('app_profile', {id: user['id']}) }}"><b>{{ user['username'] }}</b></a></div>
                                     <div class="row p-0 m-0">
                                         <div class="ranking-avatar"><img src="{{ asset('img/avatars/' ~ user['avatar'] ~ '.jpg' ) }}"></div>
                                         <div class="ranking-number"><img src="{{ asset('img/numbers/' ~ loop.index ~ '.png' ) }}"></div>
