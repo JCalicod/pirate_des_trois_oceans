@@ -14,6 +14,7 @@ use App\Entity\Messaging;
 use App\Entity\Ship;
 use App\Entity\User;
 use App\Form\SpyType;
+use App\Service\MessagingServices;
 use App\Service\ShipServices;
 use App\Service\TravelServices;
 use App\Service\UserServices;
@@ -36,13 +37,15 @@ class HomeController extends AbstractController {
     private $userServices;
     private $shipServices;
     private $travelServices;
+    private $messagingServices;
 
-    public function __construct(EntityManagerInterface $em, UserServices $userServices, TravelServices $travelServices, Security $security, ShipServices $shipServices) {
+    public function __construct(EntityManagerInterface $em, UserServices $userServices, TravelServices $travelServices, Security $security, ShipServices $shipServices, MessagingServices $messagingServices) {
         $this->em = $em;
         $this->user = $this->em->getRepository(User::class)->findOneBy(['username' => $security->getUser()->getUsername()]);
         $this->userServices = $userServices;
         $this->travelServices = $travelServices;
         $this->shipServices = $shipServices;
+        $this->messagingServices = $messagingServices;
     }
 
     /**
@@ -116,9 +119,10 @@ class HomeController extends AbstractController {
     }
 
     /**
-     * @param Request $request
      * @Route("/espionnage", name="app_spy")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function spy(Request $request)
     {
@@ -133,6 +137,13 @@ class HomeController extends AbstractController {
             }
             $ranking = $this->userServices->getRanking($user);
             $nb_users = count($this->em->getRepository(User::class)->findAll());
+            $this->messagingServices->sendMessage(
+                [
+                    'title' => 'Rapport d\'Espionnage',
+                    'message' => 'Attention capitaine, nous savons de source sûre qu\'un certain <b>' . $this->user->getUsername() . '</b> vous espionne..',
+                    'receiver' => $user->getUsername()
+                ]
+            );
             return $this->render('authenticated/spy.html.twig', [
                 'user' => $user,
                 'ranking' => $ranking,

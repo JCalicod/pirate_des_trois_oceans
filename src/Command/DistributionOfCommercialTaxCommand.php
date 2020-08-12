@@ -74,7 +74,7 @@ class DistributionOfCommercialTaxCommand extends Command
                 $this->messagingServices->sendMessage(
                     [
                         'title' => 'Taxe Commerciale',
-                        'message' => 'Vous avez perçu <b>' . intval($each_gain) . ' PO</b> grâce à la prise de territoires de votre Alliance.',
+                        'message' => 'Vous avez perçu <b>' .  number_format(intval($each_gain), 2, '', ' ') . ' PO</b> grâce à la prise de territoires de votre Alliance.',
                         'receiver' => $member->getUsername()
                     ]
                 );
