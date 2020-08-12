@@ -1,3 +1,5 @@
+{# A REFACTO => ILLISIBLE ET COMPLIQUE POUR RIEN #}
+
 <div id="lands" class="tab-block">
     <div class="points-row">
         {% set find = false %}
@@ -34,54 +36,117 @@
             {% if land.id != 15 %}
                 {% if (i - 1) % 4 == 0 %}
                     <div class="points-row row">
-                        <div class="col-3">
-                            {% set find = false %}
-                            {% for land in points %}
-                                {% if land.land_id and land.points is defined and land.land_id == i %}
-                                    {{ land.points }} points
-                                    {% set find = true %}
-                                {% endif %}
-                            {% endfor %}
-                            {% if find == false %}
-                                0 point
-                            {% endif %}
-                        </div>
-                        <div class="col-3">
-                            {% set find = false %}
-                            {% for land in points %}
-                                {% if land.land_id is defined and land.points is defined and land.land_id == (i + 1) %}
-                                    {{ land.points }} points
-                                    {% set find = true %}
-                                {% endif %}
-                            {% endfor %}
-                            {% if find == false %}
-                                0 point
-                            {% endif %}
-                        </div>
-                        <div class="col-3">
-                            {% set find = false %}
-                            {% for land in points %}
-                                {% if land.land_id is defined and land.points is defined and land.land_id == (i + 2) %}
-                                    {{ land.points }} points
-                                    {% set find = true %}
-                                {% endif %}
-                            {% endfor %}
-                            {% if find == false %}
+                        {% if i < 15 %}
+                            <div class="col-3">
                                 {% set find = false %}
-                                {% for land in points %}
-                                    {% if land.land_id is defined and land.points is defined and land.land_id == (i + 3) %}
-                                        {{ land.points }} points
+                                {% for position in points %}
+                                    {% if position.land_id is defined and position.points is defined and position.land_id == i %}
+                                        {{ position.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
                                 {% if find == false %}
                                     0 point
                                 {% endif %}
-                            {% endif %}
-                        </div>
-                        <div class="col-3">
-                            0 point
-                        </div>
+                            </div>
+                        {% else %}
+                            <div class="col-3">
+                                {% set find = false %}
+                                {% for position in points %}
+                                    {% if position.land_id is defined and position.points is defined and position.land_id == i + 1 %}
+                                        {{ position.points }} points
+                                        {% set find = true %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if find == false %}
+                                    0 point
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {% if (i + 1) < 15 %}
+                            <div class="col-3">
+                                {% set find = false %}
+                                {% for position in points %}
+                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 1) %}
+                                        {{ position.points }} points
+                                        {% set find = true %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if find == false %}
+                                    0 point
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <div class="col-3">
+                                {% set find = false %}
+                                {% for position in points %}
+                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 2) %}
+                                        {{ position.points }} points
+                                        {% set find = true %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if find == false %}
+                                    0 point
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {% if (i + 2) < 15 %}
+                            <div class="col-3">
+                                {% set find = false %}
+                                {% for position in points %}
+                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 2) %}
+                                        {{ position.points }} points
+                                        {% set find = true %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if find == false %}
+                                    0 point
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <div class="col-3">
+                                {% set find = false %}
+                                {% for position in points %}
+                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 3) %}
+                                        {{ position.points }} points
+                                        {% set find = true %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if find == false %}
+                                    0 point
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {% if (i + 3) < 15 %}
+                            <div class="col-3">
+                                {% set find = false %}
+                                {% for position in points %}
+                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 3) %}
+                                        {{ position.points }} points
+                                        {% set find = true %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if find == false %}
+                                    0 point
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <div class="col-3">
+                                {% set find = false %}
+                                {% for position in points %}
+                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 4) %}
+                                        {{ position.points }} points
+                                        {% set find = true %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if find == false %}
+                                    0 point
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     </div>
                     <div class="row">
                 {% endif %}
