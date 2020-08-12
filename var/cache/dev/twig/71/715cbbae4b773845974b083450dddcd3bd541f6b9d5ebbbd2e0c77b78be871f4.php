@@ -207,6 +207,15 @@ class __TwigTemplate_8fe3745ce1a4ceebfbf70a7192789d431adff02959e8ff37c65faaf0ecc
         </div>
     </div>
 
+    <div class=\"d-flex justify-content-end\">
+        <div class=\"discord mb-3 mt-3\">
+            <a href=\"https://discord.gg/G7vvrhh\"><img src=\"";
+        // line 47
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/discord.png"), "html", null, true);
+        echo "\" alt=\"discord\"> Rejoins notre Discord</a>
+        </div>
+    </div>
+
     <div class=\"tavern-send-message d-flex mt-2\">
         <input id=\"tavern-message\" type=\"text\" maxlength=\"68\" name=\"message\" autofocus> <button id=\"send-tavern-message\" type=\"submit\" name=\"send\" value=\"Envoyer\">Envoyer</button>
     </div>
@@ -232,11 +241,11 @@ class __TwigTemplate_8fe3745ce1a4ceebfbf70a7192789d431adff02959e8ff37c65faaf0ecc
     </div>
 
     ";
-        // line 69
-        $this->loadTemplate("authenticated/script/refresh-tavern.html.twig", "authenticated/tavern.html.twig", 69)->display($context);
-        // line 70
+        // line 75
+        $this->loadTemplate("authenticated/script/refresh-tavern.html.twig", "authenticated/tavern.html.twig", 75)->display($context);
+        // line 76
         echo "    ";
-        $this->loadTemplate("authenticated/script/send_tavern_message.html.twig", "authenticated/tavern.html.twig", 70)->display($context);
+        $this->loadTemplate("authenticated/script/send_tavern_message.html.twig", "authenticated/tavern.html.twig", 76)->display($context);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -257,7 +266,7 @@ class __TwigTemplate_8fe3745ce1a4ceebfbf70a7192789d431adff02959e8ff37c65faaf0ecc
 
     public function getDebugInfo()
     {
-        return array (  238 => 70,  236 => 69,  206 => 41,  200 => 40,  197 => 39,  194 => 38,  191 => 37,  188 => 36,  186 => 35,  180 => 32,  169 => 29,  155 => 28,  149 => 26,  144 => 25,  142 => 24,  132 => 16,  126 => 15,  111 => 12,  106 => 11,  101 => 10,  96 => 9,  86 => 8,  74 => 5,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  247 => 76,  245 => 75,  214 => 47,  206 => 41,  200 => 40,  197 => 39,  194 => 38,  191 => 37,  188 => 36,  186 => 35,  180 => 32,  169 => 29,  155 => 28,  149 => 26,  144 => 25,  142 => 24,  132 => 16,  126 => 15,  111 => 12,  106 => 11,  101 => 10,  96 => 9,  86 => 8,  74 => 5,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -306,6 +315,12 @@ class __TwigTemplate_8fe3745ce1a4ceebfbf70a7192789d431adff02959e8ff37c65faaf0ecc
         </div>
     </div>
 
+    <div class=\"d-flex justify-content-end\">
+        <div class=\"discord mb-3 mt-3\">
+            <a href=\"https://discord.gg/G7vvrhh\"><img src=\"{{ asset('img/icons/discord.png') }}\" alt=\"discord\"> Rejoins notre Discord</a>
+        </div>
+    </div>
+
     <div class=\"tavern-send-message d-flex mt-2\">
         <input id=\"tavern-message\" type=\"text\" maxlength=\"68\" name=\"message\" autofocus> <button id=\"send-tavern-message\" type=\"submit\" name=\"send\" value=\"Envoyer\">Envoyer</button>
     </div>
@@ -333,6 +348,6 @@ class __TwigTemplate_8fe3745ce1a4ceebfbf70a7192789d431adff02959e8ff37c65faaf0ecc
     {% include 'authenticated/script/refresh-tavern.html.twig' %}
     {% include 'authenticated/script/send_tavern_message.html.twig' %}
 {% endblock %}
-", "authenticated/tavern.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\tavern.html.twig");
+", "authenticated/tavern.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\tavern.html.twig");
     }
 }

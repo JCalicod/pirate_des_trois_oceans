@@ -70,3 +70,24 @@
     background-position: center;
     border-bottom: 2px solid #2E231F;
 }
+
+.discord {
+    text-align: center;
+    width: 200px;
+    background-color: #fff;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.discord a:hover {
+    color: #738ADB;
+}
+
+.discord img {
+    width: 30px;
+}
