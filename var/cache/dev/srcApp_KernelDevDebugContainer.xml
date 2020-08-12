@@ -377,6 +377,7 @@
       <argument type="service" id="App\Service\TravelServices"/>
       <argument type="service" id="security.helper"/>
       <argument type="service" id="App\Service\ShipServices"/>
+      <argument type="service" id="App\Service\MessagingServices"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\HomeController"/>
       </call>
