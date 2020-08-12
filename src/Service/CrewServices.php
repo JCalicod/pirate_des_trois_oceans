@@ -82,7 +82,7 @@ class CrewServices {
             if ($this->shipServices->getUnitFreeSpace('explorer', $ship) >= $data['explorer']) {
                 if ($this->shipServices->getUnitFreeSpace('gunner', $ship) >= $data['gunner']) {
                     if ($this->shipServices->getUnitFreeSpace('cook', $ship) >= $data['cook']) {
-                        if ($this->shipServices->getUnitFreeSpace('cook', $ship) >= $data['carpenter']) {
+                        if ($this->shipServices->getUnitFreeSpace('carpenter', $ship) >= $data['carpenter']) {
                             if ($this->shipServices->getUnitFreeSpace('surgeon', $ship) >= $data['surgeon']) {
                                 return true;
                             }
