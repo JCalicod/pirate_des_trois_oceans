@@ -465,7 +465,7 @@ class WarServices {
             $ship->setName($data['names'][$index]);
             $ship->setAvatar(random_int(1, 3));
             $ship->setLevel($level);
-            $ship->setStructure(100 - random_int(0, 60));
+            $ship->setStructure(100 - random_int(20, 60));
             $ship->setSeaman(intval(ceil($data['ratio'] * $level * 10)));
             $ship->setGunner(intval(ceil($data['ratio'] * $level)));
             $ship->setArsenal($ship->getSeaman());
@@ -660,15 +660,16 @@ class WarServices {
      */
     private function userCrewLost(int $structure_lost, bool $attacker = true) {
         if ($attacker) {
+            $nb = count($this->attacker['fleet']);
             foreach ($this->attacker['fleet'] as $ship) {
                 /** @var Ship $ship */
                 $lost = [
-                    'seaman' => min(round($this->defender['power'] / 6 / 10), $ship->getSeaman()),
-                    'explorer' => min(round($this->defender['power'] / 6 / 30), $ship->getExplorer()),
-                    'gunner' => min(round($this->defender['power'] / 6 / 50), $ship->getGunner()),
-                    'cook' => min(round($this->defender['power'] / 6 / 100), $ship->getCook()),
-                    'carpenter' => min(round($this->defender['power'] / 6 / 100), $ship->getCarpenter()),
-                    'surgeon' => min(round($this->defender['power'] / 6 / 300), $ship->getSurgeon())
+                    'seaman' => round(min(round($this->defender['power'] / 10 / 10), $ship->getSeaman())/$nb),
+                    'explorer' => round(min(round($this->defender['power'] / 10 / 30), $ship->getExplorer())/$nb),
+                    'gunner' => round(min(round($this->defender['power'] / 10 / 50), $ship->getGunner())/$nb),
+                    'cook' => round(min(round($this->defender['power'] / 10 / 100), $ship->getCook())/$nb),
+                    'carpenter' => round(min(round($this->defender['power'] / 10 / 100), $ship->getCarpenter())/$nb),
+                    'surgeon' => round(min(round($this->defender['power'] / 10 / 300), $ship->getSurgeon())/$nb)
                 ];
                 $lost = $this->saveCrew($ship, $lost);
 
@@ -702,15 +703,16 @@ class WarServices {
             }
         }
         else {
+            $nb = count($this->defender['fleet']);
             foreach ($this->defender['fleet'] as $ship) {
                 /** @var Ship $ship */
                 $lost = [
-                    'seaman' => min(round($this->attacker['power'] / 6 / 10), $ship->getSeaman()),
-                    'explorer' => min(round($this->attacker['power'] / 6 / 30), $ship->getExplorer()),
-                    'gunner' => min(round($this->attacker['power'] / 6 / 50), $ship->getGunner()),
-                    'cook' => min(round($this->attacker['power'] / 6 / 100), $ship->getCook()),
-                    'carpenter' => min(round($this->attacker['power'] / 6 / 100), $ship->getCarpenter()),
-                    'surgeon' => min(round($this->attacker['power'] / 6 / 300), $ship->getSurgeon())
+                    'seaman' => round(min(round($this->attacker['power'] / 10 / 10), $ship->getSeaman())/$nb),
+                    'explorer' => round(min(round($this->attacker['power'] / 10 / 30), $ship->getExplorer())/$nb),
+                    'gunner' => round(min(round($this->attacker['power'] / 10 / 50), $ship->getGunner())/$nb),
+                    'cook' => round(min(round($this->attacker['power'] / 10 / 100), $ship->getCook())/$nb),
+                    'carpenter' => round(min(round($this->attacker['power'] / 10 / 100), $ship->getCarpenter())/$nb),
+                    'surgeon' => round(min(round($this->attacker['power'] / 10 / 300), $ship->getSurgeon())/$nb)
                 ];
                 $lost = $this->saveCrew($ship, $lost);
 
@@ -851,10 +853,18 @@ class WarServices {
         // Pertes de l'utilisateur
         $this->userLost();
 
-        $xp = 5;
+        $xp = 2;
         if ($this->victory) {
             $this->resourcesTheft(true);
-            $xp = 15;
+            if ($data['target'] == 'sinner') {
+                $xp = 7;
+            }
+            if ($data['target'] == 'trader') {
+                $xp = 10;
+            }
+            else {
+                $xp = 15;
+            }
         }
 
         $this->gainXP($this->attacker['fleet'], $xp);
