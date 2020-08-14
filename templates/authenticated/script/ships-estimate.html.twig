@@ -41,7 +41,10 @@
                     case 'upgrade':
                         let wood2 = parseInt(ship.find('.wood').first().text());
                         let copper2 = parseInt(ship.find('.copper').first().text());
+                        console.log(wood2);
+                        console.log(copper2);
                         price += 100 * Math.min(Math.floor(wood2/10), Math.floor(copper2/10));
+                        console.log(price);
                         break;
                     default:
                         console.log('Action inexistante.');

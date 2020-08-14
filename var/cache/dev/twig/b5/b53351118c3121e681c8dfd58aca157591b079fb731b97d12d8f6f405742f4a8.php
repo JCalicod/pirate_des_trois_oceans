@@ -234,8 +234,8 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
                         </table>
 
                         <input type=\"submit\" name=\"transfer\" value=\"Transférer\">
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -656,8 +656,8 @@ class __TwigTemplate_da901e411738276a5a454a77a37ec31ad48bbc92ee002de9eca83d7833e
                         </table>
 
                         <input type=\"submit\" name=\"transfer\" value=\"Transférer\">
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
