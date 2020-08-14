@@ -331,7 +331,7 @@ class __TwigTemplate_8ef2f105b8e8b94f59ef18bbaff8c5f723d65aa752ac3df254a4fc679a4
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["spyForm"]) || array_key_exists("spyForm", $context) ? $context["spyForm"] : (function () { throw new RuntimeError('Variable "spyForm" does not exist.', 101, $this->source); })()), 'form_end');
         echo "
                             </div>
-                        <p class=\"mini2\">Coût : 1 000 Pièces d'or</p>
+                        <p class=\"mini2\">Coût : 15 000 Pièces d'or</p>
                     </div>
                 </div>
 
@@ -694,7 +694,7 @@ class __TwigTemplate_8ef2f105b8e8b94f59ef18bbaff8c5f723d65aa752ac3df254a4fc679a4
 
                                 {{ form_end(spyForm) }}
                             </div>
-                        <p class=\"mini2\">Coût : 1 000 Pièces d'or</p>
+                        <p class=\"mini2\">Coût : 15 000 Pièces d'or</p>
                     </div>
                 </div>
 
@@ -805,6 +805,6 @@ class __TwigTemplate_8ef2f105b8e8b94f59ef18bbaff8c5f723d65aa752ac3df254a4fc679a4
     </div>
 
     {% include 'authenticated/script/hour.html.twig' %}
-{% endblock %}", "authenticated/home.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\home.html.twig");
+{% endblock %}", "authenticated/home.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\home.html.twig");
     }
 }

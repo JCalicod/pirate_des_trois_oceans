@@ -257,8 +257,8 @@ class UserServices
     {
         if ($user = $this->em->getRepository(User::class)->findOneBy(['username' => $data['username']])) {
             if ($user != $this->current_user) {
-                if ($this->current_user->getGold() >= 1000) {
-                    $this->current_user->withdrawGold(1000);
+                if ($this->current_user->getGold() >= 15000) {
+                    $this->current_user->withdrawGold(15000);
                     $this->em->persist($this->current_user);
                     $this->em->flush();
                     return $user;
