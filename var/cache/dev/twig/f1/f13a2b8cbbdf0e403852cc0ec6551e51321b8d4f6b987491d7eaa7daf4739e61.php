@@ -95,7 +95,7 @@ class __TwigTemplate_51f10255b0135b6db754992b4fef0c395b331bb9834d7439144e5cdf4aa
         // line 9
         echo "    <div class=\"card no-min-height\">
         <div class=\"card-header\">
-            Exploration
+            Braconnage
         </div>
         <div class=\"card-back-msg d-flex p-0\">
             <div class=\"poaching-image\">
@@ -177,7 +177,7 @@ class __TwigTemplate_51f10255b0135b6db754992b4fef0c395b331bb9834d7439144e5cdf4aa
 {% block body %}
     <div class=\"card no-min-height\">
         <div class=\"card-header\">
-            Exploration
+            Braconnage
         </div>
         <div class=\"card-back-msg d-flex p-0\">
             <div class=\"poaching-image\">
@@ -194,6 +194,6 @@ class __TwigTemplate_51f10255b0135b6db754992b4fef0c395b331bb9834d7439144e5cdf4aa
             </div>
         </div>
     </div>
-{% endblock %}", "authenticated/poaching/poach.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\poaching\\poach.html.twig");
+{% endblock %}", "authenticated/poaching/poach.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\poaching\\poach.html.twig");
     }
 }

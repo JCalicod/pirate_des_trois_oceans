@@ -83,36 +83,41 @@ class ExplorationServices
         if (count($ships) > 0) {
             if ($this->user->getPa() > 0) {
                 $nb_explorers = 0;
+                $total = ['wood' => 0, 'food' => 0, 'alcohol' => 0, 'gold' => 0];
                 foreach ($ships as $ship) {
                     $nb_explorers = $ship->getExplorer();
-                }
-                $gold = random_int(25, 100) * $nb_explorers;
-                $wood = random_int(25, 100) * $nb_explorers;
-                $food = random_int(25, 100) * $nb_explorers;
-                $alcohol = random_int(25, 100) * $nb_explorers;
 
-                $this->setSuccess('Votre équipage part en exploration et récolte <span class="brown-text">' . $wood . ' morceaux de Bois</span>, <span class="green-text">' . $food . ' portions de Nourriture</span>, <span class="green-text">' . $alcohol . ' portions d\'Alcool</span> ainsi que <span class="gold-dark">' . $gold . ' Pièces d\'Or</span>.');
+                    $gold = random_int(10, 20) * $nb_explorers;
+                    $wood = random_int(2, 4) * $nb_explorers;
+                    $food = random_int(2, 4) * $nb_explorers;
+                    $alcohol = random_int(2, 4) * $nb_explorers;
 
-                $this->user->addGold($gold);
-                $this->user->setPa($this->user->getPa() - 1);
-                $this->em->persist($this->user);
-                foreach ($ships as $ship) {
+                    $total['gold'] += $gold;
+
                     if ($wood > 0 && $this->shipServices->getMarchandisesFreeSpace($ship) >= $wood) {
                         $ship->setWood($ship->getWood() + $wood);
+                        $total['wood'] += $wood;
                         $wood = 0;
                     }
                     if ($food > 0 && $this->shipServices->getMarchandisesFreeSpace($ship) >= $food) {
                         $ship->setFood($ship->getFood() + $food);
+                        $total['food'] += $food;
                         $food = 0;
                     }
                     if ($alcohol > 0 && $this->shipServices->getMarchandisesFreeSpace($ship) >= $alcohol) {
                         $ship->setAlcohol($ship->getAlcohol() + $alcohol);
+                        $total['alcohol'] += $alcohol;
                         $alcohol = 0;
                     }
                     $this->shipServices->gainXP($ship, 2);
                     $this->em->persist($ship);
                 }
 
+                $this->setSuccess('Votre équipage part en exploration et récolte <span class="brown-text">' . $total['wood'] . ' morceaux de Bois</span>, <span class="green-text">' . $total['food'] . ' portions de Nourriture</span>, <span class="green-text">' . $total['alcohol'] . ' portions d\'Alcool</span> ainsi que <span class="gold-dark">' . $total['gold'] . ' Pièces d\'Or</span>.');
+
+                $this->user->addGold($total['gold']);
+                $this->user->setPa($this->user->getPa() - 1);
+                $this->em->persist($this->user);
                 $this->em->flush();
 
                 return true;
