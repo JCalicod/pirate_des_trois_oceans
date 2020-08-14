@@ -772,29 +772,56 @@ class WarServices {
      * @param bool $npc
      */
     private function resourcesTheft(bool $npc = false) : void {
-        $nb = min(count($this->defender['fleet']), count($this->attacker['fleet']));
-        for ($i = 0; $i < $nb; $i++) {
-            $quantity = 0;
-            foreach ($this->getResourceNames() as $name) {
-                $getter = 'get' . strtoupper($name[0]) . substr($name, 1);
-                $quantity += $this->defender['fleet'][$i]->$getter();
-            }
+        // On boucle sur les navires ennemis pour calculer les ressources pillées
+        foreach ($this->defender['fleet'] as $key => $defenderShip) {
+            $quantity = [];
+            $total_resource = [];
+            $total = 0;
 
-            // S'il y a assez de place pour voler les ressources de ce navire
-            if (($npc || (!$npc && !($this->defender['fleet'][$i] instanceof Den))) && $this->shipServices->getMarchandisesFreeSpace($this->attacker['fleet'][$i]) >= ($this->shipServices->getMarchandises($this->attacker['fleet'][$i]) + $quantity)) {
-                foreach ($this->getResourceNames() as $name) {
+            foreach ($this->getResourceNames() as $name) {
+                // Si on attaque un navire PNJ ou si on attaque un navire qui n'est pas un repaire
+                if ($npc || (!$npc && !($defenderShip instanceof Den))) {
+                    if (!array_key_exists($name, $total_resource)) {
+                        $total_resource[$name] = 0;
+                    }
                     $getter = 'get' . strtoupper($name[0]) . substr($name, 1);
                     $setter = 'set' . strtoupper($name[0]) . substr($name, 1);
-                    $this->attacker['fleet'][$i]->$setter($this->attacker['fleet'][$i]->$getter() + $this->defender['fleet'][$i]->$getter());
-                    $this->defender['fleet'][$i]->$setter(0);
-                    $this->theft[$i][$name] = $this->defender['fleet'][$i]->$getter();
+                    // Le navire a perdu 1 dixième de chanque ressource
+                    $quantity[$key][$name] = round($defenderShip->$getter() / 10);
+                    // Perte des ressources
+                    $defenderShip->$setter($defenderShip->$getter() - $quantity[$key][$name]);
+                    $total_resource[$name] += $quantity[$key][$name];
+                    $total += $quantity[$key][$name];
+
+                    if (!$npc) {
+                        $this->em->persist($defenderShip);
+                    }
                 }
             }
-            $this->em->persist($this->attacker['fleet'][$i]);
-            if (!$npc) {
-                $this->em->persist($this->defender['fleet'][$i]);
+        }
+
+        // On boucle sur les navires de l'attaquant pour voir si on peut y placer les ressources volées
+        foreach ($this->attacker['fleet'] as $key => $attackerShip) {
+            foreach ($this->getResourceNames() as $name) {
+                $free_space = $this->shipServices->getMarchandisesFreeSpace($attackerShip);
+                $getter = 'get' . strtoupper($name[0]) . substr($name, 1);
+                $setter = 'set' . strtoupper($name[0]) . substr($name, 1);
+                // Si le navire peut récolter toutes ces ressources
+                if ($free_space >= $total_resource[$name]) {
+                    $attackerShip->$setter($attackerShip->$getter() + $total_resource[$name]);
+                    $total_resource[$name] = 0;
+                }
+                else {
+                    // Sinon, s'il y a au moins un peu de place, on remplit ce qu'on peut
+                    if ($free_space > 0) {
+                        $attackerShip->$setter($attackerShip->$getter() + $free_space);
+                        $total_resource[$name] -= $free_space;
+                    }
+                }
+                $this->em->persist($attackerShip);
             }
         }
+        
         // NPC
         if (array_key_exists('gold', $this->defender)) {
             $gold = $this->defender['gold'];
