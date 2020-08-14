@@ -781,7 +781,7 @@ class WarServices {
             }
 
             // S'il y a assez de place pour voler les ressources de ce navire
-            if ($this->shipServices->getMarchandisesFreeSpace($this->attacker['fleet'][$i]) >= ($this->shipServices->getMarchandises($this->attacker['fleet'][$i]) + $quantity)) {
+            if (($npc || (!$npc && !($this->defender['fleet'][$i] instanceof Den))) && $this->shipServices->getMarchandisesFreeSpace($this->attacker['fleet'][$i]) >= ($this->shipServices->getMarchandises($this->attacker['fleet'][$i]) + $quantity)) {
                 foreach ($this->getResourceNames() as $name) {
                     $getter = 'get' . strtoupper($name[0]) . substr($name, 1);
                     $setter = 'set' . strtoupper($name[0]) . substr($name, 1);
