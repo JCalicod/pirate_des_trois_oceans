@@ -30,8 +30,9 @@ class WarRepository extends ServiceEntityRepository
      */
     public function lastAttacks(User $defender)
     {
-        $today_startdatetime = \DateTime::createFromFormat( "Y-m-d H:i:s", date("Y-m-d 00:00:00") );
-        $today_enddatetime = \DateTime::createFromFormat( "Y-m-d H:i:s", date("Y-m-d 23:59:59") );
+        date_default_timezone_set('Europe/Paris');
+        $today_startdatetime = \DateTime::createFromFormat( "Y-m-d H:i:s", date("Y-m-d 00:00:00"), New \DateTimeZone('Europe/Paris') );
+        $today_enddatetime = \DateTime::createFromFormat( "Y-m-d H:i:s", date("Y-m-d 23:59:59"), New \DateTimeZone('Europe/Paris') );
 
         $query = $this->createQueryBuilder('w')
             ->andWhere('w.defender = :defender')
