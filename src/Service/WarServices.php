@@ -554,23 +554,14 @@ class WarServices {
      */
     private function sunkShip(Ship $ship, array $fleet) {
         $owner = null;
-        foreach($fleet as $ship) {
+        foreach($fleet as $fleet_ship) {
             /** @var Ship $ship */
-            $owner = $ship->getOwner();
+            $owner = $fleet_ship->getOwner();
             break;
         }
-        $order = $ship->getDisplayOrder();
-        // Si ce n'est pas le repaire, on change les ordres
+        // Si ce n'est pas le repaire
         if (!$ship instanceof Den) {
-            if (count($fleet) > 2) {
-                for ($i = 0; $i < count($fleet); $i++) {
-                    if ($fleet[$i]->getDisplayOrder() > $order) {
-                        $fleet[$i]->setDisplayOrder($fleet[$i]->getDisplayOrder() - 1);
-                        $this->em->persist($fleet[$i]);
-                    }
-                }
-            }
-            else {
+            if (count($fleet) <= 2) {
                 $bark = new Ship();
                 $bark->setName('Barque');
                 $bark->setAvatar(random_int(1, 3));
@@ -583,7 +574,7 @@ class WarServices {
                     $this->em->persist($bark);
                     $this->em->persist($this->user);
                 }
-                else if (!$this->npc) {
+                else if (!$this->npc && $owner == $this->defender['user']) {
                     $bark->setOwner($this->defender['user']);
                     $this->defender['user']->addShip($bark);
                     $this->em->persist($bark);
@@ -597,7 +588,7 @@ class WarServices {
             $den = new Den();
             $den->setName('Repaire');
             $den->setPosition($this->position);
-            $den->setDisplayOrder($order);
+            $den->setDisplayOrder(1);
             /** @var Ship $fleet[0] */
             if ($owner == $this->user) {
                 $den->setOwner($this->user);
@@ -605,7 +596,7 @@ class WarServices {
                 $this->em->persist($den);
                 $this->em->persist($this->user);
             }
-            else if (!$this->npc) {
+            else if (!$this->npc && $owner == $this->defender['user']) {
                 $den->setOwner($this->defender['user']);
                 $this->defender['user']->addShip($den);
                 $this->em->persist($den);
@@ -806,13 +797,13 @@ class WarServices {
                 $getter = 'get' . strtoupper($name[0]) . substr($name, 1);
                 $setter = 'set' . strtoupper($name[0]) . substr($name, 1);
                 // Si le navire peut récolter toutes ces ressources
-                if ($free_space >= $total_resource[$name]) {
+                if ($total_resource && array_key_exists($name, $total_resource) && $free_space >= $total_resource[$name]) {
                     $attackerShip->$setter($attackerShip->$getter() + $total_resource[$name]);
                     $total_resource[$name] = 0;
                 }
                 else {
                     // Sinon, s'il y a au moins un peu de place, on remplit ce qu'on peut
-                    if ($free_space > 0) {
+                    if ($free_space > 0 && $total_resource && array_key_exists($name, $total_resource)) {
                         $attackerShip->$setter($attackerShip->$getter() + $free_space);
                         $total_resource[$name] -= $free_space;
                     }
