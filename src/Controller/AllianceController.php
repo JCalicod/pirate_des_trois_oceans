@@ -142,14 +142,12 @@ class AllianceController extends AbstractController
         foreach ($lands as $land) {
             $ranking[$land->getId()] = $this->em->getRepository(Lands::class)->getLandBestAlliances($land);
         }
-        $points = $this->em->getRepository(Lands::class)->getAlliancePointsByLand($this->alliance);
         $logs = $this->em->getRepository(AllianceHistory::class)->findBy(['alliance' => $this->alliance], ['id' => 'DESC']);
 
         return $this->render('authenticated/alliance_board.html.twig', [
             'alliance' => $this->alliance,
             'lands' => $lands,
             'ranking' => $ranking,
-            'points' => $points,
             'logs' => $logs,
             'forms' => $forms
         ]);

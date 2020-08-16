@@ -52,28 +52,4 @@ class LandsRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
-    /**
-     * @param Alliance $alliance
-     * @return mixed
-     */
-    public function getAlliancePointsByLand(Alliance $alliance)
-    {
-        $query = $this->createQueryBuilder('l')
-            ->select(
-                'l.id AS land_id',
-                'SUM(aw.points) AS points'
-            )
-            ->innerJoin(War::class, 'w', 'WITH', 'w.position = l')
-            ->innerJoin(User::class, 'u', 'WITH', 'w.attacker = u')
-            ->innerJoin(Alliance::class, 'a', 'WITH', 'u.alliance = a')
-            ->innerJoin(AllianceWar::class, 'aw', 'WITH', 'aw.war = w')
-            ->where('a.id = :id')
-            ->setParameter('id', $alliance->getId())
-            ->andWhere('w.win = :win')
-            ->setParameter('win', true)
-        ;
-
-        return $query->getQuery()->getResult();
-    }
-
 }

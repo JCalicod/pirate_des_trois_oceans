@@ -3,9 +3,9 @@
 <div id="lands" class="tab-block">
     <div class="points-row">
         {% set find = false %}
-        {% for land in points %}
-            {% if land.land_id is defined and land.points is defined and land.land_id == 15 %}
-                {{ land.points }} points
+        {% for rank in ranking[15] %}
+            {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                {{ rank.points }} points
                 {% set find = true %}
             {% endif %}
         {% endfor %}
@@ -39,12 +39,13 @@
                         {% if i < 15 %}
                             <div class="col-3">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == i %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
+
                                 {% if find == false %}
                                     0 point
                                 {% endif %}
@@ -52,9 +53,9 @@
                         {% else %}
                             <div class="col-3">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == i + 1 %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 1] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -67,9 +68,9 @@
                         {% if (i + 1) < 15 %}
                             <div class="col-3">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 1) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 1] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -80,9 +81,9 @@
                         {% else %}
                             <div class="col-3">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 2) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 2] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -95,9 +96,9 @@
                         {% if (i + 2) < 15 %}
                             <div class="col-3">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 2) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 2] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -108,9 +109,9 @@
                         {% else %}
                             <div class="col-3">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 3) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 3] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -123,9 +124,9 @@
                         {% if (i + 3) < 15 %}
                             <div class="col-3">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 3) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 3] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -136,9 +137,9 @@
                         {% else %}
                             <div class="col-3">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 4) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 4] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}

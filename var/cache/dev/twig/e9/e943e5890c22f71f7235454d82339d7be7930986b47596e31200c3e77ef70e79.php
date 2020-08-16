@@ -49,14 +49,14 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
         // line 6
         echo "        ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["points"]) || array_key_exists("points", $context) ? $context["points"] : (function () { throw new RuntimeError('Variable "points" does not exist.', 6, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["land"]) {
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 6, $this->source); })()), 15, [], "array", false, false, false, 6));
+        foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
             // line 7
             echo "            ";
-            if (((twig_get_attribute($this->env, $this->source, $context["land"], "land_id", [], "any", true, true, false, 7) && twig_get_attribute($this->env, $this->source, $context["land"], "points", [], "any", true, true, false, 7)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["land"], "land_id", [], "any", false, false, false, 7), 15))) {
+            if ((twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", true, true, false, 7) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", false, false, false, 7), twig_get_attribute($this->env, $this->source, (isset($context["alliance"]) || array_key_exists("alliance", $context) ? $context["alliance"] : (function () { throw new RuntimeError('Variable "alliance" does not exist.', 7, $this->source); })()), "id", [], "any", false, false, false, 7)))) {
                 // line 8
                 echo "                ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["land"], "points", [], "any", false, false, false, 8), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 8), "html", null, true);
                 echo " points
                 ";
                 // line 9
@@ -68,7 +68,7 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
             echo "        ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['land'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 12
         echo "        ";
@@ -148,14 +148,14 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                         // line 42
                         echo "                                ";
                         $context['_parent'] = $context;
-                        $context['_seq'] = twig_ensure_traversable((isset($context["points"]) || array_key_exists("points", $context) ? $context["points"] : (function () { throw new RuntimeError('Variable "points" does not exist.', 42, $this->source); })()));
-                        foreach ($context['_seq'] as $context["_key"] => $context["position"]) {
+                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 42, $this->source); })()), (isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 42, $this->source); })()), [], "array", false, false, false, 42));
+                        foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
                             // line 43
                             echo "                                    ";
-                            if (((twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", true, true, false, 43) && twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", true, true, false, 43)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", false, false, false, 43), (isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 43, $this->source); })())))) {
+                            if ((twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", true, true, false, 43) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", false, false, false, 43), twig_get_attribute($this->env, $this->source, (isset($context["alliance"]) || array_key_exists("alliance", $context) ? $context["alliance"] : (function () { throw new RuntimeError('Variable "alliance" does not exist.', 43, $this->source); })()), "id", [], "any", false, false, false, 43)))) {
                                 // line 44
                                 echo "                                        ";
-                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", false, false, false, 44), "html", null, true);
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 44), "html", null, true);
                                 echo " points
                                         ";
                                 // line 45
@@ -167,412 +167,414 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                             echo "                                ";
                         }
                         $_parent = $context['_parent'];
-                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['position'], $context['_parent'], $context['loop']);
+                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
                         // line 48
-                        echo "                                ";
-                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 48, $this->source); })()), false)) {
-                            // line 49
+                        echo "
+                                ";
+                        // line 49
+                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 49, $this->source); })()), false)) {
+                            // line 50
                             echo "                                    0 point
                                 ";
                         }
-                        // line 51
+                        // line 52
                         echo "                            </div>
                         ";
                     } else {
-                        // line 53
-                        echo "                            <div class=\"col-3\">
-                                ";
                         // line 54
-                        $context["find"] = false;
+                        echo "                            <div class=\"col-3\">
+                                ";
                         // line 55
+                        $context["find"] = false;
+                        // line 56
                         echo "                                ";
                         $context['_parent'] = $context;
-                        $context['_seq'] = twig_ensure_traversable((isset($context["points"]) || array_key_exists("points", $context) ? $context["points"] : (function () { throw new RuntimeError('Variable "points" does not exist.', 55, $this->source); })()));
-                        foreach ($context['_seq'] as $context["_key"] => $context["position"]) {
-                            // line 56
+                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 56, $this->source); })()), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 56, $this->source); })()) + 1), [], "array", false, false, false, 56));
+                        foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
+                            // line 57
                             echo "                                    ";
-                            if (((twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", true, true, false, 56) && twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", true, true, false, 56)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", false, false, false, 56), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 56, $this->source); })()) + 1)))) {
-                                // line 57
-                                echo "                                        ";
-                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", false, false, false, 57), "html", null, true);
-                                echo " points
-                                        ";
+                            if ((twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", true, true, false, 57) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", false, false, false, 57), twig_get_attribute($this->env, $this->source, (isset($context["alliance"]) || array_key_exists("alliance", $context) ? $context["alliance"] : (function () { throw new RuntimeError('Variable "alliance" does not exist.', 57, $this->source); })()), "id", [], "any", false, false, false, 57)))) {
                                 // line 58
-                                $context["find"] = true;
+                                echo "                                        ";
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 58), "html", null, true);
+                                echo " points
+                                        ";
                                 // line 59
+                                $context["find"] = true;
+                                // line 60
                                 echo "                                    ";
                             }
-                            // line 60
+                            // line 61
                             echo "                                ";
                         }
                         $_parent = $context['_parent'];
-                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['position'], $context['_parent'], $context['loop']);
+                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 61
+                        // line 62
                         echo "                                ";
-                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 61, $this->source); })()), false)) {
-                            // line 62
+                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 62, $this->source); })()), false)) {
+                            // line 63
                             echo "                                    0 point
                                 ";
                         }
-                        // line 64
+                        // line 65
                         echo "                            </div>
                         ";
                     }
-                    // line 66
-                    echo "
-                        ";
                     // line 67
-                    if (-1 === twig_compare(((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 67, $this->source); })()) + 1), 15)) {
-                        // line 68
-                        echo "                            <div class=\"col-3\">
-                                ";
+                    echo "
+                        ";
+                    // line 68
+                    if (-1 === twig_compare(((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 68, $this->source); })()) + 1), 15)) {
                         // line 69
-                        $context["find"] = false;
+                        echo "                            <div class=\"col-3\">
+                                ";
                         // line 70
+                        $context["find"] = false;
+                        // line 71
                         echo "                                ";
                         $context['_parent'] = $context;
-                        $context['_seq'] = twig_ensure_traversable((isset($context["points"]) || array_key_exists("points", $context) ? $context["points"] : (function () { throw new RuntimeError('Variable "points" does not exist.', 70, $this->source); })()));
-                        foreach ($context['_seq'] as $context["_key"] => $context["position"]) {
-                            // line 71
+                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 71, $this->source); })()), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 71, $this->source); })()) + 1), [], "array", false, false, false, 71));
+                        foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
+                            // line 72
                             echo "                                    ";
-                            if (((twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", true, true, false, 71) && twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", true, true, false, 71)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", false, false, false, 71), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 71, $this->source); })()) + 1)))) {
-                                // line 72
-                                echo "                                        ";
-                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", false, false, false, 72), "html", null, true);
-                                echo " points
-                                        ";
+                            if ((twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", true, true, false, 72) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", false, false, false, 72), twig_get_attribute($this->env, $this->source, (isset($context["alliance"]) || array_key_exists("alliance", $context) ? $context["alliance"] : (function () { throw new RuntimeError('Variable "alliance" does not exist.', 72, $this->source); })()), "id", [], "any", false, false, false, 72)))) {
                                 // line 73
-                                $context["find"] = true;
+                                echo "                                        ";
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 73), "html", null, true);
+                                echo " points
+                                        ";
                                 // line 74
+                                $context["find"] = true;
+                                // line 75
                                 echo "                                    ";
                             }
-                            // line 75
+                            // line 76
                             echo "                                ";
                         }
                         $_parent = $context['_parent'];
-                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['position'], $context['_parent'], $context['loop']);
+                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 76
+                        // line 77
                         echo "                                ";
-                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 76, $this->source); })()), false)) {
-                            // line 77
+                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 77, $this->source); })()), false)) {
+                            // line 78
                             echo "                                    0 point
                                 ";
                         }
-                        // line 79
+                        // line 80
                         echo "                            </div>
                         ";
                     } else {
-                        // line 81
-                        echo "                            <div class=\"col-3\">
-                                ";
                         // line 82
-                        $context["find"] = false;
+                        echo "                            <div class=\"col-3\">
+                                ";
                         // line 83
+                        $context["find"] = false;
+                        // line 84
                         echo "                                ";
                         $context['_parent'] = $context;
-                        $context['_seq'] = twig_ensure_traversable((isset($context["points"]) || array_key_exists("points", $context) ? $context["points"] : (function () { throw new RuntimeError('Variable "points" does not exist.', 83, $this->source); })()));
-                        foreach ($context['_seq'] as $context["_key"] => $context["position"]) {
-                            // line 84
+                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 84, $this->source); })()), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 84, $this->source); })()) + 2), [], "array", false, false, false, 84));
+                        foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
+                            // line 85
                             echo "                                    ";
-                            if (((twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", true, true, false, 84) && twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", true, true, false, 84)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", false, false, false, 84), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 84, $this->source); })()) + 2)))) {
-                                // line 85
-                                echo "                                        ";
-                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", false, false, false, 85), "html", null, true);
-                                echo " points
-                                        ";
+                            if ((twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", true, true, false, 85) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", false, false, false, 85), twig_get_attribute($this->env, $this->source, (isset($context["alliance"]) || array_key_exists("alliance", $context) ? $context["alliance"] : (function () { throw new RuntimeError('Variable "alliance" does not exist.', 85, $this->source); })()), "id", [], "any", false, false, false, 85)))) {
                                 // line 86
-                                $context["find"] = true;
+                                echo "                                        ";
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 86), "html", null, true);
+                                echo " points
+                                        ";
                                 // line 87
+                                $context["find"] = true;
+                                // line 88
                                 echo "                                    ";
                             }
-                            // line 88
+                            // line 89
                             echo "                                ";
                         }
                         $_parent = $context['_parent'];
-                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['position'], $context['_parent'], $context['loop']);
+                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 89
+                        // line 90
                         echo "                                ";
-                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 89, $this->source); })()), false)) {
-                            // line 90
+                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 90, $this->source); })()), false)) {
+                            // line 91
                             echo "                                    0 point
                                 ";
                         }
-                        // line 92
+                        // line 93
                         echo "                            </div>
                         ";
                     }
-                    // line 94
-                    echo "
-                        ";
                     // line 95
-                    if (-1 === twig_compare(((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 95, $this->source); })()) + 2), 15)) {
-                        // line 96
-                        echo "                            <div class=\"col-3\">
-                                ";
-                        // line 97
-                        $context["find"] = false;
-                        // line 98
-                        echo "                                ";
-                        $context['_parent'] = $context;
-                        $context['_seq'] = twig_ensure_traversable((isset($context["points"]) || array_key_exists("points", $context) ? $context["points"] : (function () { throw new RuntimeError('Variable "points" does not exist.', 98, $this->source); })()));
-                        foreach ($context['_seq'] as $context["_key"] => $context["position"]) {
-                            // line 99
-                            echo "                                    ";
-                            if (((twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", true, true, false, 99) && twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", true, true, false, 99)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", false, false, false, 99), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 99, $this->source); })()) + 2)))) {
-                                // line 100
-                                echo "                                        ";
-                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", false, false, false, 100), "html", null, true);
-                                echo " points
-                                        ";
-                                // line 101
-                                $context["find"] = true;
-                                // line 102
-                                echo "                                    ";
-                            }
-                            // line 103
-                            echo "                                ";
-                        }
-                        $_parent = $context['_parent'];
-                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['position'], $context['_parent'], $context['loop']);
-                        $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 104
-                        echo "                                ";
-                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 104, $this->source); })()), false)) {
-                            // line 105
-                            echo "                                    0 point
-                                ";
-                        }
-                        // line 107
-                        echo "                            </div>
-                        ";
-                    } else {
-                        // line 109
-                        echo "                            <div class=\"col-3\">
-                                ";
-                        // line 110
-                        $context["find"] = false;
-                        // line 111
-                        echo "                                ";
-                        $context['_parent'] = $context;
-                        $context['_seq'] = twig_ensure_traversable((isset($context["points"]) || array_key_exists("points", $context) ? $context["points"] : (function () { throw new RuntimeError('Variable "points" does not exist.', 111, $this->source); })()));
-                        foreach ($context['_seq'] as $context["_key"] => $context["position"]) {
-                            // line 112
-                            echo "                                    ";
-                            if (((twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", true, true, false, 112) && twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", true, true, false, 112)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", false, false, false, 112), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 112, $this->source); })()) + 3)))) {
-                                // line 113
-                                echo "                                        ";
-                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", false, false, false, 113), "html", null, true);
-                                echo " points
-                                        ";
-                                // line 114
-                                $context["find"] = true;
-                                // line 115
-                                echo "                                    ";
-                            }
-                            // line 116
-                            echo "                                ";
-                        }
-                        $_parent = $context['_parent'];
-                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['position'], $context['_parent'], $context['loop']);
-                        $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 117
-                        echo "                                ";
-                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 117, $this->source); })()), false)) {
-                            // line 118
-                            echo "                                    0 point
-                                ";
-                        }
-                        // line 120
-                        echo "                            </div>
-                        ";
-                    }
-                    // line 122
                     echo "
                         ";
-                    // line 123
-                    if (-1 === twig_compare(((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 123, $this->source); })()) + 3), 15)) {
-                        // line 124
+                    // line 96
+                    if (-1 === twig_compare(((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 96, $this->source); })()) + 2), 15)) {
+                        // line 97
                         echo "                            <div class=\"col-3\">
                                 ";
-                        // line 125
+                        // line 98
                         $context["find"] = false;
-                        // line 126
+                        // line 99
                         echo "                                ";
                         $context['_parent'] = $context;
-                        $context['_seq'] = twig_ensure_traversable((isset($context["points"]) || array_key_exists("points", $context) ? $context["points"] : (function () { throw new RuntimeError('Variable "points" does not exist.', 126, $this->source); })()));
-                        foreach ($context['_seq'] as $context["_key"] => $context["position"]) {
-                            // line 127
+                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 99, $this->source); })()), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 99, $this->source); })()) + 2), [], "array", false, false, false, 99));
+                        foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
+                            // line 100
                             echo "                                    ";
-                            if (((twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", true, true, false, 127) && twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", true, true, false, 127)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", false, false, false, 127), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 127, $this->source); })()) + 3)))) {
-                                // line 128
+                            if ((twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", true, true, false, 100) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", false, false, false, 100), twig_get_attribute($this->env, $this->source, (isset($context["alliance"]) || array_key_exists("alliance", $context) ? $context["alliance"] : (function () { throw new RuntimeError('Variable "alliance" does not exist.', 100, $this->source); })()), "id", [], "any", false, false, false, 100)))) {
+                                // line 101
                                 echo "                                        ";
-                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", false, false, false, 128), "html", null, true);
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 101), "html", null, true);
                                 echo " points
                                         ";
-                                // line 129
+                                // line 102
                                 $context["find"] = true;
-                                // line 130
+                                // line 103
                                 echo "                                    ";
                             }
-                            // line 131
+                            // line 104
                             echo "                                ";
                         }
                         $_parent = $context['_parent'];
-                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['position'], $context['_parent'], $context['loop']);
+                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 132
+                        // line 105
                         echo "                                ";
-                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 132, $this->source); })()), false)) {
-                            // line 133
+                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 105, $this->source); })()), false)) {
+                            // line 106
                             echo "                                    0 point
                                 ";
                         }
-                        // line 135
+                        // line 108
                         echo "                            </div>
                         ";
                     } else {
-                        // line 137
+                        // line 110
                         echo "                            <div class=\"col-3\">
                                 ";
-                        // line 138
+                        // line 111
                         $context["find"] = false;
-                        // line 139
+                        // line 112
                         echo "                                ";
                         $context['_parent'] = $context;
-                        $context['_seq'] = twig_ensure_traversable((isset($context["points"]) || array_key_exists("points", $context) ? $context["points"] : (function () { throw new RuntimeError('Variable "points" does not exist.', 139, $this->source); })()));
-                        foreach ($context['_seq'] as $context["_key"] => $context["position"]) {
-                            // line 140
+                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 112, $this->source); })()), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 112, $this->source); })()) + 3), [], "array", false, false, false, 112));
+                        foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
+                            // line 113
                             echo "                                    ";
-                            if (((twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", true, true, false, 140) && twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", true, true, false, 140)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["position"], "land_id", [], "any", false, false, false, 140), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 140, $this->source); })()) + 4)))) {
-                                // line 141
+                            if ((twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", true, true, false, 113) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", false, false, false, 113), twig_get_attribute($this->env, $this->source, (isset($context["alliance"]) || array_key_exists("alliance", $context) ? $context["alliance"] : (function () { throw new RuntimeError('Variable "alliance" does not exist.', 113, $this->source); })()), "id", [], "any", false, false, false, 113)))) {
+                                // line 114
                                 echo "                                        ";
-                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["position"], "points", [], "any", false, false, false, 141), "html", null, true);
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 114), "html", null, true);
                                 echo " points
                                         ";
-                                // line 142
+                                // line 115
                                 $context["find"] = true;
-                                // line 143
+                                // line 116
                                 echo "                                    ";
                             }
-                            // line 144
+                            // line 117
                             echo "                                ";
                         }
                         $_parent = $context['_parent'];
-                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['position'], $context['_parent'], $context['loop']);
+                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 145
+                        // line 118
                         echo "                                ";
-                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 145, $this->source); })()), false)) {
-                            // line 146
+                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 118, $this->source); })()), false)) {
+                            // line 119
                             echo "                                    0 point
                                 ";
                         }
-                        // line 148
+                        // line 121
                         echo "                            </div>
                         ";
                     }
-                    // line 150
+                    // line 123
+                    echo "
+                        ";
+                    // line 124
+                    if (-1 === twig_compare(((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 124, $this->source); })()) + 3), 15)) {
+                        // line 125
+                        echo "                            <div class=\"col-3\">
+                                ";
+                        // line 126
+                        $context["find"] = false;
+                        // line 127
+                        echo "                                ";
+                        $context['_parent'] = $context;
+                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 127, $this->source); })()), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 127, $this->source); })()) + 3), [], "array", false, false, false, 127));
+                        foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
+                            // line 128
+                            echo "                                    ";
+                            if ((twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", true, true, false, 128) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", false, false, false, 128), twig_get_attribute($this->env, $this->source, (isset($context["alliance"]) || array_key_exists("alliance", $context) ? $context["alliance"] : (function () { throw new RuntimeError('Variable "alliance" does not exist.', 128, $this->source); })()), "id", [], "any", false, false, false, 128)))) {
+                                // line 129
+                                echo "                                        ";
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 129), "html", null, true);
+                                echo " points
+                                        ";
+                                // line 130
+                                $context["find"] = true;
+                                // line 131
+                                echo "                                    ";
+                            }
+                            // line 132
+                            echo "                                ";
+                        }
+                        $_parent = $context['_parent'];
+                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
+                        $context = array_intersect_key($context, $_parent) + $_parent;
+                        // line 133
+                        echo "                                ";
+                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 133, $this->source); })()), false)) {
+                            // line 134
+                            echo "                                    0 point
+                                ";
+                        }
+                        // line 136
+                        echo "                            </div>
+                        ";
+                    } else {
+                        // line 138
+                        echo "                            <div class=\"col-3\">
+                                ";
+                        // line 139
+                        $context["find"] = false;
+                        // line 140
+                        echo "                                ";
+                        $context['_parent'] = $context;
+                        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 140, $this->source); })()), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 140, $this->source); })()) + 4), [], "array", false, false, false, 140));
+                        foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
+                            // line 141
+                            echo "                                    ";
+                            if ((twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", true, true, false, 141) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "alliance_id", [], "any", false, false, false, 141), twig_get_attribute($this->env, $this->source, (isset($context["alliance"]) || array_key_exists("alliance", $context) ? $context["alliance"] : (function () { throw new RuntimeError('Variable "alliance" does not exist.', 141, $this->source); })()), "id", [], "any", false, false, false, 141)))) {
+                                // line 142
+                                echo "                                        ";
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 142), "html", null, true);
+                                echo " points
+                                        ";
+                                // line 143
+                                $context["find"] = true;
+                                // line 144
+                                echo "                                    ";
+                            }
+                            // line 145
+                            echo "                                ";
+                        }
+                        $_parent = $context['_parent'];
+                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
+                        $context = array_intersect_key($context, $_parent) + $_parent;
+                        // line 146
+                        echo "                                ";
+                        if (0 === twig_compare((isset($context["find"]) || array_key_exists("find", $context) ? $context["find"] : (function () { throw new RuntimeError('Variable "find" does not exist.', 146, $this->source); })()), false)) {
+                            // line 147
+                            echo "                                    0 point
+                                ";
+                        }
+                        // line 149
+                        echo "                            </div>
+                        ";
+                    }
+                    // line 151
                     echo "                    </div>
                     <div class=\"row\">
                 ";
                 }
-                // line 153
+                // line 154
                 echo "                <div class=\"col-3 lands-block\">
                     <div class=\"land d-flex\">
                         <img src=\"";
-                // line 155
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl((("img/lands/" . twig_get_attribute($this->env, $this->source, $context["land"], "id", [], "any", false, false, false, 155)) . ".jpg")), "html", null, true);
+                // line 156
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl((("img/lands/" . twig_get_attribute($this->env, $this->source, $context["land"], "id", [], "any", false, false, false, 156)) . ".jpg")), "html", null, true);
                 echo "\" alt=\"land\">
                         <p class=\"font-weight-bold p-1\">
                             ";
-                // line 157
-                if (-1 === twig_compare((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 157, $this->source); })()), 15)) {
-                    // line 158
+                // line 158
+                if (-1 === twig_compare((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 158, $this->source); })()), 15)) {
+                    // line 159
                     echo "                                ";
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 158, $this->source); })()), (isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 158, $this->source); })()), [], "array", false, false, false, 158));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 159, $this->source); })()), (isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 159, $this->source); })()), [], "array", false, false, false, 159));
                     foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
-                        // line 159
+                        // line 160
                         echo "                                    ";
-                        if ((twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 159) && 1 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 159), 0))) {
-                            // line 160
+                        if ((twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 160) && 1 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 160), 0))) {
+                            // line 161
                             echo "                                        <span class=\"font-weight-bold alliance-";
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "color", [], "array", false, false, false, 160), "html", null, true);
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "color", [], "array", false, false, false, 161), "html", null, true);
                             echo "\">[";
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "tag", [], "array", false, false, false, 160), "html", null, true);
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "tag", [], "array", false, false, false, 161), "html", null, true);
                             echo "]</span><br>
                                         <span class=\"green-text\">";
-                            // line 161
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "array", false, false, false, 161), "html", null, true);
+                            // line 162
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "array", false, false, false, 162), "html", null, true);
                             echo " pts</span><br>
                                     ";
                         }
-                        // line 163
+                        // line 164
                         echo "                                ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 164
+                    // line 165
                     echo "                            ";
                 } else {
-                    // line 165
+                    // line 166
                     echo "                                ";
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 165, $this->source); })()), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 165, $this->source); })()) + 1), [], "array", false, false, false, 165));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ranking"]) || array_key_exists("ranking", $context) ? $context["ranking"] : (function () { throw new RuntimeError('Variable "ranking" does not exist.', 166, $this->source); })()), ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 166, $this->source); })()) + 1), [], "array", false, false, false, 166));
                     foreach ($context['_seq'] as $context["_key"] => $context["rank"]) {
-                        // line 166
+                        // line 167
                         echo "                                    ";
-                        if ((twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 166) && 1 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 166), 0))) {
-                            // line 167
+                        if ((twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 167) && 1 === twig_compare(twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "any", false, false, false, 167), 0))) {
+                            // line 168
                             echo "                                        <span class=\"font-weight-bold alliance-";
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "color", [], "array", false, false, false, 167), "html", null, true);
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "color", [], "array", false, false, false, 168), "html", null, true);
                             echo "\">[";
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "tag", [], "array", false, false, false, 167), "html", null, true);
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "tag", [], "array", false, false, false, 168), "html", null, true);
                             echo "]</span><br>
                                         <span class=\"green-text\">";
-                            // line 168
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "array", false, false, false, 168), "html", null, true);
+                            // line 169
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rank"], "points", [], "array", false, false, false, 169), "html", null, true);
                             echo " pts</span><br>
                                     ";
                         }
-                        // line 170
+                        // line 171
                         echo "                                ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rank'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 171
+                    // line 172
                     echo "                            ";
                 }
-                // line 172
+                // line 173
                 echo "                        </p>
                     </div>
                 </div>
                 ";
-                // line 175
-                if (0 === twig_compare(((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 175, $this->source); })()) % 4), 0)) {
-                    // line 176
+                // line 176
+                if (0 === twig_compare(((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 176, $this->source); })()) % 4), 0)) {
+                    // line 177
                     echo "                    </div>
                 ";
                 }
-                // line 178
-                echo "                ";
-                $context["i"] = ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 178, $this->source); })()) + 1);
                 // line 179
+                echo "                ";
+                $context["i"] = ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 179, $this->source); })()) + 1);
+                // line 180
                 echo "            ";
             }
-            // line 180
+            // line 181
             echo "        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['land'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 181
+        // line 182
         echo "</div>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -594,7 +596,7 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
 
     public function getDebugInfo()
     {
-        return array (  576 => 181,  570 => 180,  567 => 179,  564 => 178,  560 => 176,  558 => 175,  553 => 172,  550 => 171,  544 => 170,  539 => 168,  532 => 167,  529 => 166,  524 => 165,  521 => 164,  515 => 163,  510 => 161,  503 => 160,  500 => 159,  495 => 158,  493 => 157,  488 => 155,  484 => 153,  479 => 150,  475 => 148,  471 => 146,  468 => 145,  462 => 144,  459 => 143,  457 => 142,  452 => 141,  449 => 140,  444 => 139,  442 => 138,  439 => 137,  435 => 135,  431 => 133,  428 => 132,  422 => 131,  419 => 130,  417 => 129,  412 => 128,  409 => 127,  404 => 126,  402 => 125,  399 => 124,  397 => 123,  394 => 122,  390 => 120,  386 => 118,  383 => 117,  377 => 116,  374 => 115,  372 => 114,  367 => 113,  364 => 112,  359 => 111,  357 => 110,  354 => 109,  350 => 107,  346 => 105,  343 => 104,  337 => 103,  334 => 102,  332 => 101,  327 => 100,  324 => 99,  319 => 98,  317 => 97,  314 => 96,  312 => 95,  309 => 94,  305 => 92,  301 => 90,  298 => 89,  292 => 88,  289 => 87,  287 => 86,  282 => 85,  279 => 84,  274 => 83,  272 => 82,  269 => 81,  265 => 79,  261 => 77,  258 => 76,  252 => 75,  249 => 74,  247 => 73,  242 => 72,  239 => 71,  234 => 70,  232 => 69,  229 => 68,  227 => 67,  224 => 66,  220 => 64,  216 => 62,  213 => 61,  207 => 60,  204 => 59,  202 => 58,  197 => 57,  194 => 56,  189 => 55,  187 => 54,  184 => 53,  180 => 51,  176 => 49,  173 => 48,  167 => 47,  164 => 46,  162 => 45,  157 => 44,  154 => 43,  149 => 42,  147 => 41,  144 => 40,  142 => 39,  139 => 38,  136 => 37,  133 => 36,  128 => 35,  126 => 34,  117 => 27,  111 => 26,  106 => 24,  99 => 23,  96 => 22,  92 => 21,  87 => 19,  81 => 15,  77 => 13,  74 => 12,  68 => 11,  65 => 10,  63 => 9,  58 => 8,  55 => 7,  50 => 6,  48 => 5,  43 => 2,);
+        return array (  578 => 182,  572 => 181,  569 => 180,  566 => 179,  562 => 177,  560 => 176,  555 => 173,  552 => 172,  546 => 171,  541 => 169,  534 => 168,  531 => 167,  526 => 166,  523 => 165,  517 => 164,  512 => 162,  505 => 161,  502 => 160,  497 => 159,  495 => 158,  490 => 156,  486 => 154,  481 => 151,  477 => 149,  473 => 147,  470 => 146,  464 => 145,  461 => 144,  459 => 143,  454 => 142,  451 => 141,  446 => 140,  444 => 139,  441 => 138,  437 => 136,  433 => 134,  430 => 133,  424 => 132,  421 => 131,  419 => 130,  414 => 129,  411 => 128,  406 => 127,  404 => 126,  401 => 125,  399 => 124,  396 => 123,  392 => 121,  388 => 119,  385 => 118,  379 => 117,  376 => 116,  374 => 115,  369 => 114,  366 => 113,  361 => 112,  359 => 111,  356 => 110,  352 => 108,  348 => 106,  345 => 105,  339 => 104,  336 => 103,  334 => 102,  329 => 101,  326 => 100,  321 => 99,  319 => 98,  316 => 97,  314 => 96,  311 => 95,  307 => 93,  303 => 91,  300 => 90,  294 => 89,  291 => 88,  289 => 87,  284 => 86,  281 => 85,  276 => 84,  274 => 83,  271 => 82,  267 => 80,  263 => 78,  260 => 77,  254 => 76,  251 => 75,  249 => 74,  244 => 73,  241 => 72,  236 => 71,  234 => 70,  231 => 69,  229 => 68,  226 => 67,  222 => 65,  218 => 63,  215 => 62,  209 => 61,  206 => 60,  204 => 59,  199 => 58,  196 => 57,  191 => 56,  189 => 55,  186 => 54,  182 => 52,  178 => 50,  176 => 49,  173 => 48,  167 => 47,  164 => 46,  162 => 45,  157 => 44,  154 => 43,  149 => 42,  147 => 41,  144 => 40,  142 => 39,  139 => 38,  136 => 37,  133 => 36,  128 => 35,  126 => 34,  117 => 27,  111 => 26,  106 => 24,  99 => 23,  96 => 22,  92 => 21,  87 => 19,  81 => 15,  77 => 13,  74 => 12,  68 => 11,  65 => 10,  63 => 9,  58 => 8,  55 => 7,  50 => 6,  48 => 5,  43 => 2,);
     }
 
     public function getSourceContext()
@@ -604,9 +606,9 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
 <div id=\"lands\" class=\"tab-block\">
     <div class=\"points-row\">
         {% set find = false %}
-        {% for land in points %}
-            {% if land.land_id is defined and land.points is defined and land.land_id == 15 %}
-                {{ land.points }} points
+        {% for rank in ranking[15] %}
+            {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                {{ rank.points }} points
                 {% set find = true %}
             {% endif %}
         {% endfor %}
@@ -640,12 +642,13 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                         {% if i < 15 %}
                             <div class=\"col-3\">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == i %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
+
                                 {% if find == false %}
                                     0 point
                                 {% endif %}
@@ -653,9 +656,9 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                         {% else %}
                             <div class=\"col-3\">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == i + 1 %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 1] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -668,9 +671,9 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                         {% if (i + 1) < 15 %}
                             <div class=\"col-3\">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 1) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 1] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -681,9 +684,9 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                         {% else %}
                             <div class=\"col-3\">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 2) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 2] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -696,9 +699,9 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                         {% if (i + 2) < 15 %}
                             <div class=\"col-3\">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 2) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 2] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -709,9 +712,9 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                         {% else %}
                             <div class=\"col-3\">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 3) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 3] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -724,9 +727,9 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                         {% if (i + 3) < 15 %}
                             <div class=\"col-3\">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 3) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 3] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
@@ -737,9 +740,9 @@ class __TwigTemplate_e90a2a704d4f8d98d0d46ff0eedbf22a9a4de5eec19c2f0ab1a594fddbe
                         {% else %}
                             <div class=\"col-3\">
                                 {% set find = false %}
-                                {% for position in points %}
-                                    {% if position.land_id is defined and position.points is defined and position.land_id == (i + 4) %}
-                                        {{ position.points }} points
+                                {% for rank in ranking[i + 4] %}
+                                    {% if rank.alliance_id is defined and rank.alliance_id == alliance.id %}
+                                        {{ rank.points }} points
                                         {% set find = true %}
                                     {% endif %}
                                 {% endfor %}
