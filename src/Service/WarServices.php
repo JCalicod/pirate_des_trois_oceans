@@ -493,6 +493,8 @@ class WarServices {
         $captured->setDisplayOrder($order);
         $captured->setOwner($this->user);
         $captured->setLevel(1);
+        $captured->setSeaman(0);
+        $captured->setGunner(0);
         $captured->setXp(0);
         $this->user->addShip($captured);
         $this->em->persist($captured);
