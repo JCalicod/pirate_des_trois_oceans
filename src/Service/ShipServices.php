@@ -420,7 +420,7 @@ class ShipServices {
                         }
                     }
                     else {
-                        $this->setError('Chaque navire sélectionné doit posséder au moins un carpentier à bord.');
+                        $this->setError('Chaque navire sélectionné doit posséder au moins un charpentier à bord.');
                     }
                 }
                 else {

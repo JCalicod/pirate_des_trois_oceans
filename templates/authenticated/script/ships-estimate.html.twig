@@ -25,26 +25,23 @@
                 var ship = $(this).closest('.ship-col');
                 switch (type) {
                     case 'repair':
-                        let wood = parseInt(ship.find('.wood').first().text());
-                        let copper = parseInt(ship.find('.copper').first().text());
+                        let wood = parseInt(ship.find('.wood').first().text().replace(/ /g, ''));
+                        let copper = parseInt(ship.find('.copper').first().text().replace(/ /g, ''));
                         let level = parseInt(ship.find('.level').first().text());
                         let missingStructure = 100 - parseInt(ship.find('.structure').first().text());
                         price += 20 * Math.min(missingStructure, Math.floor(wood / level), Math.floor(copper / level));
                         break;
                     case 'moral':
-                        let food = parseInt(ship.find('.food').first().text());
-                        let alcohol = parseInt(ship.find('.alcohol').first().text());
+                        let food = parseInt(ship.find('.food').first().text().replace(/ /g, ''));
+                        let alcohol = parseInt(ship.find('.alcohol').first().text().replace(/ /g, ''));
                         let level2 = parseInt(ship.find('.level').first().text());
                         let missingMoral= 100 - parseInt(ship.find('.moral').first().text());
                         price += 20 * Math.min(missingMoral, Math.floor(food / level2), Math.floor(alcohol / level2));
                         break;
                     case 'upgrade':
-                        let wood2 = parseInt(ship.find('.wood').first().text());
-                        let copper2 = parseInt(ship.find('.copper').first().text());
-                        console.log(wood2);
-                        console.log(copper2);
+                        let wood2 = parseInt(ship.find('.wood').first().text().replace(/ /g, ''));
+                        let copper2 = parseInt(ship.find('.copper').first().text().replace(/ /g, ''));
                         price += 100 * Math.min(Math.floor(wood2/10), Math.floor(copper2/10));
-                        console.log(price);
                         break;
                     default:
                         console.log('Action inexistante.');
