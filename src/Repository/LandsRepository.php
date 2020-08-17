@@ -45,8 +45,7 @@ class LandsRepository extends ServiceEntityRepository
             ->andWhere('w.win = :win')
             ->setParameter('win', true)
             ->groupBy('a.id')
-            ->orderBy('aw.points', 'DESC')
-            ->setMaxResults(3)
+            ->orderBy('points', 'DESC')
         ;
 
         return $query->getQuery()->getResult();

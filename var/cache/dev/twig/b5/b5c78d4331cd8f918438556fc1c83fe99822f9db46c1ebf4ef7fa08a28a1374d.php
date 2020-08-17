@@ -50,6 +50,10 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
         <!-- Required meta tags -->
         <meta charset=\"UTF-8\">
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
+        <meta name=\"description\" content=\"Devenez Capitaine d'une bande de pirates. Abordages sanglants, combats en mer, braconnages, complots en tout genre, chasses aux trésors et soirées mouvementées à la taverne : voilà ce qui vous attend !\"/>
+        <meta name=\"keywords\" content=\"jeu en ligne, jeu pirate, jeu gratuit, jeux, jeu, gestion, gratuit, virtuel, guerre, pirate\"/>
+        <meta name=\"dc.keywords\" content=\"jeu en ligne, jeu pirate, jeu gratuit, jeux, jeu, gestion, gratuit, virtuel, guerre, pirate\"/>
+        <meta name=\"Robots\" content=\"all\"/>
 
         <!-- Bootstrap CSS -->
         <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
@@ -59,19 +63,19 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
 
         <!-- Favicon -->
         <link rel=\"icon\" type=\"image/png\" href=\"";
-        // line 15
+        // line 19
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/icons/favicon.png"), "html", null, true);
         echo "\" />
 
         <title>";
-        // line 17
+        // line 21
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
 
         ";
-        // line 19
+        // line 23
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 22
+        // line 26
         echo "
         <!-- JQuery -->
         <script src=\"https://code.jquery.com/jquery-3.5.0.js\" integrity=\"sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=\" crossorigin=\"anonymous\"></script>
@@ -86,11 +90,11 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
             <div class=\"menu\">
                 <div class=\"row m-0\">
                     <div class=\"col-8 pl-2\"><a href=\"";
-        // line 35
+        // line 39
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_signup");
         echo "\" class=\"gold\">Inscription</a> <a target=\"_blank\" href=\"https://discord.gg/G7vvrhh\">Discord</a></div>
                     <div class=\"col-4\"><div class=\"float-right\"><a href=\"";
-        // line 36
+        // line 40
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\">Index</a> <a href=\"classement\"><span class=\"mini-lien\">C</span>lassement</a></div></div>
                 </div>
@@ -98,19 +102,19 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
 
             <div class=\"main p-5\">
                 ";
-        // line 41
+        // line 45
         $this->displayBlock('body', $context, $blocks);
-        // line 42
+        // line 46
         echo "                ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 43
+        // line 47
         echo "            </div>
 
             <div class=\"menu\">
                 <div class=\"row m-0\">
                     <div class=\"col-6 text-warning\">Tous les droits appartiennent à WebK</div>
                     <div class=\"col-6\"><div class=\"float-right\"><a href=\"";
-        // line 48
+        // line 52
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_rules");
         echo "\">Rè<span class=\"mini-lien\">g</span>les du Jeu</a> <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_faq");
@@ -132,7 +136,7 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
 
     }
 
-    // line 17
+    // line 21
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -151,7 +155,7 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
 
     }
 
-    // line 19
+    // line 23
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -161,7 +165,7 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 20
+        // line 24
         echo "            <link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/template.css"), "html", null, true);
         echo "\">
@@ -174,7 +178,7 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
 
     }
 
-    // line 41
+    // line 45
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -192,7 +196,7 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
 
     }
 
-    // line 42
+    // line 46
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -222,7 +226,7 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
 
     public function getDebugInfo()
     {
-        return array (  196 => 42,  178 => 41,  165 => 20,  155 => 19,  136 => 17,  114 => 48,  107 => 43,  104 => 42,  102 => 41,  94 => 36,  90 => 35,  75 => 22,  73 => 19,  68 => 17,  63 => 15,  47 => 1,);
+        return array (  200 => 46,  182 => 45,  169 => 24,  159 => 23,  140 => 21,  118 => 52,  111 => 47,  108 => 46,  106 => 45,  98 => 40,  94 => 39,  79 => 26,  77 => 23,  72 => 21,  67 => 19,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -233,6 +237,10 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
         <!-- Required meta tags -->
         <meta charset=\"UTF-8\">
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
+        <meta name=\"description\" content=\"Devenez Capitaine d'une bande de pirates. Abordages sanglants, combats en mer, braconnages, complots en tout genre, chasses aux trésors et soirées mouvementées à la taverne : voilà ce qui vous attend !\"/>
+        <meta name=\"keywords\" content=\"jeu en ligne, jeu pirate, jeu gratuit, jeux, jeu, gestion, gratuit, virtuel, guerre, pirate\"/>
+        <meta name=\"dc.keywords\" content=\"jeu en ligne, jeu pirate, jeu gratuit, jeux, jeu, gestion, gratuit, virtuel, guerre, pirate\"/>
+        <meta name=\"Robots\" content=\"all\"/>
 
         <!-- Bootstrap CSS -->
         <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
@@ -283,6 +291,6 @@ class __TwigTemplate_a730e89f246bd158760d0cfe0819fa328c94932e5668d467f3fed1dc83f
         <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
     </body>
 </html>
-", "base.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\base.html.twig");
     }
 }
