@@ -103,7 +103,7 @@ class ShipsController extends AbstractController {
      * @Route("/order-move-up/{id}", name="app_ship_order_move_up", requirements={"id": "\d+"})
      */
     public function shipOrderMoveUp(Ship $ship) {
-        if ($ship->getDisplayOrder() > 1) {
+        if ($ship && $ship->getDisplayOrder() > 1) {
             $new_pos = $ship->getDisplayOrder() - 1;
             /** @var Ship $ship_to_move_up */
             $ship_to_move_up = $this->em->getRepository(Ship::class)->findOneBy(['owner' => $this->user, 'display_order' => $new_pos]);
@@ -122,7 +122,7 @@ class ShipsController extends AbstractController {
      * @Route("/order-move-down/{id}", name="app_ship_order_move_down", requirements={"id": "\d+"})
      */
     public function shipOrderMoveDown(Ship $ship) {
-        if ($ship->getDisplayOrder() < count($this->user->getShips())) {
+        if ($ship && $ship->getDisplayOrder() < count($this->user->getShips())) {
             $new_pos = $ship->getDisplayOrder() + 1;
             /** @var Ship $ship_to_move_down */
             $ship_to_move_down = $this->em->getRepository(Ship::class)->findOneBy(['owner' => $this->user, 'display_order' => $new_pos]);
