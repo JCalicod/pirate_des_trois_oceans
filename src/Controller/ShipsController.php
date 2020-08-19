@@ -105,13 +105,15 @@ class ShipsController extends AbstractController {
     public function shipOrderMoveUp(Ship $ship) {
         if ($ship->getDisplayOrder() > 1) {
             $new_pos = $ship->getDisplayOrder() - 1;
-            /** @var Ship $ship_to_move_down */
-            $ship_to_move_down = $this->em->getRepository(Ship::class)->findOneBy(['owner' => $this->user, 'display_order' => $new_pos]);
-            $ship_to_move_down->setDisplayOrder($new_pos + 1);
-            $ship->setDisplayOrder($new_pos);
-            $this->em->persist($ship_to_move_down);
-            $this->em->persist($ship);
-            $this->em->flush();
+            /** @var Ship $ship_to_move_up */
+            $ship_to_move_up = $this->em->getRepository(Ship::class)->findOneBy(['owner' => $this->user, 'display_order' => $new_pos]);
+            if ($ship_to_move_up) {
+                $ship_to_move_up->setDisplayOrder($new_pos + 1);
+                $ship->setDisplayOrder($new_pos);
+                $this->em->persist($ship_to_move_up);
+                $this->em->persist($ship);
+                $this->em->flush();
+            }
         }
         return $this->redirectToRoute('app_ships');
     }
@@ -124,11 +126,13 @@ class ShipsController extends AbstractController {
             $new_pos = $ship->getDisplayOrder() + 1;
             /** @var Ship $ship_to_move_down */
             $ship_to_move_down = $this->em->getRepository(Ship::class)->findOneBy(['owner' => $this->user, 'display_order' => $new_pos]);
-            $ship_to_move_down->setDisplayOrder($new_pos - 1);
-            $ship->setDisplayOrder($new_pos);
-            $this->em->persist($ship_to_move_down);
-            $this->em->persist($ship);
-            $this->em->flush();
+            if ($ship_to_move_down) {
+                $ship_to_move_down->setDisplayOrder($new_pos - 1);
+                $ship->setDisplayOrder($new_pos);
+                $this->em->persist($ship_to_move_down);
+                $this->em->persist($ship);
+                $this->em->flush();
+            }
         }
         return $this->redirectToRoute('app_ships');
     }

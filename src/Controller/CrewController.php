@@ -81,6 +81,8 @@ class CrewController extends AbstractController {
             if ($this->crewServices->checkRecruit($data, $this->user)){
                 $this->crewServices->recruit($data, $this->user);
                 $this->addFlash('success', 'Les recrues ont bien rejoint votre navire.');
+                unset($form);
+                $form = $this->createForm(EnrollCrewType::class);
             }
             else {
                 $this->addFlash('danger', $this->crewServices->getError());
