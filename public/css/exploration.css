@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'pirate';
+    src: url('../fonts/pirate.ttf');
+}
+
 .exploration-image {
     border-right: 3px solid #100D0B;
 }
@@ -13,4 +18,25 @@
 
 .text-danger {
     color: #AA3333 !important;
+}
+
+.clue {
+    background: #DEC8A0;
+    color: #000;
+    font-size: 20px;
+    font-family: 'pirate';
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+
+input {
+    width: 200px !important;
+    height: 30px !important;
+    padding: 2px !important;
+}
+
+input[type="text"] {
+    background: #DEC8A0 !important;
 }

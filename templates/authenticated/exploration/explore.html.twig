@@ -22,6 +22,11 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
+
+                {% if clue is not null %}
+                    <br>Vous tombez sur ce qui semble être un indice pour un fabuleux trésor :<br><br>
+                    <span class="clue">{{ clue.clue }}</span>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -77,7 +77,7 @@ class User implements UserInterface {
     /**
      * @ORM\Column(type="string", length=30)
      */
-    private $treasure_word = "pirate";
+    private $treasure_word;
 
     /**
      * @ORM\Column(type="integer")
@@ -154,6 +154,11 @@ class User implements UserInterface {
      */
     private $alliance;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Clues", mappedBy="user")
+     */
+    private $clues;
+
     public function __construct() {
         $this->ships = new ArrayCollection();
         $this->setRegistration(new \DateTime('now', New \DateTimeZone('Europe/Paris')));
@@ -163,6 +168,7 @@ class User implements UserInterface {
         $this->taverns = new ArrayCollection();
         $this->attacks = new ArrayCollection();
         $this->defenses = new ArrayCollection();
+        $this->clues = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -689,5 +695,36 @@ class User implements UserInterface {
     public function addGold(int $quantity)
     {
         $this->setGold($this->getGold() + $quantity);
+    }
+
+    /**
+     * @return Collection|Clues[]
+     */
+    public function getClues(): Collection
+    {
+        return $this->clues;
+    }
+
+    public function addClue(Clues $clue): self
+    {
+        if (!$this->clues->contains($clue)) {
+            $this->clues[] = $clue;
+            $clue->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClue(Clues $clue): self
+    {
+        if ($this->clues->contains($clue)) {
+            $this->clues->removeElement($clue);
+            // set the owning side to null (unless already changed)
+            if ($clue->getUser() === $this) {
+                $clue->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

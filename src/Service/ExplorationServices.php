@@ -9,6 +9,7 @@
 namespace App\Service;
 
 
+use App\Entity\Clues;
 use App\Entity\Lands;
 use App\Entity\Ship;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,6 +23,7 @@ class ExplorationServices
     private $user;
     private $requestStack;
     private $shipServices;
+    private $clue = null;
     private $error;
     private $success;
 
@@ -73,6 +75,36 @@ class ExplorationServices
     }
 
     /**
+     * @param Clues $clue
+     */
+    public function setClue(Clues $clue): void
+    {
+        $this->clue = $clue;
+    }
+
+    /**
+     * @return Clues|null
+     */
+    public function getClue(): ?Clues
+    {
+        return $this->clue;
+    }
+
+    /**
+     * @param Lands $land
+     */
+    private function checkClue(Lands $land): void
+    {
+        /** @var Clues $clue */
+        $clue = $this->em->getRepository(Clues::class)->findOneBy(['user' => $this->user, 'position' => $land->getId(), 'discovered' => false]);
+        if ($clue) {
+            $this->setClue($clue);
+            $clue->setDiscovered(true);
+            $this->em->persist($clue);
+        }
+    }
+
+    /**
      * @param Lands $land
      * @return bool
      * @throws \Exception
@@ -118,6 +150,9 @@ class ExplorationServices
                 $this->user->addGold($total['gold']);
                 $this->user->setPa($this->user->getPa() - 1);
                 $this->em->persist($this->user);
+
+                $this->checkClue($land);
+
                 $this->em->flush();
 
                 return true;

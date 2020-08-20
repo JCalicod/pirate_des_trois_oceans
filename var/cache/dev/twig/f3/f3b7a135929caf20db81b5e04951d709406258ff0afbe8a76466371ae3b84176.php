@@ -138,6 +138,19 @@ class __TwigTemplate_0ba7ba0da5761a7e2d3ffa578b21a8efa968b6aa35127f147603a71a79d
         unset($context['_seq'], $context['_iterated'], $context['label'], $context['messages'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 25
+        echo "
+                ";
+        // line 26
+        if ( !(null === (isset($context["clue"]) || array_key_exists("clue", $context) ? $context["clue"] : (function () { throw new RuntimeError('Variable "clue" does not exist.', 26, $this->source); })()))) {
+            // line 27
+            echo "                    <br>Vous tombez sur ce qui semble être un indice pour un fabuleux trésor :<br><br>
+                    <span class=\"clue\">";
+            // line 28
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["clue"]) || array_key_exists("clue", $context) ? $context["clue"] : (function () { throw new RuntimeError('Variable "clue" does not exist.', 28, $this->source); })()), "clue", [], "any", false, false, false, 28), "html", null, true);
+            echo "</span>
+                ";
+        }
+        // line 30
         echo "            </div>
         </div>
     </div>
@@ -162,7 +175,7 @@ class __TwigTemplate_0ba7ba0da5761a7e2d3ffa578b21a8efa968b6aa35127f147603a71a79d
 
     public function getDebugInfo()
     {
-        return array (  141 => 25,  135 => 24,  126 => 21,  119 => 20,  114 => 19,  110 => 18,  104 => 15,  96 => 9,  86 => 8,  74 => 5,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  154 => 30,  149 => 28,  146 => 27,  144 => 26,  141 => 25,  135 => 24,  126 => 21,  119 => 20,  114 => 19,  110 => 18,  104 => 15,  96 => 9,  86 => 8,  74 => 5,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -191,6 +204,11 @@ class __TwigTemplate_0ba7ba0da5761a7e2d3ffa578b21a8efa968b6aa35127f147603a71a79d
                         </div>
                     {% endfor %}
                 {% endfor %}
+
+                {% if clue is not null %}
+                    <br>Vous tombez sur ce qui semble être un indice pour un fabuleux trésor :<br><br>
+                    <span class=\"clue\">{{ clue.clue }}</span>
+                {% endif %}
             </div>
         </div>
     </div>

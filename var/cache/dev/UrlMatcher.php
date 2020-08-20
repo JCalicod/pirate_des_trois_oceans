@@ -18,6 +18,7 @@ return [
         '/alliance' => [[['_route' => 'app_alliance', '_controller' => 'App\\Controller\\AllianceController::home'], null, null, null, true, false, null]],
         '/equipage/crew-data' => [[['_route' => 'app_ship_crew_data', '_controller' => 'App\\Controller\\CrewController::getShipCrewData'], null, null, null, false, false, null]],
         '/equipage' => [[['_route' => 'app_crew_show', '_controller' => 'App\\Controller\\CrewController::recruit'], null, null, null, true, false, null]],
+        '/exploration/tresors' => [[['_route' => 'treasure_hunt', '_controller' => 'App\\Controller\\ExplorationController::treasureHunt'], null, null, null, false, false, null]],
         '/exploration' => [[['_route' => 'app_explore', '_controller' => 'App\\Controller\\ExplorationController::explore'], null, null, null, true, false, null]],
         '/accueil/travel' => [[['_route' => 'app_travel', '_controller' => 'App\\Controller\\HomeController::travel'], null, null, null, false, false, null]],
         '/accueil' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::home'], null, null, null, true, false, null]],

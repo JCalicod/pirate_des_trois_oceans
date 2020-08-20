@@ -553,6 +553,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\CluesRepository" class="App\Repository\CluesRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\DenRepository" class="App\Repository\DenRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -624,6 +628,7 @@
     <service id="App\Service\SecurityServices" class="App\Service\SecurityServices" autowire="true" autoconfigure="true">
       <argument type="service" id="security.user_password_encoder.generic"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Service\TreasureServices"/>
     </service>
     <service id="App\Service\ShipServices" class="App\Service\ShipServices" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -635,6 +640,9 @@
     <service id="App\Service\TravelServices" class="App\Service\TravelServices" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Service\ShipServices"/>
+    </service>
+    <service id="App\Service\TreasureServices" class="App\Service\TreasureServices" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="App\Service\UserServices" class="App\Service\UserServices" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -3762,7 +3770,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.ktDp_qs"/>
+      <argument type="service" id=".service_locator.TiIEkwg"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5230,6 +5238,8 @@
     <service id=".abstract.instanceof.App\Repository\AllianceRepository" class="App\Repository\AllianceRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AllianceWarRepository" class="App\Repository\AllianceWarRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AllianceWarRepository" class="App\Repository\AllianceWarRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CluesRepository" class="App\Repository\CluesRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CluesRepository" class="App\Repository\CluesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DenRepository" class="App\Repository\DenRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DenRepository" class="App\Repository\DenRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LandsRepository" class="App\Repository\LandsRepository" autowire="true" abstract="true"/>
@@ -5584,13 +5594,14 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.ktDp_qs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.TiIEkwg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AllianceHistoryRepository" type="service" id="App\Repository\AllianceHistoryRepository"/>
         <argument key="App\Repository\AllianceMemberRepository" type="service" id="App\Repository\AllianceMemberRepository"/>
         <argument key="App\Repository\AllianceRepository" type="service" id="App\Repository\AllianceRepository"/>
         <argument key="App\Repository\AllianceWarRepository" type="service" id="App\Repository\AllianceWarRepository"/>
+        <argument key="App\Repository\CluesRepository" type="service" id="App\Repository\CluesRepository"/>
         <argument key="App\Repository\DenRepository" type="service" id="App\Repository\DenRepository"/>
         <argument key="App\Repository\LandsRepository" type="service" id="App\Repository\LandsRepository"/>
         <argument key="App\Repository\MessagingRepository" type="service" id="App\Repository\MessagingRepository"/>

@@ -20,6 +20,7 @@ return [
     'app_alliance' => [[], ['_controller' => 'App\\Controller\\AllianceController::home'], [], [['text', '/alliance/']], [], []],
     'app_ship_crew_data' => [[], ['_controller' => 'App\\Controller\\CrewController::getShipCrewData'], [], [['text', '/equipage/crew-data']], [], []],
     'app_crew_show' => [[], ['_controller' => 'App\\Controller\\CrewController::recruit'], [], [['text', '/equipage/']], [], []],
+    'treasure_hunt' => [[], ['_controller' => 'App\\Controller\\ExplorationController::treasureHunt'], [], [['text', '/exploration/tresors']], [], []],
     'app_explore' => [[], ['_controller' => 'App\\Controller\\ExplorationController::explore'], [], [['text', '/exploration/']], [], []],
     'app_travel' => [[], ['_controller' => 'App\\Controller\\HomeController::travel'], [], [['text', '/accueil/travel']], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\HomeController::home'], [], [['text', '/accueil/']], [], []],

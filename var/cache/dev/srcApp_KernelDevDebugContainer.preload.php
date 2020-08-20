@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'\\vendor/autoload.php';
-require __DIR__.'/ContainerBoxzd3I/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerS5F2Ljt/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -48,6 +48,7 @@ $classes[] = 'App\Controller\RankingController';
 $classes[] = 'App\Service\RankingServices';
 $classes[] = 'App\Controller\SecurityController';
 $classes[] = 'App\Service\SecurityServices';
+$classes[] = 'App\Service\TreasureServices';
 $classes[] = 'App\Controller\SettingsController';
 $classes[] = 'App\Controller\ShipsController';
 $classes[] = 'App\Controller\TavernController';
@@ -74,6 +75,7 @@ $classes[] = 'App\Repository\AllianceHistoryRepository';
 $classes[] = 'App\Repository\AllianceMemberRepository';
 $classes[] = 'App\Repository\AllianceRepository';
 $classes[] = 'App\Repository\AllianceWarRepository';
+$classes[] = 'App\Repository\CluesRepository';
 $classes[] = 'App\Repository\DenRepository';
 $classes[] = 'App\Repository\LandsRepository';
 $classes[] = 'App\Repository\MessagingRepository';
