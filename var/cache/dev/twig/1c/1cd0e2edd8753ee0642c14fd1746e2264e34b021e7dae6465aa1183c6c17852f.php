@@ -584,6 +584,6 @@ class __TwigTemplate_fb6ca8b0627dcd45e27a123ccd0983ea344ce9af40e1f9fcebe4b618629
         </div>
     </div>
 
-{% endblock %}", "authenticated/war_report_npc.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\war_report_npc.html.twig");
+{% endblock %}", "authenticated/war_report_npc.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\war_report_npc.html.twig");
     }
 }

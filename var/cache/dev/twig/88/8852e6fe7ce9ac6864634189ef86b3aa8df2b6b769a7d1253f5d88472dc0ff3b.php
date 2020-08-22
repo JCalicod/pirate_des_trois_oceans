@@ -418,6 +418,6 @@ class __TwigTemplate_a4d77dca371938afee4f0cf05f92eaa7ca6653c52bc260ad72fe577073a
     {% include 'authenticated/script/choose-alliance-color.html.twig' %}
 
 {% endblock %}
-", "authenticated/alliance.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\alliance.html.twig");
+", "authenticated/alliance.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\alliance.html.twig");
     }
 }

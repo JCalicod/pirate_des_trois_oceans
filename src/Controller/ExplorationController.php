@@ -10,6 +10,8 @@ namespace App\Controller;
 
 
 use App\Entity\Clues;
+use App\Entity\Treasure;
+use App\Form\ProposeTreasureCodeType;
 use App\Service\ExplorationServices;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -40,11 +42,34 @@ class ExplorationController extends AbstractController
     /**
      * @Route("/tresors", name="treasure_hunt")
      */
-    public function treasureHunt()
+    public function treasureHunt(Request $request)
     {
+        $treasure = null;
+        $form = $this->createForm(ProposeTreasureCodeType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            if ($this->explorationServices->checkCode($data)) {
+                $this->explorationServices->findTreasure();
+                $treasure = $this->explorationServices->getTreasure();
+            }
+            else {
+                $this->addFlash('danger', 'Le code entré sur ce territoire ne permet pas de découvrir le trésor cherché.');
+            }
+            $this->em->persist($this->user);
+            $this->em->flush();
+        }
+
         $clues = $this->em->getRepository(Clues::class)->findBy(['user' => $this->user, 'discovered' => true]);
+
+        $treasures = $this->em->getRepository(Treasure::class)->findBy(['owner' => $this->user]);
+
         return $this->render('authenticated/exploration/treasure_hunt.html.twig', [
-            'clues' => $clues
+            'clues' => $clues,
+            'treasure' => $treasure,
+            'treasures' => $treasures,
+            'form' => $form->createView()
         ]);
     }
 

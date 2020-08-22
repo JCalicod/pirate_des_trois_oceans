@@ -1442,3 +1442,15 @@ table.war-report td.img {
 .card-advert .card-body p {
     padding: 10px;
 }
+
+.treasure-icon {
+    width: 50px;
+}
+
+.fake-radio {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 3px;
+    margin: auto;
+}

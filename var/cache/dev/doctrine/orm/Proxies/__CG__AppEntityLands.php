@@ -367,4 +367,15 @@ class Lands extends \App\Entity\Lands implements \Doctrine\ORM\Proxy\Proxy
         return parent::removeWar($war);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString(): string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
+
+        return parent::__toString();
+    }
+
 }

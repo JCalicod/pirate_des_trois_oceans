@@ -338,6 +338,6 @@ class __TwigTemplate_c95fbeb75bf6178f98bc0450845ddd05acdc5eeefc6f3e2773ad717fe04
             </div>
         </div>
     </div>
-{% endblock %}", "ranking.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\ranking.html.twig");
+{% endblock %}", "ranking.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\ranking.html.twig");
     }
 }

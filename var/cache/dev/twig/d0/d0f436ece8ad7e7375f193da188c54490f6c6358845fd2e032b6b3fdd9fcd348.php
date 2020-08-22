@@ -390,6 +390,6 @@ class __TwigTemplate_f8a8ab2cfd9aae0483f016b3efef6bd2db21fcf1dac4c5e6f781d7d37e3
     {% include 'script/display_avatar.html.twig' %}
 
 {% endblock %}
-", "authenticated/settings.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\settings.html.twig");
+", "authenticated/settings.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\settings.html.twig");
     }
 }

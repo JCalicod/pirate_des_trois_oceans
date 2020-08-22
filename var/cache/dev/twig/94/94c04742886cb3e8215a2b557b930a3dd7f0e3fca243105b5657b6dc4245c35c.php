@@ -394,6 +394,6 @@ class __TwigTemplate_e9837094c7ce07c35f1b1246d51aa2f1bc8f7713173edbd39c8b4aca487
 
     {% include 'script/display_avatar.html.twig' %}
 
-{% endblock %}", "signup.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\signup.html.twig");
+{% endblock %}", "signup.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\signup.html.twig");
     }
 }

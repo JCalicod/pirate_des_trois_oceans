@@ -83,6 +83,6 @@ class __TwigTemplate_cad780d2017fa1e42bdc814096a36a3cc433a2d2639ad2b6f7c4db007f8
         return new Source("<div class=\"alert alert-{{ label }}\">
     {% if label == 'success' %}<span class=\"fas fa-check\"></span>{% elseif label == 'danger' %}<span class=\"fas fa-times\"></span>{% endif %} {{ message }}
 </div>
-", "authenticated/include/flash-ajax.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\include\\flash-ajax.html.twig");
+", "authenticated/include/flash-ajax.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\include\\flash-ajax.html.twig");
     }
 }

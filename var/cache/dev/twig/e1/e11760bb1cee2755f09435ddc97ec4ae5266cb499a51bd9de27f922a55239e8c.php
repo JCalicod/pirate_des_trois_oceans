@@ -160,6 +160,6 @@ class __TwigTemplate_5d931a52c7e959aa1fecfe17868b0cda399e4b9cd5695413879e33bf45c
             });
         }
     };
-</script>", "authenticated/script/send_tavern_message.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\script\\send_tavern_message.html.twig");
+</script>", "authenticated/script/send_tavern_message.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\script\\send_tavern_message.html.twig");
     }
 }

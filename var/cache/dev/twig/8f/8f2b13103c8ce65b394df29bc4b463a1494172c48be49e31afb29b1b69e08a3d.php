@@ -106,6 +106,6 @@ class __TwigTemplate_e50d7b144bfe0cf8baf2a46bfeffd1c99a60ffa535fe505064f3cb2b012
     <div class=\"right-part d-flex\">
         <p class=\"m-auto\">{{ tavern.message }}</p>
     </div>
-</div>", "authenticated/include/tavern-message.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\include\\tavern-message.html.twig");
+</div>", "authenticated/include/tavern-message.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\include\\tavern-message.html.twig");
     }
 }

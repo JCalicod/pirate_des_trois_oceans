@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'avatar', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email_address', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registration', '' . "\0" . 'App\\Entity\\User' . "\0" . 'last_connection', '' . "\0" . 'App\\Entity\\User' . "\0" . 'gold', '' . "\0" . 'App\\Entity\\User' . "\0" . 'pa', '' . "\0" . 'App\\Entity\\User' . "\0" . 'victories', '' . "\0" . 'App\\Entity\\User' . "\0" . 'defeats', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasure_word', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasure_position', '' . "\0" . 'App\\Entity\\User' . "\0" . 'tutorial', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ip', '' . "\0" . 'App\\Entity\\User' . "\0" . 'before_last_attack', '' . "\0" . 'App\\Entity\\User' . "\0" . 'last_attack', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ships', '' . "\0" . 'App\\Entity\\User' . "\0" . 'godfather', '' . "\0" . 'App\\Entity\\User' . "\0" . 'godchildren', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sent_messages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'received_messages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'taverns', '' . "\0" . 'App\\Entity\\User' . "\0" . 'activity', '' . "\0" . 'App\\Entity\\User' . "\0" . 'attacks', '' . "\0" . 'App\\Entity\\User' . "\0" . 'defenses', '' . "\0" . 'App\\Entity\\User' . "\0" . 'alliance'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'avatar', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email_address', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registration', '' . "\0" . 'App\\Entity\\User' . "\0" . 'last_connection', '' . "\0" . 'App\\Entity\\User' . "\0" . 'gold', '' . "\0" . 'App\\Entity\\User' . "\0" . 'pa', '' . "\0" . 'App\\Entity\\User' . "\0" . 'victories', '' . "\0" . 'App\\Entity\\User' . "\0" . 'defeats', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasure_word', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasure_position', '' . "\0" . 'App\\Entity\\User' . "\0" . 'tutorial', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ip', '' . "\0" . 'App\\Entity\\User' . "\0" . 'before_last_attack', '' . "\0" . 'App\\Entity\\User' . "\0" . 'last_attack', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ships', '' . "\0" . 'App\\Entity\\User' . "\0" . 'godfather', '' . "\0" . 'App\\Entity\\User' . "\0" . 'godchildren', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sent_messages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'received_messages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'taverns', '' . "\0" . 'App\\Entity\\User' . "\0" . 'activity', '' . "\0" . 'App\\Entity\\User' . "\0" . 'attacks', '' . "\0" . 'App\\Entity\\User' . "\0" . 'defenses', '' . "\0" . 'App\\Entity\\User' . "\0" . 'alliance', '' . "\0" . 'App\\Entity\\User' . "\0" . 'clues', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasures'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'avatar', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email_address', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registration', '' . "\0" . 'App\\Entity\\User' . "\0" . 'last_connection', '' . "\0" . 'App\\Entity\\User' . "\0" . 'gold', '' . "\0" . 'App\\Entity\\User' . "\0" . 'pa', '' . "\0" . 'App\\Entity\\User' . "\0" . 'victories', '' . "\0" . 'App\\Entity\\User' . "\0" . 'defeats', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasure_word', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasure_position', '' . "\0" . 'App\\Entity\\User' . "\0" . 'tutorial', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ip', '' . "\0" . 'App\\Entity\\User' . "\0" . 'before_last_attack', '' . "\0" . 'App\\Entity\\User' . "\0" . 'last_attack', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ships', '' . "\0" . 'App\\Entity\\User' . "\0" . 'godfather', '' . "\0" . 'App\\Entity\\User' . "\0" . 'godchildren', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sent_messages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'received_messages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'taverns', '' . "\0" . 'App\\Entity\\User' . "\0" . 'activity', '' . "\0" . 'App\\Entity\\User' . "\0" . 'attacks', '' . "\0" . 'App\\Entity\\User' . "\0" . 'defenses', '' . "\0" . 'App\\Entity\\User' . "\0" . 'alliance'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'avatar', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email_address', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registration', '' . "\0" . 'App\\Entity\\User' . "\0" . 'last_connection', '' . "\0" . 'App\\Entity\\User' . "\0" . 'gold', '' . "\0" . 'App\\Entity\\User' . "\0" . 'pa', '' . "\0" . 'App\\Entity\\User' . "\0" . 'victories', '' . "\0" . 'App\\Entity\\User' . "\0" . 'defeats', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasure_word', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasure_position', '' . "\0" . 'App\\Entity\\User' . "\0" . 'tutorial', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ip', '' . "\0" . 'App\\Entity\\User' . "\0" . 'before_last_attack', '' . "\0" . 'App\\Entity\\User' . "\0" . 'last_attack', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ships', '' . "\0" . 'App\\Entity\\User' . "\0" . 'godfather', '' . "\0" . 'App\\Entity\\User' . "\0" . 'godchildren', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sent_messages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'received_messages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'taverns', '' . "\0" . 'App\\Entity\\User' . "\0" . 'activity', '' . "\0" . 'App\\Entity\\User' . "\0" . 'attacks', '' . "\0" . 'App\\Entity\\User' . "\0" . 'defenses', '' . "\0" . 'App\\Entity\\User' . "\0" . 'alliance', '' . "\0" . 'App\\Entity\\User' . "\0" . 'clues', '' . "\0" . 'App\\Entity\\User' . "\0" . 'treasures'];
     }
 
     /**
@@ -926,6 +926,72 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'addGold', [$quantity]);
 
         return parent::addGold($quantity);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getClues(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClues', []);
+
+        return parent::getClues();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addClue(\App\Entity\Clues $clue): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addClue', [$clue]);
+
+        return parent::addClue($clue);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeClue(\App\Entity\Clues $clue): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeClue', [$clue]);
+
+        return parent::removeClue($clue);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTreasures(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTreasures', []);
+
+        return parent::getTreasures();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addTreasure(\App\Entity\Treasure $treasure): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addTreasure', [$treasure]);
+
+        return parent::addTreasure($treasure);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeTreasure(\App\Entity\Treasure $treasure): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeTreasure', [$treasure]);
+
+        return parent::removeTreasure($treasure);
     }
 
 }

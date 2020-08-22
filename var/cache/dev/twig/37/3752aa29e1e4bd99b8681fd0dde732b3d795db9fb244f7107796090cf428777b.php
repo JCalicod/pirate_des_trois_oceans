@@ -306,6 +306,6 @@ class __TwigTemplate_c17a29ea8e5fe214592b2f342bf2c4d08c2c982a4eb6c8bb883128e9fde
             </table>
         </div>
     </div>
-{% endblock %}", "authenticated/spy.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\spy.html.twig");
+{% endblock %}", "authenticated/spy.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\spy.html.twig");
     }
 }

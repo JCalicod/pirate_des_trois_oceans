@@ -316,6 +316,13 @@
         <argument>pa:add</argument>
       </call>
     </service>
+    <service id="App\Command\CreateItemsCommand" class="App\Command\CreateItemsCommand" autowire="true" autoconfigure="true">
+      <tag name="console.command"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setName">
+        <argument>items:create</argument>
+      </call>
+    </service>
     <service id="App\Command\CreateLandsCommand" class="App\Command\CreateLandsCommand" autowire="true" autoconfigure="true">
       <tag name="console.command"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -525,6 +532,10 @@
     <service id="App\Form\JoinAllianceType" class="App\Form\JoinAllianceType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\ProposeTreasureCodeType" class="App\Form\ProposeTreasureCodeType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="security.helper"/>
+    </service>
     <service id="App\Form\SendMessageType" class="App\Form\SendMessageType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -561,6 +572,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\ItemRepository" class="App\Repository\ItemRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\LandsRepository" class="App\Repository\LandsRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -578,6 +593,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\TradeRepository" class="App\Repository\TradeRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\TreasureRepository" class="App\Repository\TreasureRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -609,6 +628,7 @@
       <argument type="service" id="security.helper"/>
       <argument type="service" id="request_stack"/>
       <argument type="service" id="App\Service\ShipServices"/>
+      <argument type="service" id="App\Service\TreasureServices"/>
     </service>
     <service id="App\Service\MessagingServices" class="App\Service\MessagingServices" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -1080,6 +1100,7 @@
         <argument>App\Form\CreateAllianceType</argument>
         <argument>App\Form\EnrollCrewType</argument>
         <argument>App\Form\JoinAllianceType</argument>
+        <argument>App\Form\ProposeTreasureCodeType</argument>
         <argument>App\Form\SendMessageType</argument>
         <argument>App\Form\SignUpType</argument>
         <argument>App\Form\SpyType</argument>
@@ -1417,7 +1438,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.YvCRIKU"/>
+      <argument type="service" id=".service_locator.KxOWiwL"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3770,7 +3791,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.TiIEkwg"/>
+      <argument type="service" id=".service_locator.Iso5ZK5"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5152,6 +5173,8 @@
     </service>
     <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\AddActionPointCommand" class="App\Command\AddActionPointCommand" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Command\AddActionPointCommand" class="App\Command\AddActionPointCommand" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\CreateItemsCommand" class="App\Command\CreateItemsCommand" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Command\CreateItemsCommand" class="App\Command\CreateItemsCommand" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\CreateLandsCommand" class="App\Command\CreateLandsCommand" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Command\CreateLandsCommand" class="App\Command\CreateLandsCommand" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\DistributionOfCommercialTaxCommand" class="App\Command\DistributionOfCommercialTaxCommand" autowire="true" abstract="true"/>
@@ -5222,6 +5245,8 @@
     <service id=".abstract.instanceof.App\Form\EnrollCrewType" class="App\Form\EnrollCrewType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\JoinAllianceType" class="App\Form\JoinAllianceType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\JoinAllianceType" class="App\Form\JoinAllianceType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProposeTreasureCodeType" class="App\Form\ProposeTreasureCodeType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ProposeTreasureCodeType" class="App\Form\ProposeTreasureCodeType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SendMessageType" class="App\Form\SendMessageType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SendMessageType" class="App\Form\SendMessageType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SignUpType" class="App\Form\SignUpType" autowire="true" abstract="true"/>
@@ -5242,6 +5267,8 @@
     <service id=".abstract.instanceof.App\Repository\CluesRepository" class="App\Repository\CluesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DenRepository" class="App\Repository\DenRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DenRepository" class="App\Repository\DenRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ItemRepository" class="App\Repository\ItemRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ItemRepository" class="App\Repository\ItemRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LandsRepository" class="App\Repository\LandsRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LandsRepository" class="App\Repository\LandsRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MessagingRepository" class="App\Repository\MessagingRepository" autowire="true" abstract="true"/>
@@ -5252,6 +5279,8 @@
     <service id=".abstract.instanceof.App\Repository\TavernRepository" class="App\Repository\TavernRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TradeRepository" class="App\Repository\TradeRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\TradeRepository" class="App\Repository\TradeRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TreasureRepository" class="App\Repository\TreasureRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\TreasureRepository" class="App\Repository\TreasureRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\WarRepository" class="App\Repository\WarRepository" autowire="true" abstract="true"/>
@@ -5560,7 +5589,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.YvCRIKU" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.KxOWiwL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AllianceBoard\ExcludeMemberType" type="service" id="App\Form\AllianceBoard\ExcludeMemberType"/>
@@ -5573,6 +5602,7 @@
         <argument key="App\Form\CreateAllianceType" type="service" id="App\Form\CreateAllianceType"/>
         <argument key="App\Form\EnrollCrewType" type="service" id="App\Form\EnrollCrewType"/>
         <argument key="App\Form\JoinAllianceType" type="service" id="App\Form\JoinAllianceType"/>
+        <argument key="App\Form\ProposeTreasureCodeType" type="service" id="App\Form\ProposeTreasureCodeType"/>
         <argument key="App\Form\SendMessageType" type="service" id="App\Form\SendMessageType"/>
         <argument key="App\Form\SignUpType" type="service" id="App\Form\SignUpType"/>
         <argument key="App\Form\SpyType" type="service" id="App\Form\SpyType"/>
@@ -5594,7 +5624,7 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.TiIEkwg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Iso5ZK5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AllianceHistoryRepository" type="service" id="App\Repository\AllianceHistoryRepository"/>
@@ -5603,11 +5633,13 @@
         <argument key="App\Repository\AllianceWarRepository" type="service" id="App\Repository\AllianceWarRepository"/>
         <argument key="App\Repository\CluesRepository" type="service" id="App\Repository\CluesRepository"/>
         <argument key="App\Repository\DenRepository" type="service" id="App\Repository\DenRepository"/>
+        <argument key="App\Repository\ItemRepository" type="service" id="App\Repository\ItemRepository"/>
         <argument key="App\Repository\LandsRepository" type="service" id="App\Repository\LandsRepository"/>
         <argument key="App\Repository\MessagingRepository" type="service" id="App\Repository\MessagingRepository"/>
         <argument key="App\Repository\ShipRepository" type="service" id="App\Repository\ShipRepository"/>
         <argument key="App\Repository\TavernRepository" type="service" id="App\Repository\TavernRepository"/>
         <argument key="App\Repository\TradeRepository" type="service" id="App\Repository\TradeRepository"/>
+        <argument key="App\Repository\TreasureRepository" type="service" id="App\Repository\TreasureRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
         <argument key="App\Repository\WarRepository" type="service" id="App\Repository\WarRepository"/>
       </argument>
@@ -6041,9 +6073,10 @@
     <service id=".errored..service_locator.tIQ5Q0N.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.apZJyWd.App\Entity\Ship" class="App\Entity\Ship"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.ENcH09H"/>
+      <argument type="service" id=".service_locator.TtHcpY3"/>
       <argument type="collection">
         <argument key="pa:add">App\Command\AddActionPointCommand</argument>
+        <argument key="items:create">App\Command\CreateItemsCommand</argument>
         <argument key="lands:create">App\Command\CreateLandsCommand</argument>
         <argument key="commercial-tax:distribution">App\Command\DistributionOfCommercialTaxCommand</argument>
         <argument key="trade-rate:update">App\Command\UpdateTradeRateCommand</argument>
@@ -6131,10 +6164,11 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.ENcH09H" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.TtHcpY3" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Command\AddActionPointCommand" type="service" id="App\Command\AddActionPointCommand"/>
+        <argument key="App\Command\CreateItemsCommand" type="service" id="App\Command\CreateItemsCommand"/>
         <argument key="App\Command\CreateLandsCommand" type="service" id="App\Command\CreateLandsCommand"/>
         <argument key="App\Command\DistributionOfCommercialTaxCommand" type="service" id="App\Command\DistributionOfCommercialTaxCommand"/>
         <argument key="App\Command\UpdateTradeRateCommand" type="service" id="App\Command\UpdateTradeRateCommand"/>

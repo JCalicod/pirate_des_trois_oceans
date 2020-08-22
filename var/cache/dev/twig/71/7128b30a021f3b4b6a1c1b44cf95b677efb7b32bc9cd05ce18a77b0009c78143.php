@@ -379,6 +379,6 @@ class __TwigTemplate_0526b47978597193972a0b75a92fe0eade6f6d8a2e9073ea93b9e85a754
 
     {% include 'authenticated/script/trade.html.twig' %}
 {% endblock %}
-", "authenticated/trade.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\trade.html.twig");
+", "authenticated/trade.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\trade.html.twig");
     }
 }

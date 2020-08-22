@@ -185,4 +185,12 @@ class Lands
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getId() . ' - ' . $this->getName();
+    }
 }

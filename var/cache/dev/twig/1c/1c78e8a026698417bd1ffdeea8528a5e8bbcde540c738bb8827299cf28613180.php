@@ -77,6 +77,6 @@ class __TwigTemplate_9420da6028007d95f6d200af9152a2434d4ec5efa0ac715382815f78d56
     \$('#avatar').on('input', function() {
         \$('#avatar-img').attr('src', '{{ asset('img/avatars/') }}' + \$(this).val() + '.jpg');
     });
-</script>", "script/display_avatar.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\script\\display_avatar.html.twig");
+</script>", "script/display_avatar.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\script\\display_avatar.html.twig");
     }
 }

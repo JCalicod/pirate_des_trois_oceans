@@ -10,8 +10,12 @@ namespace App\Service;
 
 
 use App\Entity\Clues;
+use App\Entity\Den;
+use App\Entity\Item;
 use App\Entity\Lands;
 use App\Entity\Ship;
+use App\Entity\Treasure;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -23,7 +27,9 @@ class ExplorationServices
     private $user;
     private $requestStack;
     private $shipServices;
+    private $treasureServices;
     private $clue = null;
+    private $treasure = null;
     private $error;
     private $success;
 
@@ -32,12 +38,15 @@ class ExplorationServices
      * @param EntityManagerInterface $em
      * @param Security $security
      * @param RequestStack $requestStack
+     * @param ShipServices $shipServices
+     * @param TreasureServices $treasureServices
      */
-    public function __construct(EntityManagerInterface $em, Security $security, RequestStack $requestStack, ShipServices $shipServices) {
+    public function __construct(EntityManagerInterface $em, Security $security, RequestStack $requestStack, ShipServices $shipServices, TreasureServices $treasureServices) {
         $this->em = $em;
         $this->user = $security->getUser();
         $this->requestStack = $requestStack;
         $this->shipServices = $shipServices;
+        $this->treasureServices = $treasureServices;
         $this->error = '';
         $this->success = '';
     }
@@ -88,6 +97,78 @@ class ExplorationServices
     public function getClue(): ?Clues
     {
         return $this->clue;
+    }
+
+    /**
+     * @param Treasure $treasure
+     */
+    public function setTreasure(Treasure $treasure): void
+    {
+        $this->treasure = $treasure;
+    }
+
+    /**
+     * @return Treasure|null
+     */
+    public function getTreasure(): ?Treasure
+    {
+        return $this->treasure;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function findTreasure(): void
+    {
+        $items = $this->em->getRepository(Item::class)->findAll();
+        $item = $items[array_rand($items)];
+        $duration = random_int(3, 7);
+
+        $treasure = new Treasure();
+        $treasure->setOwner($this->user);
+        $treasure->setItem($item);
+        $treasure->setDays($duration);
+
+        $this->treasure = $treasure;
+
+        $this->treasureServices->createTreasure($this->user);
+
+        $this->em->persist($treasure);
+    }
+
+    /**
+     * @param $position
+     * @return bool
+     */
+    private function hasExplorerAtPos($position): bool
+    {
+        if ($land = $this->em->getRepository(Lands::class)->find($position)) {
+            $ships = $this->user->getShips();
+            foreach ($ships as $ship) {
+                /** @var Ship $ship */
+                if (!$ship instanceof Den && $ship->getPosition() == $land && $ship->getExplorer() > 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param array $data
+     * @return bool
+     */
+    public function checkCode(array $data): bool
+    {
+        $this->user->setPa($this->user->getPa() - 1);
+        if (array_key_exists('code', $data) && array_key_exists('position', $data)) {
+            if ($this->hasExplorerAtPos($data['position'])) {
+                if (strtoupper($this->user->getTreasureWord()) == strtoupper($data['code']) && $this->user->getTreasurePosition() == $data['position']->getId()) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**

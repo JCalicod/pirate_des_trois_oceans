@@ -423,6 +423,6 @@ class __TwigTemplate_4fa3686ebb4b96db61e8146bf2f34314ccc09e680c7a5ac163432e823f6
             </div>
         </div>
     </div>
-</div>", "authenticated/include/alliance/management.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\include\\alliance\\management.html.twig");
+</div>", "authenticated/include/alliance/management.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\include\\alliance\\management.html.twig");
     }
 }

@@ -159,6 +159,11 @@ class User implements UserInterface {
      */
     private $clues;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Treasure", mappedBy="owner")
+     */
+    private $treasures;
+
     public function __construct() {
         $this->ships = new ArrayCollection();
         $this->setRegistration(new \DateTime('now', New \DateTimeZone('Europe/Paris')));
@@ -169,6 +174,7 @@ class User implements UserInterface {
         $this->attacks = new ArrayCollection();
         $this->defenses = new ArrayCollection();
         $this->clues = new ArrayCollection();
+        $this->treasures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -722,6 +728,37 @@ class User implements UserInterface {
             // set the owning side to null (unless already changed)
             if ($clue->getUser() === $this) {
                 $clue->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Treasure[]
+     */
+    public function getTreasures(): Collection
+    {
+        return $this->treasures;
+    }
+
+    public function addTreasure(Treasure $treasure): self
+    {
+        if (!$this->treasures->contains($treasure)) {
+            $this->treasures[] = $treasure;
+            $treasure->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTreasure(Treasure $treasure): self
+    {
+        if ($this->treasures->contains($treasure)) {
+            $this->treasures->removeElement($treasure);
+            // set the owning side to null (unless already changed)
+            if ($treasure->getOwner() === $this) {
+                $treasure->setOwner(null);
             }
         }
 

@@ -93,6 +93,6 @@ class __TwigTemplate_8b27e3eaf7dc42d9087a78aa7c2ec9cb91d0d14319f5ffdbd89cad2b03f
         \$(this).css('border', '4px solid #100D0B');
     });
 
-</script>", "authenticated/script/choose-alliance-color.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\script\\choose-alliance-color.html.twig");
+</script>", "authenticated/script/choose-alliance-color.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\script\\choose-alliance-color.html.twig");
     }
 }

@@ -23,9 +23,9 @@ class TreasureServices
     }
 
     /**
-     * @return array
+     * @return string
      */
-    private function getRandomWord(): array
+    private function getRandomWord(): string
     {
         $words = [
             'mer',

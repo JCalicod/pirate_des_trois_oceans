@@ -242,6 +242,6 @@ class __TwigTemplate_fa64cb324192a48ac4f6dc961cd14031e677d749252e7aab9d59a939fba
     {% include 'authenticated/script/change-alliance-tab.html.twig' %}
 
 {% endblock %}
-", "authenticated/alliance_board.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\alliance_board.html.twig");
+", "authenticated/alliance_board.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\alliance_board.html.twig");
     }
 }

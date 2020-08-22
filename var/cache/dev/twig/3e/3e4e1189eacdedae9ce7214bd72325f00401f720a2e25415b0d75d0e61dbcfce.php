@@ -268,6 +268,6 @@ class __TwigTemplate_67b4bcb07e5fb4533d56a124b0c713a0a9be6ab00f33e5deb0299c1cb32
             </div>
         </div>
     </div>
-{% endblock %}", "rules.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\rules.html.twig");
+{% endblock %}", "rules.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\rules.html.twig");
     }
 }

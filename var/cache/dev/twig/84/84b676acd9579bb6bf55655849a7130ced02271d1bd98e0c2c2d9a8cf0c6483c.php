@@ -94,6 +94,6 @@ class __TwigTemplate_d64b28dff14aa3e6c70cf0f3136cd79b3856d9d33644643c29e3b9fd2e3
     <p>
         <b>{{ value|raw }}</b>
     </p>
-</div>", "authenticated/include/alliance/block-line.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pd3o\\templates\\authenticated\\include\\alliance\\block-line.html.twig");
+</div>", "authenticated/include/alliance/block-line.html.twig", "C:\\Users\\Gianni GIUDICE\\Documents\\SymfonyWebsites\\pirate_des_trois_oceans\\templates\\authenticated\\include\\alliance\\block-line.html.twig");
     }
 }
