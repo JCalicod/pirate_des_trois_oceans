@@ -1454,3 +1454,7 @@ table.war-report td.img {
     border-radius: 3px;
     margin: auto;
 }
+
+.loader {
+    width: 50px;
+}

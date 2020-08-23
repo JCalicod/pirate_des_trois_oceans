@@ -1,0 +1,14 @@
+<script>
+    $(document).ready(function() {
+        var click = true;
+
+        $('.fake-radio').click(function () {
+            if (click) {
+                click = false;
+                var treasure_id = $(this).attr('id');
+                $('#' + treasure_id).parent().html("<img src='{{ asset('img/loader.gif') }}' class='loader' alt='spinner'>");
+                console.log($('#' + treasure_id).parent().parent());
+            }
+        });
+    });
+</script>
