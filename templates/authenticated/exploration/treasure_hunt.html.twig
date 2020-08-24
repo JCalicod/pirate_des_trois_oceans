@@ -108,7 +108,7 @@
                             </td>
                             <td>{{ current_treasure.item.name }}</td>
                             <td>{{ current_treasure.item.description }}</td>
-                            <td class="days">{% if current_treasure.getIsActive %}<span class="red-text">{% endif %}{{ current_treasure.days }}j{% if current_treasure.getIsActive %}</span>{% endif %}</td>
+                            <td id="days-{{ current_treasure.id }}">{% if current_treasure.getIsActive %}<span class="red-text">{% endif %}{{ current_treasure.days }}j{% if current_treasure.getIsActive %}</span>{% endif %}</td>
                             <td>{% if current_treasure.getIsActive %}Actif{% else %}<div class="fake-radio" id="{{ current_treasure.id }}"></div>{% endif %}</td>
                         </tr>
                     {% endfor %}

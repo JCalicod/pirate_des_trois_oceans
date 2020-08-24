@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 
@@ -40,7 +41,32 @@ class ExplorationController extends AbstractController
     }
 
     /**
+     * @Route("/tresors/activate/{id}", name="activate_treasure")
+     * @param Treasure $treasure
+     * @param Request $request
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function activateTreasure(Treasure $treasure, Request $request)
+    {
+        if ($request->isXMLHttpRequest()) {
+            if ($this->explorationServices->checkTreasureActivation($treasure)) {
+
+            }
+            else {
+                return new JsonResponse($this->explorationServices->getError(), JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+            }
+        }
+        else {
+            return new JsonResponse('Cette méthode ne peut être appelée que via AJAX.', JsonResponse::HTTP_UNAUTHORIZED);
+        }
+    }
+
+    /**
      * @Route("/tresors", name="treasure_hunt")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function treasureHunt(Request $request)
     {

@@ -7,7 +7,24 @@
                 click = false;
                 var treasure_id = $(this).attr('id');
                 $('#' + treasure_id).parent().html("<img src='{{ asset('img/loader.gif') }}' class='loader' alt='spinner'>");
-                console.log($('#' + treasure_id).parent().parent());
+                var days = $('#days-' + $(this).attr('id'));
+
+                var url = '{{ path('activate_treasure', {'id': 'treasure_id'}) }}';
+                url = url.replace('treasure_id', treasure_id);
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    dataType: 'html'
+                })
+                .done(function() {
+
+                })
+                .fail(function() {
+
+                })
+                .always(function() {
+                })
             }
         });
     });

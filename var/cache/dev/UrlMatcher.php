@@ -61,12 +61,13 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/capitaine/(\\d+)(*:185)'
+                .'|/exploration/tresors/activate/([^/]++)(*:207)'
+                .'|/capitaine/(\\d+)(*:231)'
                 .'|/navires/(?'
-                    .'|rename/(\\d+)(*:217)'
+                    .'|rename/(\\d+)(*:263)'
                     .'|order\\-move\\-(?'
-                        .'|up/(\\d+)(*:249)'
-                        .'|down/(\\d+)(*:267)'
+                        .'|up/(\\d+)(*:295)'
+                        .'|down/(\\d+)(*:313)'
                     .')'
                 .')'
             .')/?$}sD',
@@ -79,10 +80,11 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        185 => [[['_route' => 'app_profile', '_controller' => 'App\\Controller\\SecurityController::profile'], ['id'], null, null, false, true, null]],
-        217 => [[['_route' => 'app_ship_rename', '_controller' => 'App\\Controller\\ShipsController::shipRename'], ['id'], null, null, false, true, null]],
-        249 => [[['_route' => 'app_ship_order_move_up', '_controller' => 'App\\Controller\\ShipsController::shipOrderMoveUp'], ['id'], null, null, false, true, null]],
-        267 => [
+        207 => [[['_route' => 'activate_treasure', '_controller' => 'App\\Controller\\ExplorationController::activateTreasure'], ['id'], null, null, false, true, null]],
+        231 => [[['_route' => 'app_profile', '_controller' => 'App\\Controller\\SecurityController::profile'], ['id'], null, null, false, true, null]],
+        263 => [[['_route' => 'app_ship_rename', '_controller' => 'App\\Controller\\ShipsController::shipRename'], ['id'], null, null, false, true, null]],
+        295 => [[['_route' => 'app_ship_order_move_up', '_controller' => 'App\\Controller\\ShipsController::shipOrderMoveUp'], ['id'], null, null, false, true, null]],
+        313 => [
             [['_route' => 'app_ship_order_move_down', '_controller' => 'App\\Controller\\ShipsController::shipOrderMoveDown'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

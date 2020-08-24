@@ -116,6 +116,44 @@ class ExplorationServices
     }
 
     /**
+     * @param Treasure $treasure
+     * @return bool
+     * @throws \Exception
+     */
+    public function checkTreasureActivation(Treasure $treasure): bool
+    {
+        // Vérification du propriétaire
+        if ($treasure->getOwner() == $this->user) {
+            // Vérification de l'activation
+            if (!$treasure->getIsActive()) {
+                $item = $treasure->getItem();
+                /*
+                    On vérifie qu'aucun trésor identique n'est déjà activé => les trésors de même items ne sont pas
+                    cumulables
+                */
+                if (!$this->em->getRepository(Treasure::class)->findOneBy(['owner' => $this->user, 'is_active' => true, 'item' => $item])) {
+                    $treasure->setIsActive(true);
+                    $treasure->setDateOfUse(new \DateTime('now', New \DateTimeZone('Europe/Paris')));
+                    $this->em->persist($treasure);
+                    $this->em->flush();
+
+                    return true;
+                }
+                else {
+                    $this->setError('Un trésor du même type est déjà activé.');
+                }
+            }
+            else {
+                $this->setError('Ce trésor est déjà activé.');
+            }
+        }
+        else {
+            $this->setError('Ce trésor ne vous appartient pas.');
+        }
+        return false;
+    }
+
+    /**
      * @throws \Exception
      */
     public function findTreasure(): void

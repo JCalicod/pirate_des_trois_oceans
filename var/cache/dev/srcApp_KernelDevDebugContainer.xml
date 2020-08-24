@@ -5497,6 +5497,12 @@
         <argument>make:migration</argument>
       </call>
     </service>
+    <service id=".service_locator.U256UPS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="treasure" type="service" id=".errored..service_locator.U256UPS.App\Entity\Treasure"/>
+      </argument>
+    </service>
     <service id=".service_locator.tIQ5Q0N" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5515,14 +5521,16 @@
         <argument key="ship" type="service" id=".errored..service_locator.apZJyWd.App\Entity\Ship"/>
       </argument>
     </service>
-    <service id=".service_locator.LKTrASP" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.eweFVXa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\ExplorationController::activateTreasure" type="service" id=".service_locator.U256UPS"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\SecurityController::profile" type="service" id=".service_locator.tIQ5Q0N"/>
         <argument key="App\Controller\ShipsController::shipOrderMoveDown" type="service" id=".service_locator.apZJyWd"/>
         <argument key="App\Controller\ShipsController::shipOrderMoveUp" type="service" id=".service_locator.apZJyWd"/>
         <argument key="App\Controller\ShipsController::shipRename" type="service" id=".service_locator.apZJyWd"/>
+        <argument key="App\Controller\ExplorationController:activateTreasure" type="service" id=".service_locator.U256UPS"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\SecurityController:profile" type="service" id=".service_locator.tIQ5Q0N"/>
         <argument key="App\Controller\ShipsController:shipOrderMoveDown" type="service" id=".service_locator.apZJyWd"/>
@@ -6055,12 +6063,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.LKTrASP"/>
+      <argument type="service" id=".service_locator.eweFVXa"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.LKTrASP"/>
+      <argument type="service" id=".service_locator.eweFVXa"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6070,6 +6078,7 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.U256UPS.App\Entity\Treasure" class="App\Entity\Treasure"/>
     <service id=".errored..service_locator.tIQ5Q0N.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.apZJyWd.App\Entity\Ship" class="App\Entity\Ship"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
@@ -6451,7 +6460,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.LKTrASP"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.eweFVXa"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
