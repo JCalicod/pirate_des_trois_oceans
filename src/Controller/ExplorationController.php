@@ -51,7 +51,7 @@ class ExplorationController extends AbstractController
     {
         if ($request->isXMLHttpRequest()) {
             if ($this->explorationServices->checkTreasureActivation($treasure)) {
-
+                return new JsonResponse('Trésor activé avec succès.', JsonResponse::HTTP_OK);
             }
             else {
                 return new JsonResponse($this->explorationServices->getError(), JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
