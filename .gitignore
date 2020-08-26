@@ -1,6 +1,9 @@
-# Logs (Symfony4)
-/var/cache/*
-!/var/log/.gitkeep
+/app/config/parameters.yml
+ /build/
+/phpunit.xml
+/var/**
+!/var/SymfonyRequirements.php
 /vendor/
-.env
-.idea/*
+/web/bundles/
+!*/.gitkeep
+*/.idea/*
