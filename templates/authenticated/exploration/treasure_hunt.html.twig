@@ -102,13 +102,14 @@
 
                     <tbody>
                     {% for current_treasure in treasures %}
+                        {% set remaining_days = current_treasure.days - date("now"|date("m/d/Y")).diff(current_treasure.getDateOfUse).days %}
                         <tr>
                             <td>
                                 <img class="treasure-icon" src="{{ asset('img/icons/items/' ~ current_treasure.item.icon) }}" alt="treasure">
                             </td>
                             <td>{{ current_treasure.item.name }}</td>
                             <td>{{ current_treasure.item.description }}</td>
-                            <td id="days-{{ current_treasure.id }}">{% if current_treasure.getIsActive %}<span class="green-text">{% endif %}{{ current_treasure.days }}j{% if current_treasure.getIsActive %}</span>{% endif %}</td>
+                            <td id="days-{{ current_treasure.id }}">{% if current_treasure.getIsActive %}<span class="green-text">{% endif %}{{ remaining_days }}j{% if current_treasure.getIsActive %}</span>{% endif %}</td>
                             <td>{% if current_treasure.getIsActive %}<span class="green-text">Actif</span>{% else %}<div class="fake-radio" id="{{ current_treasure.id }}"></div>{% endif %}</td>
                         </tr>
                     {% endfor %}

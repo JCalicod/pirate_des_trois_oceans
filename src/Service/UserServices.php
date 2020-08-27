@@ -11,6 +11,7 @@ namespace App\Service;
 
 use App\Entity\Den;
 use App\Entity\Lands;
+use App\Entity\Treasure;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -257,14 +258,26 @@ class UserServices
     {
         if ($user = $this->em->getRepository(User::class)->findOneBy(['username' => $data['username']])) {
             if ($user != $this->current_user) {
-                if ($this->current_user->getGold() >= 15000) {
-                    $this->current_user->withdrawGold(15000);
-                    $this->em->persist($this->current_user);
-                    $this->em->flush();
-                    return $user;
+                // Si le joueur possède un perroquet maudit, on ne peut pas l'espionner
+                if (!($this->em->getRepository(Treasure::class)->userHasItem($user, 'Perroquet Maudit'))) {
+                    // Si l'utilisateur souhaitant espionner possède une longue-vue, il ne paye pas l'espionnage
+                    if ($this->em->getRepository(Treasure::class)->userHasItem($this->current_user, 'Longue-vue Enchantée')) {
+                        return $user;
+                    }
+                    else {
+                        if ($this->current_user->getGold() >= 15000) {
+                            $this->current_user->withdrawGold(15000);
+                            $this->em->persist($this->current_user);
+                            $this->em->flush();
+                            return $user;
+                        }
+                        else {
+                            $this->setError('Vous ne possédez pas l\'argent requis pour espionner ce joueur.');
+                        }
+                    }
                 }
                 else {
-                    $this->setError('Vous ne possédez pas l\'argent requis pour espionner ce joueur.');
+                    $this->setError('Ce pirate ne peut être espionné pour le moment..');
                 }
             } else {
                 $this->setError('Vous ne pouvez pas vous espionner.');

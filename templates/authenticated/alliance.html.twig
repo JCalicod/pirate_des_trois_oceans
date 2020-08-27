@@ -47,52 +47,54 @@
         </div>
     </div>
 
-    <div class="card no-min-height mt-3">
-        <div class="card-header">
-            Rejoindre une Alliance
-        </div>
-        <div class="card-back-msg p-3">
-            <table class="alliances-list">
-                <thead>
-                    <tr>
-                        <td>Initiales</td>
-                        <td>Nom</td>
-                        <td>Chef</td>
-                        <td>Membres</td>
-                        <td>Puissance requise</td>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {% set i = 0 %}
-                    {% for alliance in alliances %}
-                        {% set chief = alliance.getLeader %}
-                        <tr class="{% if i % 2 == 0 %}list-element-1{% else %}list-element-2{% endif %}">
-                            <td><span class="font-weight-bold alliance-{{ alliance.color }}">[{{ alliance.abbreviation }}]</span></td>
-                            <td>{{ alliance.name }}</td>
-                            <td><a target=_blank href="{{ path('app_profile', {id: chief.id}) }}">{{ chief.username }}</a></td>
-                            <td>{{ alliance.users|length }} / 10</td>
-                            <td>{{ alliance.getRequiredPower|number_format(0, '.', ' ') }}</td>
-                        </tr>
-                        {% set i = i + 1 %}
-                    {% endfor %}
-                </tbody>
-            </table>
-
-            {{ form_start(joinForm, {'action': path('app_alliance_join')}) }}
-
-            <div class="row">
-                <div class="col-7">
-                    {{ form_widget(joinForm.alliance) }}
-                </div>
-                <div class="col-1"></div>
-                <div class="col-4">
-                    {{ form_widget(joinForm.save) }}
-                </div>
+    {% if (alliances|length > 0) %}
+        <div class="card no-min-height mt-3">
+            <div class="card-header">
+                Rejoindre une Alliance
             </div>
-            {{ form_end(joinForm) }}
+            <div class="card-back-msg p-3">
+                <table class="alliances-list">
+                    <thead>
+                        <tr>
+                            <td>Initiales</td>
+                            <td>Nom</td>
+                            <td>Chef</td>
+                            <td>Membres</td>
+                            <td>Puissance requise</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% set i = 0 %}
+                        {% for alliance in alliances %}
+                            {% set chief = alliance.getLeader %}
+                            <tr class="{% if i % 2 == 0 %}list-element-1{% else %}list-element-2{% endif %}">
+                                <td><span class="font-weight-bold alliance-{{ alliance.color }}">[{{ alliance.abbreviation }}]</span></td>
+                                <td>{{ alliance.name }}</td>
+                                <td><a target=_blank href="{{ path('app_profile', {id: chief.id}) }}">{{ chief.username }}</a></td>
+                                <td>{{ alliance.users|length }} / 10</td>
+                                <td>{{ alliance.getRequiredPower|number_format(0, '.', ' ') }}</td>
+                            </tr>
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                {{ form_start(joinForm, {'action': path('app_alliance_join')}) }}
+
+                <div class="row">
+                    <div class="col-7">
+                        {{ form_widget(joinForm.alliance) }}
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                        {{ form_widget(joinForm.save) }}
+                    </div>
+                </div>
+                {{ form_end(joinForm) }}
+            </div>
         </div>
-    </div>
+    {% endif %}
 
     {% include 'authenticated/script/choose-alliance-color.html.twig' %}
 

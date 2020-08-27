@@ -63,7 +63,7 @@ class CreateItemsCommand extends Command
             ],
             5 => [
                 'name' => 'Crochet des Trois Océans',
-                'description' => 'Vous permet de dérober de la moitié de l\'Or d\'un joueur par jour.',
+                'description' => 'Vous permet de dérober la moitié de l\'Or d\'un joueur lors d\'une victoire.',
                 'icon' => 'three_oceans_hook.png'
             ]
         ];
@@ -82,12 +82,17 @@ class CreateItemsCommand extends Command
         foreach ($items as $item)
         {
             // Si l'item n'existe pas déjà, on le crée
-            if (!$this->em->getRepository(Item::class)->findBy(['name' => $item['name']])) {
+            if (!($old_item = $this->em->getRepository(Item::class)->findOneBy(['name' => $item['name']]))) {
                 $new_item = new Item();
                 $new_item->setName($item['name']);
                 $new_item->setDescription($item['description']);
                 $new_item->setIcon($item['icon']);
                 $this->em->persist($new_item);
+            }
+            else {
+                $old_item->setDescription($item['description']);
+                $old_item->setIcon($item['icon']);
+                $this->em->persist($old_item);
             }
         }
         $this->em->flush();
