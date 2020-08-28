@@ -1,0 +1,125 @@
+{% extends 'authenticated/exploration/explore.html.twig' %}
+
+{% block body %}
+
+    {% if treasure %}
+        <div class="card no-min-height mb-3">
+            <div class="card-header">
+                Trésor découvert !
+            </div>
+            <div class="card-back-msg p-2">
+                <div class="text-center"><span class="green-text font-weight-bold">Félicitations, vous avez trouvé un magnifique trésor !</span></div>
+
+                <table class="mt-3">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Validité</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>
+                            <img class="treasure-icon" src="{{ asset('img/icons/items/' ~ treasure.item.icon) }}" alt="treasure">
+                        </td>
+                        <td>{{ treasure.item.name }}</td>
+                        <td>{{ treasure.item.description }}</td>
+                        <td>{{ treasure.days }}j</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {% if label == 'success' %}<span class="fas fa-check"></span>{% elseif label == 'danger' %}<span class="fas fa-times"></span>{% endif %} {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="card no-min-height mb-3">
+        <div class="card-header">
+            Chasse aux Trésors
+        </div>
+        <div class="card-back-msg d-flex p-0">
+            <div class="exploration-image">
+                <img src="{{ asset('img/avatars/explore.jpg') }}" alt="npc">
+            </div>
+            <div class="exploration-message">
+                {% if clues %}
+                    Voici les indices découverts pour le moment :<br><br>
+                    {% for clue in clues %}
+                        <span class="clue">{{ clue.clue }}</span>
+                    {% endfor %}
+                {% else %}
+                    Vous n'avez encore trouvé aucun indice.
+                {% endif %}
+
+                <div class="mt-3">
+                    <p>
+                        Veillez à bien vous trouver sur le bon territoire avant de proposer le code du trésor. (<span class="green-text">1 PA</span> l'essai)
+                    </p>
+                    {{ form_start(form) }}
+                    <div class="d-flex">
+                        <div class="mr-2">
+                            {{ form_widget(form.code) }}
+                        </div>
+                        <div class="mr-2">
+                            {{ form_widget(form.position) }}
+                        </div>
+                        <div>
+                            {{ form_widget(form.propose) }}
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card no-min-height mb-3">
+        <div class="card-header">
+            Liste des Trésors
+        </div>
+        <div class="card-back-msg p-2">
+            {% if treasures %}
+                <table class="mt-3">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Validité</th>
+                        <th>Activer</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for current_treasure in treasures %}
+                        {% set remaining_days = current_treasure.days - date("now"|date("m/d/Y")).diff(current_treasure.getDateOfUse).days %}
+                        <tr>
+                            <td>
+                                <img class="treasure-icon" src="{{ asset('img/icons/items/' ~ current_treasure.item.icon) }}" alt="treasure">
+                            </td>
+                            <td>{{ current_treasure.item.name }}</td>
+                            <td>{{ current_treasure.item.description }}</td>
+                            <td id="days-{{ current_treasure.id }}">{% if current_treasure.getIsActive %}<span class="green-text">{% endif %}{{ remaining_days }}j{% if current_treasure.getIsActive %}</span>{% endif %}</td>
+                            <td>{% if current_treasure.getIsActive %}<span class="green-text">Actif</span>{% else %}<div class="fake-radio" id="{{ current_treasure.id }}"></div>{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="text-center">Vous n'avez encore découvert aucun trésor..</div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% include 'authenticated/script/activate-treasure.html.twig' %}
+{% endblock %}

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'pirate';
+    src: url('../fonts/pirate.ttf');
+}
+
 .exploration-image {
     border-right: 3px solid #100D0B;
 }
@@ -13,4 +18,48 @@
 
 .text-danger {
     color: #AA3333 !important;
+}
+
+.clue {
+    background: #DEC8A0;
+    color: #000;
+    font-size: 20px;
+    font-family: 'pirate';
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+
+input, button[type="submit"].propose, select {
+    width: 150px !important;
+    height: 30px !important;
+    padding: 5px !important;
+}
+
+input[type="text"], select {
+    background: #DEC8A0 !important;
+}
+
+table {
+    width: 100%;
+}
+
+table thead tr {
+    background: url('../img/structure/back6-2.jpg');
+}
+
+table thead tr th {
+    text-align: left;
+    padding: 10px;
+}
+
+table tbody tr {
+    background: url('../img/structure/back6.jpg');
+    background-size: cover;
+}
+
+table thead tr th, table tbody tr td {
+    border: 2px solid #100D0B;
+    text-align: center;
 }

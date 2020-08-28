@@ -1,5 +1,6 @@
 body {
     background: url("../img/background.jpg") no-repeat fixed center top;
+    background-size: cover;
     color: black !important;
     font-size: 12px;
 }

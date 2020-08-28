@@ -34,7 +34,7 @@ class RankingController extends AbstractController
         $this->em = $em;
         $this->rankingServices = $rankingServices;
         $this->paginatorServices = $paginatorServices;
-        $this->items_per_page = 10;
+        $this->items_per_page = 20;
     }
 
     /**

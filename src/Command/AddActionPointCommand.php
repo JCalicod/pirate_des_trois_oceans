@@ -9,6 +9,7 @@
 namespace App\Command;
 
 
+use App\Entity\Treasure;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -48,6 +49,12 @@ class AddActionPointCommand extends Command
             if (($pa = $player->getPa()) < 30) {
                 $player->setPa($pa + 1);
                 $output->writeln([$player->getUsername(), '']);
+                // On double les PA gagnés si l'utilisateur possède un Tentacule de Kraken
+                if ($this->em->getRepository(Treasure::class)->userHasItem($player, 'Tentacule de Kraken')) {
+                    if ($pa < 29) {
+                        $player->setPa($pa + 2);
+                    }
+                }
             }
             $this->em->persist($player);
         }

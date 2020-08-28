@@ -9,6 +9,7 @@
 namespace App\Service;
 
 
+use App\Entity\Clues;
 use App\Entity\Den;
 use App\Entity\Lands;
 use App\Entity\Ship;
@@ -19,11 +20,13 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class SecurityServices {
     private $encoder;
     private $em;
+    private $treasureServices;
     private $error;
 
-    public function __construct(UserPasswordEncoderInterface $encoder, EntityManagerInterface $em) {
+    public function __construct(UserPasswordEncoderInterface $encoder, EntityManagerInterface $em, TreasureServices $treasureServices) {
         $this->encoder = $encoder;
         $this->em = $em;
+        $this->treasureServices = $treasureServices;
         $this->error = '';
     }
 
@@ -63,7 +66,8 @@ class SecurityServices {
             $den->setDisplayOrder(1);
             $user->addShip($den);
 
-            $user->setTreasurePosition(random_int(1, 21));
+            $this->treasureServices->createTreasure($user);
+
             $user->setIp($_SERVER['REMOTE_ADDR']);
 
             return ['ship' => $ship, 'den' => $den, 'user' => $user];

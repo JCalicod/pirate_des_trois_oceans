@@ -12,6 +12,7 @@ namespace App\Controller;
 use App\Entity\Den;
 use App\Entity\Messaging;
 use App\Entity\Ship;
+use App\Entity\Treasure;
 use App\Entity\User;
 use App\Form\SpyType;
 use App\Service\MessagingServices;
@@ -137,13 +138,17 @@ class HomeController extends AbstractController {
             }
             $ranking = $this->userServices->getRanking($user);
             $nb_users = count($this->em->getRepository(User::class)->findAll());
-            $this->messagingServices->sendMessage(
-                [
-                    'title' => 'Rapport d\'Espionnage',
-                    'message' => 'Attention capitaine, nous savons de source sûre qu\'un certain <b>' . $this->user->getUsername() . '</b> vous espionne..',
-                    'receiver' => $user->getUsername()
-                ]
-            );
+            // Si l'utilisateur possède une longue-vue, le joueur espionné ne sera pas notifié de l'espionnage
+            if (!$this->em->getRepository(Treasure::class)->userHasItem($this->user, 'Longue-vue Enchantée')) {
+                $this->messagingServices->sendMessage(
+                    [
+                        'title' => 'Rapport d\'Espionnage',
+                        'message' => 'Attention capitaine, nous savons de source sûre qu\'un certain <b>' . $this->user->getUsername() . '</b> vous espionne..',
+                        'receiver' => $user->getUsername()
+                    ]
+                );
+            }
+
             return $this->render('authenticated/spy.html.twig', [
                 'user' => $user,
                 'ranking' => $ranking,

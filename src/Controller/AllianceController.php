@@ -168,27 +168,29 @@ class AllianceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var Alliance $alliance */
             $alliance = $form->getData()['alliance'];
-            if (count($alliance->getAllianceMembers()) < 10) {
-                if ($alliance->getOpen()) {
-                    if ($alliance->getRequiredPower() <= $this->user->getTotalPower()) {
-                        $alliance->addUser($this->user);
-                        $alliance->addAllianceMember($this->allianceServices->createAllianceMember($this->user, $alliance));
-                        $this->allianceServices->createLog($alliance, 'inout', $this->user->getUsername() . ' a rejoint l\'Alliance.');
-                        $this->em->persist($alliance);
-                        $this->em->flush();
+            if ($alliance) {
+                if (count($alliance->getAllianceMembers()) < 10) {
+                    if ($alliance->getOpen()) {
+                        if ($alliance->getRequiredPower() <= $this->user->getTotalPower()) {
+                            $alliance->addUser($this->user);
+                            $alliance->addAllianceMember($this->allianceServices->createAllianceMember($this->user, $alliance));
+                            $this->allianceServices->createLog($alliance, 'inout', $this->user->getUsername() . ' a rejoint l\'Alliance.');
+                            $this->em->persist($alliance);
+                            $this->em->flush();
 
-                        $this->addFlash('success', 'Vous avez bien rejoint l\'Alliance "' . $alliance->getName() . '"');
+                            $this->addFlash('success', 'Vous avez bien rejoint l\'Alliance "' . $alliance->getName() . '"');
+                        } else {
+                            $this->addFlash('danger', 'Vous ne possédez pas la puissance requise pour rejoindre cette alliance.');
+                        }
+                    } else {
+                        $this->addFlash('danger', 'Cette alliance ne recrute pas actuellement.');
                     }
-                    else {
-                        $this->addFlash('danger', 'Vous ne possédez pas la puissance requise pour rejoindre cette alliance.');
-                    }
-                }
-                else {
-                    $this->addFlash('danger', 'Cette alliance ne recrute pas actuellement.');
+                } else {
+                    $this->addFlash('danger', 'Cette alliance ne peut plus recruter.');
                 }
             }
             else {
-                $this->addFlash('danger', 'Cette alliance ne peut plus recruter.');
+                $this->addFlash('danger', 'Cette alliance n\'existe pas.');
             }
         }
         return $this->redirectToRoute('app_alliance');

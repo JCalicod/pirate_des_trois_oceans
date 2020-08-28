@@ -1,0 +1,46 @@
+<script>
+
+    function getLoader(id) {
+        return $('<img />').attr({
+            'id': id,
+            'class': 'loader',
+            'src': '{{ asset('img/loader.gif') }}'
+        });
+    }
+
+    $(document).ready(function () {
+        $('.fake-radio').click(function () {
+            var treasure_id = $(this).attr('id');
+            var treasure_block = $('#' + treasure_id).parent();
+            $(treasure_block).html(getLoader(treasure_id));
+            var days_block = 'days-' + $(this).attr('id');
+            var nb_days = $('#' + days_block).html();
+
+            var url = '{{ path('activate_treasure', {'id': 'treasure_id'}) }}';
+            url = url.replace('treasure_id', treasure_id);
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'html'
+            })
+            .done(function (response) {
+                console.log($('#' + treasure_id).parent());
+                $(treasure_block).html($('<span />').attr({'class': 'green-text'}).html('Actif'));
+                $('#' + days_block).html('<span />').attr({'class': 'green-text'}).html(nb_days);
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                $(treasure_block).html($('<div />').attr({'id': treasure_id, 'class': 'fake-radio'}));
+                console.log('Erreur ' + jqXHR.status);
+                Swal.fire({
+                    title: 'Action impossible',
+                    text: (jqXHR.responseText.length < 100) ? (jQuery.parseJSON(jqXHR.responseText)) : (jqXHR.statusText),
+                    icon: 'error',
+                    confirmButtonText: 'Fermer'
+                })
+            })
+            .always(function () {
+            });
+        });
+    });
+</script>

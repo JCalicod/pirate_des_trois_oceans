@@ -13,6 +13,7 @@ use App\Entity\AllianceWar;
 use App\Entity\Den;
 use App\Entity\Lands;
 use App\Entity\Ship;
+use App\Entity\Treasure;
 use App\Entity\User;
 use App\Entity\War;
 use App\Repository\WarRepository;
@@ -821,6 +822,9 @@ class WarServices {
         // Utilisateur
         else {
             $gold = round($this->defender['user']->getGold() / 10);
+            if ($this->em->getRepository(Treasure::class)->userHasItem($this->user, 'Crochet des Trois Océans')) {
+                $gold = round($this->defender['user']->getGold() / 2);
+            }
             $this->defender['user']->setGold($this->defender['user']->getGold() - $gold);
             $this->em->persist($this->defender['user']);
         }
@@ -878,14 +882,13 @@ class WarServices {
             if ($data['target'] == 'sinner') {
                 $xp = 7;
             }
-            if ($data['target'] == 'trader') {
+            elseif ($data['target'] == 'trader') {
                 $xp = 10;
             }
             else {
                 $xp = 15;
             }
         }
-
         $this->gainXP($this->attacker['fleet'], $xp);
         $user->setPa($user->getPa() - 1);
         $this->sunk();
@@ -972,9 +975,15 @@ class WarServices {
                     if ($has_ship_at_land) {
                         // On vérifie si l'adversaire n'a pas trop ou pas assez de puissance pour une bataille
                         if ($this->checkPowerToAttack($position, $user, $opponent)) {
+                            // On vérifie si l'utilisateur n'a pas reçu trop d'attaques aujourd'hui
                             if (count($this->warRepository->lastAttacks($opponent)) < 2) {
-                                $this->attackUser($user, $opponent, $position, $data);
-                                return true;
+                                if (!$this->em->getRepository(Treasure::class)->userHasItem($opponent, 'Amulette Magique')) {
+                                    $this->attackUser($user, $opponent, $position, $data);
+                                    return true;
+                                }
+                                else {
+                                    $this->setError('Ce joueur ne peut pas être attaqué car il est protégé par une Amulette Magique.');
+                                }
                             } else {
                                 $this->setError('Ce capitaine a déjà reçu trop d\'attaques pour aujourd\'hui.. Vous décidez de l\'épargner.');
                             }

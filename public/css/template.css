@@ -5,6 +5,7 @@
 
 body {
     background: url("../img/background.jpg") no-repeat fixed center top;
+    background-size: cover;
     color: black !important;
     font-size: 12px;
 }
@@ -1441,4 +1442,20 @@ table.war-report td.img {
 
 .card-advert .card-body p {
     padding: 10px;
+}
+
+.treasure-icon {
+    width: 50px;
+}
+
+.fake-radio {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 3px;
+    margin: auto;
+}
+
+.loader {
+    width: 30px;
 }
