@@ -882,14 +882,13 @@ class WarServices {
             if ($data['target'] == 'sinner') {
                 $xp = 7;
             }
-            if ($data['target'] == 'trader') {
+            elseif ($data['target'] == 'trader') {
                 $xp = 10;
             }
             else {
                 $xp = 15;
             }
         }
-
         $this->gainXP($this->attacker['fleet'], $xp);
         $user->setPa($user->getPa() - 1);
         $this->sunk();
