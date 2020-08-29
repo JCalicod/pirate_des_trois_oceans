@@ -551,6 +551,21 @@ class WarServices {
     }
 
     /**
+     * @param array $fleet
+     * @return int
+     */
+    private function countAliveShips(array $fleet): int
+    {
+        $nb = 0;
+        foreach ($fleet as $ship) {
+            if (!$ship instanceof Den && $ship->getStructure() > 0) {
+                $nb++;
+            }
+        }
+        return 0;
+    }
+
+    /**
      * @param Ship $ship
      * @param array $fleet
      * @throws \Exception
@@ -564,7 +579,7 @@ class WarServices {
         }
         // Si ce n'est pas le repaire
         if (!$ship instanceof Den) {
-            if (count($fleet) <= 2) {
+            if ($this->countAliveShips($fleet) == 0) {
                 $bark = new Ship();
                 $bark->setName('Barque');
                 $bark->setAvatar(random_int(1, 3));
@@ -947,6 +962,20 @@ class WarServices {
 
     /**
      * @param User $user
+     * @return bool
+     * @throws \Exception
+     */
+    private function checkActivity(User $user): bool
+    {
+        $now = new \DateTime(null, New \DateTimeZone('Europe/Paris'));
+        if ($user->getActivity() && $user->getActivity()->format('Y-m-d') == $now->format('Y-m-d')) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param User $user
      * @param array $data
      * @param Lands $position
      * @return bool
@@ -978,8 +1007,13 @@ class WarServices {
                             // On vérifie si l'utilisateur n'a pas reçu trop d'attaques aujourd'hui
                             if (count($this->warRepository->lastAttacks($opponent)) < 2) {
                                 if (!$this->em->getRepository(Treasure::class)->userHasItem($opponent, 'Amulette Magique')) {
-                                    $this->attackUser($user, $opponent, $position, $data);
-                                    return true;
+                                    if ($this->checkActivity($opponent)) {
+                                        $this->attackUser($user, $opponent, $position, $data);
+                                        return true;
+                                    }
+                                    else {
+                                        $this->setError('Ce joueur ne peut être attaqué avant sa prochaine connexion.');
+                                    }
                                 }
                                 else {
                                     $this->setError('Ce joueur ne peut pas être attaqué car il est protégé par une Amulette Magique.');
@@ -1068,6 +1102,8 @@ class WarServices {
     public function getOponentsAtPosition(Lands $position, $player) : array {
         $oponents = [];
 
+        $now = new \DateTime(null, New \DateTimeZone('Europe/Paris'));
+
         $users = $this->em->getRepository(User::class)->findAll();
         foreach ($users as $user) {
             // Si on a pas plus de 2 fois la puissance adverse et pas moins de la moitié
@@ -1086,7 +1122,7 @@ class WarServices {
                             }
                         }
                     }
-                    if ($nb_ships_at_pos > 0) {
+                    if ($nb_ships_at_pos > 0 && $user->getActivity() && $user->getActivity()->format('Y-m-d') == $now->format('Y-m-d')) {
                         $oponents[] = [
                             'id' => $user->getId(),
                             'username' => $user->getUsername(),
