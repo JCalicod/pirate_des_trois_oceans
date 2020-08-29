@@ -12,19 +12,22 @@ namespace App\Service;
 use App\Entity\Ship;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Security;
 
 class CrewServices {
     private $em;
     private $error;
+    private $user;
     private $shipServices;
 
     /**
      * UserServices constructor.
      * @param EntityManagerInterface $em
      */
-    public function __construct(EntityManagerInterface $em, ShipServices $shipServices) {
+    public function __construct(EntityManagerInterface $em, Security $security, ShipServices $shipServices) {
         $this->em = $em;
         $this->error = '';
+        $this->user = $security->getUser();
         $this->shipServices = $shipServices;
     }
 
@@ -150,5 +153,83 @@ class CrewServices {
             $this->setError('Vous devez renseigner au moins une valeur positive');
         }
         return false;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAllShipsAllRecruitsCost(): array
+    {
+        $recruits = [
+            'cost' => 0
+        ];
+        $ships = $this->user->getShips();
+        foreach ($ships as $ship) {
+            $recruits[$ship->getId()]['seaman'] = 0;
+            if (($seaman = $this->shipServices->getUnitFreeSpace('seaman', $ship)) > 0) {
+                $recruits[$ship->getId()]['seaman'] = $seaman;
+                $recruits['cost'] += $seaman * 100;
+            }
+
+            $recruits[$ship->getId()]['explorer'] = 0;
+            if (($explorer = $this->shipServices->getUnitFreeSpace('explorer', $ship)) > 0) {
+                $recruits[$ship->getId()]['explorer'] = $explorer;
+                $recruits['cost'] += $explorer * 200;
+            }
+
+            $recruits[$ship->getId()]['gunner'] = 0;
+            if (($gunner = $this->shipServices->getUnitFreeSpace('gunner', $ship)) > 0) {
+                $recruits[$ship->getId()]['gunner'] = $gunner;
+                $recruits['cost'] += $gunner * 500;
+            }
+
+            $recruits[$ship->getId()]['cook'] = 0;
+            if (($cook = $this->shipServices->getUnitFreeSpace('cook', $ship)) > 0) {
+                $recruits[$ship->getId()]['cook'] = $cook;
+                $recruits['cost'] += $cook   * 1000;
+            }
+
+            $recruits[$ship->getId()]['carpenter'] = 0;
+            if (($carpenter = $this->shipServices->getUnitFreeSpace('carpenter', $ship)) > 0) {
+                $recruits[$ship->getId()]['carpenter'] = $carpenter;
+                $recruits['cost'] += $carpenter * 2000;
+            }
+
+            $recruits[$ship->getId()]['surgeon'] = 0;
+            if (($surgeon = $this->shipServices->getUnitFreeSpace('surgeon', $ship)) > 0) {
+                $recruits[$ship->getId()]['surgeon'] = $surgeon;
+                $recruits['cost'] += $surgeon * 5000;
+            }
+        }
+
+        return $recruits;
+    }
+
+    public function recruitAll(): void
+    {
+        $recruits = $this->getAllShipsAllRecruitsCost();
+        if (($recruits['cost']) > 0) {
+            if ($recruits['cost'] <= $this->user->getGold()) {
+                foreach ($this->user->getShips() as $ship) {
+                    $ship->setSeaman($ship->getSeaman() + $recruits[$ship->getId()]['seaman']);
+                    $ship->setExplorer($ship->getExplorer() + $recruits[$ship->getId()]['explorer']);
+                    $ship->setGunner($ship->getGunner() + $recruits[$ship->getId()]['gunner']);
+                    $ship->setCook($ship->getCook() + $recruits[$ship->getId()]['cook']);
+                    $ship->setCarpenter($ship->getCarpenter() + $recruits[$ship->getId()]['carpenter']);
+                    $ship->setSurgeon($ship->getSurgeon() + $recruits[$ship->getId()]['surgeon']);
+
+                    $this->em->persist($ship);
+                }
+                $this->user->setGold($this->user->getGold() - $recruits['cost']);
+                $this->em->persist($this->user);
+                $this->em->flush();
+            }
+            else {
+                $this->setError('Vous ne possédez pas l\'or nécessaire pour acheter toutes ces recrues.');
+            }
+        }
+        else {
+            $this->setError('L\'équipage de vos navires est déjà au max.');
+        }
     }
 }

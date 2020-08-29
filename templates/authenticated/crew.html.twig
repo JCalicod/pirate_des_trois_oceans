@@ -25,6 +25,21 @@
         </div>
     </div>
 
+    <div class="card no-min-height mb-3">
+        <div class="card-header">
+            Aller plus vite
+        </div>
+        <div class="card-body card-back1">
+            <div class="row">
+                <div class="top-card-body col-12">
+                    <b class="brown-text">Coût pour acheter toutes les recrues pour tous les navires</b> : <b>{{ recruits.cost|number_format(0, '.', ' ') }} PO</b>
+                    <a href="{{ path('recruit_all') }}" class="recruit-all float-right mr-3">Tout acheter</a><br>
+                    Vous n'aurez pas à choisir de navire en particulier.
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="top-card-body col-12 border-bottom-brown">
         <img src="{{ asset('img/icons/arsenal.png') }}" class="logo-big" alt="arsenal"> <strong>Matelot</strong> <span class="float-right" id="seaman">Déjà à bord <span id="seaman-crew" class="blue-text font-weight-bold ml-2 mr-2">{{ crewData|first['seaman']['actual'] }} / {{ crewData|first['seaman']['max'] }}</span> {{ form_widget(form.seaman) }}</span>
     </div>
