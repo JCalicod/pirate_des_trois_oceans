@@ -40,7 +40,7 @@
                 <div class="list-element"><img src="{{ asset('img/icons/lantern.png') }}" alt="lantern" class="logo"> Classement <span class="float-right font-weight-bold gold-dark">{{ ranking|number_format(0, '.', ' ') }} / {{ nb_users|number_format(0, '.', ' ') }}</div>
                 <div class="list-element"><img src="{{ asset('img/icons/gun.png') }}" alt="gun" class="logo"> Puissance <span class="float-right font-weight-bold gold-dark">{{ power|number_format(0, '.', ' ') }}</div>
                 <div class="list-element"><img src="{{ asset('img/icons/helm.png') }}" alt="helm" class="logo"> Navires <span class="float-right font-weight-bold gold-dark">{{ user.ships|length  - 1 }}</div>
-                <div class="list-element"><img src="{{ asset('img/icons/arsenal.png') }}" alt="arsenal" class="logo"> Dernière connexion <span class="float-right font-weight-bold gold-dark">{{ user.getLastConnection|date('d/m/') }}{{ user.getLastConnection|date('Y') - 315 }}</div>
+                <div class="list-element"><img src="{{ asset('img/icons/arsenal.png') }}" alt="arsenal" class="logo"> Dernière connexion <span class="float-right font-weight-bold gold-dark">{{ user.getActivity|date('d/m/') }}{{ user.getActivity|date('Y') - 315 }}</div>
             </div>
         </div>
     </div>
