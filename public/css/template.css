@@ -1459,3 +1459,10 @@ table.war-report td.img {
 .loader {
     width: 30px;
 }
+
+.recruit-all {
+    background-color: #196F43;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}

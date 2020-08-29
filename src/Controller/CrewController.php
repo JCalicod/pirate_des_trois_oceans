@@ -70,9 +70,28 @@ class CrewController extends AbstractController {
     }
 
     /**
+     * @Route("/all", name="recruit_all")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function recruitAll(Request $request)
+    {
+        $this->crewServices->recruitAll();
+        if ($error = $this->crewServices->getError()) {
+            $this->addFlash('danger', $error);
+        }
+        else {
+            $this->addFlash('success', 'Les recrues ont bien rejoint vos navires.');
+        }
+
+        return $this->redirectToRoute('app_crew_show');
+    }
+
+    /**
      * @Route("/", name="app_crew_show")
      */
     public function recruit(Request $request) {
+
         $form = $this->createForm(EnrollCrewType::class);
         $form->handleRequest($request);
 
@@ -90,10 +109,12 @@ class CrewController extends AbstractController {
         }
 
         $crewData = $this->shipServices->getActualAndMaxCrew($this->user->getShips());
+        $recruits = $this->crewServices->getAllShipsAllRecruitsCost();
 
         return $this->render('authenticated/crew.html.twig', [
             'form' => $form->createView(),
-            'crewData' => $crewData
+            'crewData' => $crewData,
+            'recruits' => $recruits
         ]);
     }
 }
