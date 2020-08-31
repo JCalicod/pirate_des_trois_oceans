@@ -1,13 +1,6 @@
+{% include 'authenticated/script/include/loader.html.twig' %}
+
 <script>
-
-    function getLoader(id) {
-        return $('<img />').attr({
-            'id': id,
-            'class': 'loader',
-            'src': '{{ asset('img/loader.gif') }}'
-        });
-    }
-
     $(document).ready(function () {
         $('.fake-radio').click(function () {
             var treasure_id = $(this).attr('id');

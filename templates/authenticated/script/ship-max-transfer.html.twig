@@ -1,0 +1,42 @@
+{% include 'authenticated/script/include/loader.html.twig' %}
+
+<script>
+    $(document).ready(function () {
+        $('select[name="source"]').on('input', function() {
+           $('.get-max').each(function() {
+               console.log($(this));
+              $('input[name="'+ $(this).attr('id').substr(4) +'"]').val(0);
+           });
+        });
+
+        $('.get-max').click(function () {
+            var ship_id = $('select[name="source"] option:selected').val();
+            var resource_type = $(this).attr('id').substr(4);
+
+            $.ajax({
+                url: '{{ path('ship_max_resource') }}',
+                type: 'POST',
+                data: {
+                    ship_id: ship_id,
+                    resource_type: resource_type
+                },
+                dataType: 'html'
+            })
+            .done(function (response) {
+                $('input[name="'+resource_type+'"]').val(response);
+                console.log(response);
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log('Erreur ' + jqXHR.status);
+                Swal.fire({
+                    title: 'Action impossible',
+                    text: (jqXHR.responseText.length < 100) ? (jQuery.parseJSON(jqXHR.responseText)) : (jqXHR.statusText),
+                    icon: 'error',
+                    confirmButtonText: 'Fermer'
+                })
+            })
+            .always(function () {
+            });
+        });
+    });
+</script>
