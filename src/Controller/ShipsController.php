@@ -14,6 +14,7 @@ use App\Service\ShipServices;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
@@ -146,5 +147,26 @@ class ShipsController extends AbstractController {
             'user' => $this->user,
             'ships' => $ships
         ]);
+    }
+
+    /**
+     * @Route("/max-resource", name="ship_max_resource")
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getMaxResource(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $value = $this->shipServices->getShipMaxResource();
+            if ($value !== null) {
+                return new JsonResponse($value, JsonResponse::HTTP_OK);
+            }
+            else {
+                return new JsonResponse($this->shipServices->getError(), JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+            }
+        }
+        else {
+            return new JsonResponse('Cette méthode ne peut être appelée que via AJAX.', JsonResponse::HTTP_UNAUTHORIZED);
+        }
     }
 }

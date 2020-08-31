@@ -14,14 +14,20 @@ use App\Entity\Lands;
 use App\Entity\Ship;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Security\Core\Security;
 
 class ShipServices {
     private $em;
+    private $user;
+    private $requestStack;
     private $error;
     private $success;
 
-    public function __construct(EntityManagerInterface $em) {
+    public function __construct(EntityManagerInterface $em, Security  $security, RequestStack $requestStack) {
         $this->em = $em;
+        $this->user = $security->getUser();
+        $this->requestStack = $requestStack;
         $this->error = null;
         $this->success = null;
     }
@@ -969,4 +975,68 @@ class ShipServices {
         return 0;
     }
 
+    /**
+     * @return bool
+     */
+    public function getShipMaxResource(): ?int
+    {
+        if (($data = $this->getMaxResourceRequestData()) && $this->checkMaxResourceRequestData($data)) {
+            /** @var Ship $ship */
+            $ship = $this->em->getRepository(Ship::class)->find($data['ship_id']);
+            $resource_type = $data['resource_type'];
+            $getter = 'get' . ucfirst($resource_type);
+            if (method_exists($ship, $getter)) {
+                return $ship->$getter();
+            }
+            $this->setError('Les données sont erronées.');
+        }
+        $this->setError('Les données sont erronées.');
+        return null;
+    }
+
+    /**
+     * @return array|null
+     */
+    private function getMaxResourceRequestData(): ?array
+    {
+        $data = [];
+        $request = $this->requestStack->getCurrentRequest();
+        if (($data['ship_id'] = $request->request->get('ship_id')) && ($data['resource_type'] = $request->request->get('resource_type'))) {
+            return $data;
+        }
+        $this->setError('Les données sont erronées.');
+        return null;
+    }
+
+    /**
+     * @param array $data
+     * @return bool
+     */
+    private function checkMaxResourceRequestData(array $data): bool
+    {
+        if (array_key_exists('ship_id', $data) && array_key_exists('resource_type', $data)) {
+            if ($this->em->getRepository(Ship::class)->findOneBy(['id' => $data['ship_id'], 'owner' => $this->user])) {
+                if (in_array($data['resource_type'], $this->getResourceTypes())) {
+                    return true;
+                }
+            }
+        }
+        $this->setError('Les données sont erronées.');
+
+        return false;
+    }
+
+    /**
+     * @return string[]
+     */
+    private function getResourceTypes(): array {
+        return [
+            'seaman', 'explorer', 'gunner',
+            'cook', 'carpenter', 'surgeon',
+            'gun', 'food', 'wood',
+            'arsenal', 'alcohol', 'copper',
+            'gemstone', 'stuff', 'manuscript',
+            'jewellery', 'fur', 'spice'
+        ];
+    }
 }

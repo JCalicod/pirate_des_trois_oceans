@@ -1,0 +1,9 @@
+<script>
+    function getLoader(id) {
+        return $('<img />').attr({
+            'id': id,
+            'class': 'loader',
+            'src': '{{ asset('img/loader.gif') }}'
+        });
+    }
+</script>

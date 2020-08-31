@@ -32,3 +32,12 @@
     margin-right: -15px;
     margin-left: -15px;
 }
+
+table {
+    font-size: 14px;
+}
+
+.get-max {
+    color: #8A1800;
+    cursor: pointer;
+}
