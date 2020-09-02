@@ -167,7 +167,7 @@ class User implements UserInterface {
     /**
      * @ORM\Column(type="boolean")
      */
-    private $show_alliance_advert;
+    private $show_alliance_advert = true;
 
     public function __construct() {
         $this->ships = new ArrayCollection();
@@ -180,7 +180,6 @@ class User implements UserInterface {
         $this->defenses = new ArrayCollection();
         $this->clues = new ArrayCollection();
         $this->treasures = new ArrayCollection();
-        $this->show_alliance_advert = true;
     }
 
     public function getId(): ?int
