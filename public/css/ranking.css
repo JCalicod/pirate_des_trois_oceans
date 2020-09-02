@@ -83,3 +83,13 @@ a:hover {
 a.active {
     color: #196F43;
 }
+
+.message-1 {
+    background: url("../img/structure/back6.jpg");
+    background-position: center;
+}
+
+.message-2 {
+    background: url("../img/structure/back6-2.jpg");
+    background-position: center;
+}

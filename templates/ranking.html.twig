@@ -39,8 +39,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% set i = 1 %}
                         {% for user in ranking %}
-                            <tr>
+                            <tr class="message-{{ i }}">
                                 <td>{{ loop.index + (items_per_page * (current_page - 1)) }}</td>
                                 <td>
                                     {% if user['alliance'] %}
@@ -52,6 +53,11 @@
                                 <td>{{ user['ships']|length - 1 }}</td>
                                 <td>{{ user['ratio'] }}</td>
                             </tr>
+                            {% if i == 1 %}
+                                {% set i = 2 %}
+                            {% else %}
+                                {% set i = 1 %}
+                            {% endif %}
                         {% endfor %}
                     </tbody>
                 </table>
