@@ -164,6 +164,11 @@ class User implements UserInterface {
      */
     private $treasures;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $show_alliance_advert;
+
     public function __construct() {
         $this->ships = new ArrayCollection();
         $this->setRegistration(new \DateTime('now', New \DateTimeZone('Europe/Paris')));
@@ -175,6 +180,7 @@ class User implements UserInterface {
         $this->defenses = new ArrayCollection();
         $this->clues = new ArrayCollection();
         $this->treasures = new ArrayCollection();
+        $this->show_alliance_advert = true;
     }
 
     public function getId(): ?int
@@ -761,6 +767,18 @@ class User implements UserInterface {
                 $treasure->setOwner(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getShowAllianceAdvert(): ?bool
+    {
+        return $this->show_alliance_advert;
+    }
+
+    public function setShowAllianceAdvert(bool $show_alliance_advert): self
+    {
+        $this->show_alliance_advert = $show_alliance_advert;
 
         return $this;
     }

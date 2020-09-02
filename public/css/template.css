@@ -1466,3 +1466,14 @@ table.war-report td.img {
     padding: 5px;
     border-radius: 5px;
 }
+
+.advert-close {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+}
+
+.advert-close:hover {
+    cursor: pointer;
+    color: #fff;
+}
