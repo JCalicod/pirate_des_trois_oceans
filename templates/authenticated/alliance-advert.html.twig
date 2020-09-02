@@ -1,6 +1,6 @@
-{% if alliance and alliance.advert|length > 0 %}
+{% if alliance and alliance.advert|length > 0 and app.user.getShowAllianceAdvert %}
 
-    <div class="card card-advert mb-3">
+    <div class="card card-advert mb-3" id="alliance-advert">
         <div class="card-header">
             Annonce du Chef des <span class="font-weight-bold alliance-{{ alliance.color }}">[{{ alliance.abbreviation }}]</span>
         </div>
@@ -9,8 +9,11 @@
                 <div class="avatar-profile">
                     <img src="{{ asset('img/avatars/' ~ alliance.getLeader.avatar ~ '.jpg') }}" alt="Chef">
                 </div>
-                <p>{{ alliance.advert }}</p>
+                <p>
+                    {{ alliance.advert }}
+                </p>
             </div>
+            <div class="advert-close">Ne plus afficher</div>
         </div>
     </div>
 

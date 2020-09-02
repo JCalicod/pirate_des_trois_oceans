@@ -26,6 +26,7 @@ use App\Form\JoinAllianceType;
 use App\Service\AllianceServices;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -239,5 +240,27 @@ class AllianceController extends AbstractController
             'joinForm' => $joinForm->createView(),
             'alliances' => $alliances
         ]);
+    }
+
+    /**
+     * @Route("/close-advert", name="close_advert")
+     * @param Request $request
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function closeAdvert(Request $request)
+    {
+        if ($request->isXMLHttpRequest()) {
+            $this->allianceServices->closeAdvert();
+            if ($error = $this->allianceServices->getError()) {
+                return new JsonResponse($this->allianceServices->getError(), JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+            }
+            else {
+                return new JsonResponse('Trésor activé avec succès.', JsonResponse::HTTP_OK);
+            }
+        }
+        else {
+            return new JsonResponse('Cette méthode ne peut être appelée que via AJAX.', JsonResponse::HTTP_UNAUTHORIZED);
+        }
     }
 }

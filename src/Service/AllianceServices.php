@@ -203,6 +203,11 @@ class AllianceServices
             if (strlen($advert) <= 255) {
                 $this->alliance->setAdvert($advert);
                 $this->createLog($this->alliance, 'advert',  'Une Annonce a été rédigée.');
+                // On met à jour la visibilité du message pour chaque membre
+                foreach ($this->alliance->getUsers() as $user) {
+                    $user->setShowAllianceAdvert(true);
+                    $this->em->persist($user);
+                }
                 $this->em->persist($this->alliance);
                 $this->em->flush();
                 $this->setSuccess('L\'Annonce a été rédigée avec succès.');
@@ -344,6 +349,13 @@ class AllianceServices
         $this->em->persist($allianceMember);
         $content = $this->user->getUsername() . ' a créé l\'alliance <span class="font-weight-bold alliance-' . $alliance->getColor() . '">[' . $alliance->getAbbreviation() . ']</span>.';
         $this->createLog($alliance, 'inout', $content);
+        $this->em->flush();
+    }
+
+    public function closeAdvert(): void
+    {
+        $this->user->setShowAllianceAdvert(false);
+        $this->em->persist($this->user);
         $this->em->flush();
     }
 }

@@ -1,0 +1,22 @@
+<script>
+    $(document).ready(function () {
+        $('.advert-close').click(function () {
+            $.ajax({
+                url: "{{ path('close_advert') }}",
+                type: 'POST',
+                dataType: 'html'
+            }).done(function (response) {
+                $('#alliance-advert').fadeOut('slow');
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                    console.log('Erreur ' + jqXHR.status);
+                    Swal.fire({
+                        title: 'Action impossible',
+                        text: (jqXHR.responseText.length < 100) ? (jQuery.parseJSON(jqXHR.responseText)) : (jqXHR.statusText),
+                        icon: 'error',
+                        confirmButtonText: 'Fermer'
+                    })
+            }).always(function () {
+            });
+        });
+    });
+</script>
