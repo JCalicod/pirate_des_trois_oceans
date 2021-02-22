@@ -169,6 +169,11 @@ class User implements UserInterface {
      */
     private $show_alliance_advert = true;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
     public function __construct() {
         $this->ships = new ArrayCollection();
         $this->setRegistration(new \DateTime('now', New \DateTimeZone('Europe/Paris')));
@@ -778,6 +783,18 @@ class User implements UserInterface {
     public function setShowAllianceAdvert(bool $show_alliance_advert): self
     {
         $this->show_alliance_advert = $show_alliance_advert;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

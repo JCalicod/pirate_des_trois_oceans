@@ -48,7 +48,7 @@
                                         <span class="font-weight-bold alliance-{{ user['alliance'].color }}">[{{ user['alliance'].abbreviation }}]</span>
                                     {% endif %}
                                 </td>
-                                <td>{{ user['username'] }}</td>
+                                <td><a target=_blank href="{{ path('app_profile', {'id': user.id}) }}" target="_blank">{{ user['username'] }}</a></td>
                                 <td>{{ user['power']|number_format(0, '.', ' ') }}</td>
                                 <td>{{ user['ships']|length - 1 }}</td>
                                 <td>{{ user['ratio'] }}</td>

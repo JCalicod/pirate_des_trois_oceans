@@ -79,7 +79,7 @@ class UserServices
      * @param FormInterface $form
      * @return bool
      */
-    public function updatePassword(Request $request, $user, FormInterface $form): bool
+    public function updateSettings(Request $request, $user, FormInterface $form): bool
     {
         $form->handleRequest($request);
 
@@ -90,29 +90,33 @@ class UserServices
                 if ($this->passwordEncoder->isPasswordValid($user, $data['old_password'])) {
                     if ($data['password'] != $data['old_password']) {
                         if (strlen($data['password']) >= 3) {
-                            $user->setAvatar($data['avatar']);
                             $user->setPassword($this->passwordEncoder->encodePassword($user, $data['password']));
-                            $user->setAvatar($data['avatar']);
-                            $this->em->persist($user);
-                            $this->em->flush();
-
-                            $this->setSuccess('Vos informations ont bien été mises à jour.');
                         } else {
                             $this->setError('Votre mot de passe doit faire au minimum 3 caractères.');
+                            return false;
                         }
                     } else {
                         $this->setError('Vous devez renseigner un mot de passe différent.');
+                        return false;
                     }
                 } else {
                     $this->setError('Le mot de passe renseigné n\'est pas le bon.');
+                    return false;
                 }
-            } else {
-                $user->setAvatar($data['avatar']);
-                $this->em->persist($user);
-                $this->em->flush();
-
-                $this->setSuccess('Vos informations ont bien été mises à jour.');
             }
+            // La modification de la description est optionnelle
+            if (strlen($data['description']) >= 3 && strlen($data['description']) <= 500) {
+                $user->setDescription($data['description']);
+            }
+            else {
+                $this->setError('La description doit contenir entre 3 et 500 caractères.');
+                return false;
+            }
+            $user->setAvatar($data['avatar']);
+            $this->em->persist($user);
+            $this->em->flush();
+
+            $this->setSuccess('Vos informations ont bien été mises à jour.');
             return true;
         }
         return false;

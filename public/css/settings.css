@@ -1,15 +1,26 @@
-.avatar {
-    border-right: 3px solid #100D0B;
+.avatarbig {
+    padding-left: 20px;
+}
+
+.avatarbig img {
+    border: 2px solid #100D0B;
 }
 
 .content {
     width: 100%;
-    background: url("../img/structure/back1.jpg");
     font-size: 14px;
+}
+
+.card-back1 {
+    background: url("../img/structure/back1.jpg") !important;
 }
 
 .godson {
     border-bottom: 3px solid #100D0B;
+}
+
+.godson .avatar {
+    border-right: 3px solid #100D0B;
 }
 
 .godson a {
@@ -38,4 +49,12 @@ img.mini {
 
 input[type="password"], select {
     background-color: #DEC8A0;
+}
+
+textarea {
+    background-color: #DEC8A0;
+    width: 100%;
+    resize: none;
+    border: 1px solid #100D0B;
+    height: 100px;
 }
