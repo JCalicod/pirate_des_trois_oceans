@@ -7,8 +7,9 @@ body {
 
 .list {
     margin: auto;
-    width: 400px;
+    width: 850px;
     margin-top: 100px;
+    border: 3px solid #100D0B;
 }
 
 .list-header {
@@ -26,7 +27,12 @@ body {
 }
 
 .infos {
-    width: 100%;
+    width: 60%;
+    border-right: 2px solid #100D0B;
+}
+
+.avatar {
+    border-right: 2px solid #100D0B;
 }
 
 .list-element {
@@ -37,6 +43,10 @@ body {
     font-weight: bold;
     margin-right: 15px;
     padding: 10px;
+}
+
+.list-element:last-of-type {
+    border-bottom: 0;
 }
 
 .logo {

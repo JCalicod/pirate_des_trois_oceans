@@ -21,17 +21,21 @@
             </div>
             <div class="card-body card-back1">
                 <div class="d-flex">
-                    <div class="avatar">
-                        <img src="{{ asset('img/avatars/' ~ user.avatar ~ '.jpg') }}" alt="avatar" id="avatar-img"><br>
-                        {{ form_widget(form.avatar, { 'id': 'avatar', 'value': user.avatar }) }}
+                    <div class="avatar avatarbig d-flex">
+                        <div class="m-auto">
+                            <img src="{{ asset('img/avatars/' ~ user.avatar ~ '.jpg') }}" alt="avatar" id="avatar-img"><br>
+                            {{ form_widget(form.avatar, { 'id': 'avatar', 'value': user.avatar }) }}
+                        </div>
                     </div>
                     <div class="content pl-5 pr-5 pt-3">
                         <label>Ancien mot de passe</label><br>
                         {{ form_widget(form.old_password) }}
                         <label>Nouveau mot de passe</label><br>
-                        {{ form_widget(form.password) }}<br><br>
+                        {{ form_widget(form.password) }}<br>
+                        <label>Description</label><br>
+                        {{ form_widget(form.description) }}<br><br>
                         {{ form_widget(form.save) }}<br>
-                        <span class="star">* Laisser vide pour ne modifier que l'avatar.</span>
+                        <span class="star">* Laisser les champs mot de passe vides pour ne pas modifier.</span>
                     </div>
                 </div>
             </div>
