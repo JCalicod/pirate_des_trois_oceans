@@ -1,10 +1,8 @@
 <script>
-    var total = 0;
-
-    var sell = false;
-    var buy = false;
-
-    var items = {
+    let total = 0;
+    let sell = false;
+    let buy = false;
+    let items = {
         'gun': {
             'price': 100,
             'color': 'red',
@@ -91,11 +89,8 @@
         },
     };
 
-    function emptyValues() {
-        $.each(items, function(index, value) {
-            items[index]['quantity'] = 0;
-        });
-    }
+    let rate = {{ trade.rate }};
+    rate = parseFloat(rate / 100);
 
     function init() {
         emptyValues();
@@ -106,8 +101,80 @@
         buy = false;
     }
 
-    var rate = {{ trade.rate }};
-    rate = parseFloat(rate / 100);
+    function emptyValues() {
+        $.each(items, function(index) {
+            items[index]['quantity'] = 0;
+        });
+    }
+
+    // Suppression d'un élément
+    $.each(items, function(index, value) {
+
+        $("body").on('click', "#" + index + "-remove-seller", function () {
+            total = parseInt(total) - Math.round(parseInt($("#" + index + "-number").text()) * parseInt(items[index]['price']));
+            $("#" + index + "-div").remove();
+            items[index]['quantity'] = 0;
+            $("#total-buyer").html(total);
+            $("#additional-buyer").html(Math.round(total / 10));
+
+            if (total == 0) {
+                $("#buyer-choices").html('');
+                buy = false;
+            }
+        });
+    });
+
+    $.each(items, function(index, value) {
+
+        $("body").on('click', "#" + index + "-remove-buyer", function () {
+            total = parseInt(total) - Math.round(parseInt($("#" + index + "-number").text()) * parseInt(items[index]['price']) * (1 + rate));
+            $("#" + index + "-div").remove();
+            items[index]['quantity'] = 0;
+            $("#total-seller").html(total);
+            $("#additional-seller").html(Math.round(total / 10));
+
+            if (total == 0) {
+                $("#seller-choices").html('');
+                sell = false;
+            }
+        });
+    });
+
+    // Vente d'un item
+    $( "#buy-add" ).click(function() {
+        let quantity = $("#buy-quantity").val();
+        if (quantity > 0) {
+            sell = true;
+            if (buy) {
+                emptyValues();
+                $("#seller-choices").html('');
+                $("#buyer-choices").html('');
+                total = 0;
+                buy = false;
+            }
+            let object = $("#buy-object").val();
+            items[object]['quantity'] = parseInt(items[object]['quantity']) + parseInt(quantity);
+
+            let float_mult = 1 + rate;
+            total = total + Math.round(items[object]['price'] * quantity * float_mult);
+
+            $("#seller-choices").html("" +
+                "<img src='{{ asset('img/icons/coin.png') }}' alt='gold' class='logo'> <span id='total-seller'>" + total + "</span> <b>Pièces d'or</b><br>");
+
+            // Si on n'a pas encore ajouté cette ressource
+            if (items[object]['quantity'] == quantity) {
+                $("#buyer-choices").append("<div class='mb-1' id='"+ object +"-div'>" +
+                    "<img src='" + items[object]['img'] + "' alt='resource' class='logo'> <span id='" + object + "-number'>" + quantity + "</span> <b class='" + items[object]['color'] + "-text'>" + items[object]['name'] + "</b>" +
+                    "<img src='{{ asset('img/icons/cross.png') }}' alt='delete' class='cross float-right' id='"+ object +"-remove-buyer'><br></div>"
+                );
+            }
+            // Si on a déjà ajouté, on modifie juste la valeur
+            else {
+                $("#" + object + "-number").html(items[object]['quantity']);
+            }
+            $("#buy-quantity").val(0);
+        }
+    });
 
     // Achat d'un item
     $( "#sell-add" ).click(function() {
@@ -121,7 +188,7 @@
                 total = 0;
                 sell = false;
             }
-            var object = $("#sell-object").val();
+            let object = $("#sell-object").val();
             items[object]['quantity'] = parseInt(items[object]['quantity']) + parseInt(quantity);
             total = total + Math.round(items[object]['price'] * quantity);
 
@@ -145,73 +212,6 @@
         }
     });
 
-    // Vente d'un item
-    $( "#buy-add" ).click(function() {
-        var quantity = $("#buy-quantity").val();
-        if (quantity > 0) {
-            sell = true;
-            if (buy) {
-                emptyValues();
-                $("#seller-choices").html('');
-                $("#buyer-choices").html('');
-                total = 0;
-                buy = false;
-            }
-            var object = $("#buy-object").val();
-            items[object]['quantity'] = parseInt(items[object]['quantity']) + parseInt(quantity);
-            total = total + Math.round(items[object]['price'] * quantity * rate);
-
-            $("#seller-choices").html("" +
-                "<img src='{{ asset('img/icons/coin.png') }}' alt='gold' class='logo'> <span id='total-seller'>" + total + "</span> <b>Pièces d'or</b><br>");
-
-            // Si on n'a pas encore ajouté cette ressource
-            if (items[object]['quantity'] == quantity) {
-                $("#buyer-choices").append("<div class='mb-1' id='"+ object +"-div'>" +
-                    "<img src='" + items[object]['img'] + "' alt='resource' class='logo'> <span id='" + object + "-number'>" + quantity + "</span> <b class='" + items[object]['color'] + "-text'>" + items[object]['name'] + "</b>" +
-                    "<img src='{{ asset('img/icons/cross.png') }}' alt='delete' class='cross float-right' id='"+ object +"-remove-buyer'><br></div>"
-                );
-            }
-            // Si on a déjà ajouté, on modifie juste la valeur
-            else {
-                $("#" + object + "-number").html(items[object]['quantity']);
-            }
-            $("#buy-quantity").val(0);
-        }
-    });
-
-    // Suppression d'un élément
-    $.each(items, function(index, value) {
-
-       $("body").on('click', "#" + index + "-remove-seller", function () {
-           total = parseInt(total) - Math.round(parseInt($("#" + index + "-number").text()) * parseInt(items[index]['price']));
-           $("#" + index + "-div").remove();
-           items[index]['quantity'] = 0;
-           $("#total-buyer").html(total);
-           $("#additional-buyer").html(Math.round(total / 10));
-
-           if (total == 0) {
-               $("#buyer-choices").html('');
-               buy = false;
-           }
-       });
-    });
-
-    $.each(items, function(index, value) {
-
-        $("body").on('click', "#" + index + "-remove-buyer", function () {
-            total = parseInt(total) - Math.round(parseInt($("#" + index + "-number").text()) * parseInt(items[index]['price']) * rate);
-            $("#" + index + "-div").remove();
-            items[index]['quantity'] = 0;
-            $("#total-seller").html(total);
-            $("#additional-seller").html(Math.round(total / 10));
-
-            if (total == 0) {
-                $("#seller-choices").html('');
-                sell = false;
-            }
-        });
-    });
-
     // Validation
     $("#validate-trade").click(function() {
         if (document.body.style.cursor != 'wait') {
@@ -226,8 +226,8 @@
                 },
                 dataType: "html"
             }).done(function (response) {
-                var data = JSON.parse(response);
-                var flash = "<div class='alert alert-" + data.label + " '>";
+                let data = JSON.parse(response);
+                let flash = "<div class='alert alert-" + data.label + " '>";
                 if (data.label == 'success') {
                     flash = flash + '<span class="fas fa-check"></span>';
                 }
@@ -236,7 +236,7 @@
                 }
                 flash += data.message + "</div>";
                 $("#ajax-response").html(flash);
-                var gold = data.gold.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                let gold = data.gold.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
                 $("#user-gold").html(gold);
                 init();
                 document.body.style.cursor = 'initial';

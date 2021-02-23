@@ -174,7 +174,7 @@ class TradeServices {
                     // Gain d'or
                     $totalPrice = $this->getTotalPrice($items);
                     $trade = $this->em->getRepository(Trade::class)->findAll()[0];
-                    $totalPrice *= $trade->getRate() / 100;
+                    $totalPrice *= (1 + ($trade->getRate() / 100));
                     $user->setGold($user->getGold() + $totalPrice);
 
                     $this->em->persist($den);
