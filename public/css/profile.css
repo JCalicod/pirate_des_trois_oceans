@@ -7,9 +7,8 @@ body {
 
 .list {
     margin: auto;
-    width: 850px;
+    width: 400px;
     margin-top: 100px;
-    border: 3px solid #100D0B;
 }
 
 .list-header {
@@ -20,18 +19,23 @@ body {
     padding: 0;
     text-align: center;
     font-weight: bold;
+    border-right: 2px solid #100D0B;
+    border-left: 2px solid #100D0B;
+    border-top: 2px solid #100D0B;
 }
 
 .list-body {
     background: url("../img/structure/back1.jpg");
+    border-bottom: 2px solid #100D0B;
 }
 
 .infos {
-    width: 60%;
+    width: 100%;
     border-right: 2px solid #100D0B;
 }
 
 .avatar {
+    border-left: 2px solid #100D0B;
     border-right: 2px solid #100D0B;
 }
 
@@ -82,4 +86,26 @@ body {
 
 .alliance-orange {
     color: #9F6724;
+}
+
+.description {
+    border: 2px solid #100D0B;
+    font-size: 0.9rem;
+}
+
+.description .description-title {
+    background: url("../img/structure/barre.jpg");
+    height: 30px;
+    color: #846D59;
+    font-size: 16px;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+}
+
+.description .description-content {
+    background: url("../img/structure/back1.jpg");
+    padding: 10px;
+    margin: 0 !important;
 }
