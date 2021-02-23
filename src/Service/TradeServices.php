@@ -213,7 +213,8 @@ class TradeServices {
                     // Vérification de lu prix
                     $totalPrice = $this->getTotalPrice($items);
                     $trade = $this->em->getRepository(Trade::class)->findAll()[0];
-                    $totalPrice += round($totalPrice / 10 * ($trade->getRate() / 100));
+                    $totalPrice = round($totalPrice * (1 +($trade->getRate() / 100)));
+
                     if ($user->getGold() >= $totalPrice) {
                         // Achat des marchandises
                         $keys = $this->getKeys();

@@ -194,7 +194,7 @@
 
             $("#buyer-choices").html("" +
                 "<img src='{{ asset('img/icons/coin.png') }}' alt='gold' class='logo'> <span id='total-buyer'>" + total + "</span> <b>Pièces d'or</b><br>" +
-                "<img src='{{ asset('img/icons/coin.png') }}' alt='gold' class='logo'> +<span id='additional-buyer'>" + Math.round(total / 10 * rate) + "</span> <b class='orange-text'>Taxe Commerciale</b>"
+                "<img src='{{ asset('img/icons/coin.png') }}' alt='gold' class='logo'> +<span id='additional-buyer'>" + Math.round(total * rate) + "</span> <b class='orange-text'>Taxe Commerciale</b>"
             );
 
             // Si on n'a pas encore ajouté cette ressource
