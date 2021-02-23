@@ -174,7 +174,7 @@ class TradeServices {
                     // Gain d'or
                     $totalPrice = $this->getTotalPrice($items);
                     $trade = $this->em->getRepository(Trade::class)->findAll()[0];
-                    $totalPrice *= (1 + ($trade->getRate() / 100));
+                    $totalPrice *= ($trade->getRate() / 100);
                     $user->setGold($user->getGold() + $totalPrice);
 
                     $this->em->persist($den);
@@ -213,7 +213,8 @@ class TradeServices {
                     // Vérification de lu prix
                     $totalPrice = $this->getTotalPrice($items);
                     $trade = $this->em->getRepository(Trade::class)->findAll()[0];
-                    $totalPrice = round($totalPrice * (1 +($trade->getRate() / 100)));
+                    $totalPrice = round($totalPrice * ($trade->getRate() / 100));
+                    $totalPrice = $totalPrice + round($totalPrice / 10 * ($trade->getRate() / 100));
 
                     if ($user->getGold() >= $totalPrice) {
                         // Achat des marchandises

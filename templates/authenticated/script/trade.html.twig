@@ -92,6 +92,14 @@
     let rate = {{ trade.rate }};
     rate = parseFloat(rate / 100);
 
+    let calculatePrice = () => {
+        let current_price = 0;
+        $.each(items, function(index) {
+            current_price += Math.round(items[index]['price'] * items[index]['quantity'] * rate);
+        });
+        return current_price;
+    };
+
     function init() {
         emptyValues();
         $("#buyer-choices").html('');
@@ -111,11 +119,13 @@
     $.each(items, function(index, value) {
 
         $("body").on('click', "#" + index + "-remove-seller", function () {
-            total = parseInt(total) - Math.round(parseInt($("#" + index + "-number").text()) * parseInt(items[index]['price']));
+            items[index]['quantity'] = 0;
+            total = calculatePrice();
+
             $("#" + index + "-div").remove();
             items[index]['quantity'] = 0;
             $("#total-buyer").html(total);
-            $("#additional-buyer").html(Math.round(total / 10));
+            $("#additional-buyer").html(Math.round(total / 10 * rate));
 
             if (total == 0) {
                 $("#buyer-choices").html('');
@@ -127,7 +137,9 @@
     $.each(items, function(index, value) {
 
         $("body").on('click', "#" + index + "-remove-buyer", function () {
-            total = parseInt(total) - Math.round(parseInt($("#" + index + "-number").text()) * parseInt(items[index]['price']) * (1 + rate));
+            total = parseInt(total) - Math.round(
+                parseInt($("#" + index + "-number").text()) * parseInt(items[index]['price']) * rate
+            );
             $("#" + index + "-div").remove();
             items[index]['quantity'] = 0;
             $("#total-seller").html(total);
@@ -155,8 +167,7 @@
             let object = $("#buy-object").val();
             items[object]['quantity'] = parseInt(items[object]['quantity']) + parseInt(quantity);
 
-            let float_mult = 1 + rate;
-            total = total + Math.round(items[object]['price'] * quantity * float_mult);
+            total = calculatePrice();
 
             $("#seller-choices").html("" +
                 "<img src='{{ asset('img/icons/coin.png') }}' alt='gold' class='logo'> <span id='total-seller'>" + total + "</span> <b>Pièces d'or</b><br>");
@@ -190,11 +201,11 @@
             }
             let object = $("#sell-object").val();
             items[object]['quantity'] = parseInt(items[object]['quantity']) + parseInt(quantity);
-            total = total + Math.round(items[object]['price'] * quantity);
+            total = calculatePrice();
 
             $("#buyer-choices").html("" +
                 "<img src='{{ asset('img/icons/coin.png') }}' alt='gold' class='logo'> <span id='total-buyer'>" + total + "</span> <b>Pièces d'or</b><br>" +
-                "<img src='{{ asset('img/icons/coin.png') }}' alt='gold' class='logo'> +<span id='additional-buyer'>" + Math.round(total * rate) + "</span> <b class='orange-text'>Taxe Commerciale</b>"
+                "<img src='{{ asset('img/icons/coin.png') }}' alt='gold' class='logo'> +<span id='additional-buyer'>" + Math.round(total * rate / 10) + "</span> <b class='orange-text'>Taxe Commerciale</b>"
             );
 
             // Si on n'a pas encore ajouté cette ressource
