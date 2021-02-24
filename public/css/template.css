@@ -14,9 +14,17 @@ body {
     color: #950412;
 }
 
+.audio-div {
+    width: 820px;
+    height: 40px;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .conteneur {
     margin: auto;
-    margin-top: 50px;
     width: 820px;
     min-height: 80vh;
     background-color: black;
@@ -1476,4 +1484,10 @@ table.war-report td.img {
 .advert-close:hover {
     cursor: pointer;
     color: #fff;
+}
+
+#music-btn {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
 }

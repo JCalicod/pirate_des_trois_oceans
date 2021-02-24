@@ -25,7 +25,18 @@
     </head>
 
     <body>
+        <audio id="pirate-music"
+               controls loop
+               src="{{ asset('sound/pirates-of-the-caribbean-soundtrack-01-fog-bound.mp3') }}" class="d-none">
+            Your browser does not support the
+            <code>audio</code> element.
+        </audio>
 
+        <div class="audio-div">
+            <div class="float-right pr-2 pt-2 text-white">
+                <img id="music-btn" class="mr-1" src="{{ asset('img/music.png') }}" alt="Play"> Pirate des Caraïbes - Fog Bound
+            </div>
+        </div>
         <div class="conteneur">
             <div class="banner">
             </div>
@@ -60,6 +71,23 @@
         <script>
             $(document).ready(function(){
                 $('[data-toggle="tooltip"]').tooltip();
+                let music = false;
+
+                let playMusic = () => {
+                    $('#pirate-music')[0].play();
+                    $('#music-btn').attr("src", "{{ asset('img/pause.png') }}");
+                    music = true;
+                };
+
+                let stopMusic = () => {
+                    $('#pirate-music')[0].pause();
+                    $('#music-btn').attr("src", "{{ asset('img/music.png') }}");
+                    music = false;
+                };
+
+                $('#music-btn').on('click', function () {
+                    (music == false) ? playMusic() : stopMusic();
+                });
             });
         </script>
         <script src="{{ asset('js/sweetalert2/dist/sweetalert2.all.js') }}"></script>
