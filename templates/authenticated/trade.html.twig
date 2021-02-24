@@ -6,7 +6,16 @@
 {% endblock %}
 
 {% block body %}
-    <div id="ajax-response"></div>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
 
     <div class="card no-min-height">
         <div class="card-header">
@@ -52,7 +61,7 @@
 
             <div class="trade-inputs d-flex justify-content-between">
                 <div class="buyer-inputs d-flex justify-content-between">
-                    <input type="number" min="0" class="input-white" id="buy-quantity" value="0">
+                    <input type="number" min="0" class="input-white" id="buy-quantity" value="{{ den_values['gun'] }}">
                     <select class="input-white" id="buy-object">
                         <option value="gun">Canon</option>
                         <option value="arsenal">Armement</option>
@@ -111,5 +120,6 @@
         </div>
     </div>
 
+    {% include 'authenticated/script/trade_selected_value.html.twig' %}
     {% include 'authenticated/script/trade.html.twig' %}
 {% endblock %}

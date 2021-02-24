@@ -1,0 +1,10 @@
+<script>
+    $( document ).ready(function () {
+        $('#buy-object').on('change', function () {
+           let name = $(this).val();
+           let arr = {{ den_values|json_encode|raw }};
+
+           $('#buy-quantity').val(arr[name]);
+        });
+    });
+</script>

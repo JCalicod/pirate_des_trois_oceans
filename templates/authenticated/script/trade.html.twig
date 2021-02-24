@@ -236,21 +236,8 @@
                     items: items
                 },
                 dataType: "html"
-            }).done(function (response) {
-                let data = JSON.parse(response);
-                let flash = "<div class='alert alert-" + data.label + " '>";
-                if (data.label == 'success') {
-                    flash = flash + '<span class="fas fa-check"></span>';
-                }
-                else if (data.label == 'danger') {
-                    flash = flash + '<span class="fas fa-times"></span>';
-                }
-                flash += data.message + "</div>";
-                $("#ajax-response").html(flash);
-                let gold = data.gold.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-                $("#user-gold").html(gold);
-                init();
-                document.body.style.cursor = 'initial';
+            }).always(function () {
+                $(location).attr('href', '{{ path('app_trade') }}');
             });
         }
     });

@@ -10,18 +10,22 @@ namespace App\Service;
 
 
 use App\Entity\Den;
+use App\Entity\Ship;
 use App\Entity\Trade;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Security;
 
 class TradeServices {
     private $em;
     private $shipServices;
+    private $user;
     private $error;
     private $success;
 
-    public function __construct(EntityManagerInterface $em, ShipServices $shipServices) {
+    public function __construct(EntityManagerInterface $em, ShipServices $shipServices, Security $security) {
         $this->em = $em;
         $this->shipServices = $shipServices;
+        $this->user = $security->getUser();
         $this->error = null;
         $this->success = null;
     }
@@ -255,5 +259,29 @@ class TradeServices {
         else {
             $this->setError('Il y a une erreur dans les données transmises.');
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function getDenValues(): array
+    {
+        /** @var Den $den */
+        $den = $this->em->getRepository(Den::class)->findOneBy(['owner' => $this->user]);
+
+        return [
+            'gun' => $den->getGun(),
+            'arsenal' => $den->getArsenal(),
+            'food' => $den->getFood(),
+            'alcohol' => $den->getAlcohol(),
+            'wood' => $den->getWood(),
+            'copper' => $den->getCopper(),
+            'gemstone' => $den->getGemstone(),
+            'jewellery' => $den->getJewellery(),
+            'stuff' => $den->getStuff(),
+            'fur' => $den->getFur(),
+            'manuscript' => $den->getManuscript(),
+            'spice' => $den->getSpice()
+        ];
     }
 }

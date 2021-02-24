@@ -40,8 +40,11 @@ class TradeController extends AbstractController {
 
     /**
      * @Route("/buy-or-sell", name="app_trade_validate")
+     * @param Request $request
+     * @param TradeServices $tradeServices
+     * @return JsonResponse
      */
-    public function buyOrSell(Request $request) {
+    public function buyOrSell(Request $request, TradeServices $tradeServices) {
         // Appel AJAX
         if ($request->isXmlHttpRequest()) {
             $sell = $request->get('sell');
@@ -57,9 +60,9 @@ class TradeController extends AbstractController {
                 $this->tradeServices->sell($this->user, $items);
             }
             else {
-                $label = 'danger';
                 $message = 'Vous devez renseigner au moins une valeur.';
-                return new JsonResponse(['label' => $label, 'message' => $message, 'gold' => $this->user->getGold()]);
+                $this->addFlash('danger', $message);
+                return new JsonResponse();
             }
 
 
@@ -71,17 +74,21 @@ class TradeController extends AbstractController {
                 $label = 'danger';
                 $message = $this->tradeServices->getError();
             }
-            return new JsonResponse(['label' => $label, 'message' => $message, 'gold' => $this->user->getGold()]);
+            $this->addFlash($label, $message);
+            return new JsonResponse();
         }
     }
 
     /**
      * @Route("/", name="app_trade")
+     * @param TradeServices $tradeServices
+     * @return Response
      */
-    public function show() {
+    public function show(TradeServices $tradeServices) {
         $trade = $this->em->getRepository(Trade::class)->findAll()[0];
         return $this->render('authenticated/trade.html.twig', [
-            'trade' => $trade
+            'trade' => $trade,
+            'den_values' => $tradeServices->getDenValues()
         ]);
     }
 }
